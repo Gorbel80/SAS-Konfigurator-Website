@@ -51,3 +51,7 @@ next-env.d.ts
 .pf-*
 .vercel-deploy-files.json
 .vercel-files-core.json
+
+# Office temp lock files
+~$*
+

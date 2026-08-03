@@ -3,11 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "SAS & WiMa – Europäischer Service für G-Force & Easy Arm",
-    template: "%s | SAS × WiMa",
+    default:
+      "Gorbel Service Europa – G-Force & Easy Arm Reparatur & Ersatzteile",
+    template: "%s | Gorbel Service · SAS × WiMa",
   },
   description:
-    "Europäischer Service und Ersatzteile für Gorbel G-Force und Easy Arm. WiMa Industrie-Automation und SAS Sauer-Automation Sachsen.",
+    "Professioneller Service, Reparatur und Ersatzteile für Gorbel G-Force und Easy Arm in Europa. WiMa (Wetter) und SAS (Hohndorf).",
 };
 
 export default function RootLayout({

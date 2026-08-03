@@ -1,31 +1,22 @@
 import { cn } from "@/lib/utils";
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
-export function Card({
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
+type Props = HTMLAttributes<HTMLDivElement> & {
+  children: ReactNode;
+  hover?: boolean;
+};
+
+export function Card({ className, children, hover = false, ...props }: Props) {
   return (
     <div
       className={cn(
-        "rounded-xl border border-border bg-surface shadow-sm",
-        className
+        "rounded-2xl border border-border bg-surface p-6 shadow-sm",
+        hover && "card-lift",
+        className,
       )}
       {...props}
-    />
+    >
+      {children}
+    </div>
   );
-}
-
-export function CardHeader({
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("p-5 pb-3", className)} {...props} />;
-}
-
-export function CardContent({
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("p-5 pt-0", className)} {...props} />;
 }

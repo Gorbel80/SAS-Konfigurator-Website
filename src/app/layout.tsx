@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "SAS & WiMa – Europäischer Service & Ersatzteile für intelligente Hebezeuge",
+    default: "SAS & WiMa – Europäischer Service für G-Force & Easy Arm",
     template: "%s | SAS × WiMa",
   },
   description:
-    "Europäisches Ersatzteillager und qualifizierter Service für G-Force und Easy Arm Hebezeuge. WiMa Industrie-Automation und SAS Sauer-Automation Sachsen.",
+    "Europäischer Service und Ersatzteile für Gorbel G-Force und Easy Arm. WiMa Industrie-Automation und SAS Sauer-Automation Sachsen.",
 };
 
 export default function RootLayout({

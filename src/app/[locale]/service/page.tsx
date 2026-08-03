@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { ContactPage } from "@/components/sections/ContactPage";
+import { ServicePage } from "@/components/sections/ServicePage";
 import { readContent } from "@/lib/content-store";
 import type { Locale } from "@/content/types";
 
@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const content = await readContent();
   const t = content.locales[locale as Locale];
   return {
-    title: t.contact.title,
-    description: t.contact.intro,
+    title: t.service.title,
+    description: t.service.intro,
   };
 }
 
@@ -24,11 +24,5 @@ export default async function Page({ params }: Props) {
   const content = await readContent();
   const localeContent = content.locales[locale as Locale];
 
-  return (
-    <ContactPage
-      content={localeContent}
-      images={content.images}
-      companies={content.companies}
-    />
-  );
+  return <ServicePage content={localeContent} images={content.images} />;
 }

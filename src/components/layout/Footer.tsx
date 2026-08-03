@@ -1,99 +1,93 @@
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Mail, MapPin } from "lucide-react";
+import type { LocaleContent, SiteContent } from "@/content/types";
 
-export function Footer() {
-  const t = useTranslations("footer");
+type Props = {
+  content: LocaleContent;
+  companies: SiteContent["companies"];
+};
+
+export function Footer({ content, companies }: Props) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-anthracite-800 bg-anthracite-900 text-anthracite-300">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        <div className="lg:col-span-1">
-          <p className="text-lg font-semibold text-white">
-            SAS <span className="text-anthracite-500">×</span> WiMa
+    <footer className="border-t border-border bg-anthracite-950 text-anthracite-300">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:px-8">
+        <div className="lg:col-span-5">
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-xs font-bold text-white">
+              S×W
+            </span>
+            <span className="text-sm font-semibold text-white">
+              SAS × WiMa Service
+            </span>
+          </div>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-anthracite-400">
+            {content.footer.tagline}
           </p>
-          <p className="mt-3 text-sm leading-relaxed">{t("tagline")}</p>
-          <a
-            href={`mailto:${t("contactEmail")}`}
-            className="mt-4 inline-flex items-center gap-2 text-sm text-accent hover:text-orange-300"
-          >
-            <Mail className="h-4 w-4" />
-            {t("contactEmail")}
-          </a>
         </div>
 
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-white">
-            {t("companies")}
-          </p>
-          <ul className="mt-4 space-y-3 text-sm">
-            <li>
-              <span className="font-medium text-anthracite-100">
-                {t("wima")}
-              </span>
-              <span className="mt-1 flex items-center gap-1.5 text-anthracite-400">
-                <MapPin className="h-3.5 w-3.5" />
-                {t("locationWetter")}
-              </span>
-            </li>
-            <li>
-              <span className="font-medium text-anthracite-100">
-                {t("sas")}
-              </span>
-              <span className="mt-1 flex items-center gap-1.5 text-anthracite-400">
-                <MapPin className="h-3.5 w-3.5" />
-                {t("locationHohndorf")}
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-white">
-            {t("quickLinks")}
+        <div className="lg:col-span-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-anthracite-500">
+            {content.footer.links}
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link href="/configurator" className="hover:text-white">
-                Configurator
+              <Link href="/" className="hover:text-white transition-colors">
+                {content.nav.home}
               </Link>
             </li>
             <li>
-              <Link href="/service-request" className="hover:text-white">
-                Service
+              <Link href="/about" className="hover:text-white transition-colors">
+                {content.nav.about}
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white">
-                About
+              <Link
+                href="/service"
+                className="hover:text-white transition-colors"
+              >
+                {content.nav.service}
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-white">
-                Contact
+              <Link
+                href="/contact"
+                className="hover:text-white transition-colors"
+              >
+                {content.nav.contact}
               </Link>
             </li>
           </ul>
         </div>
 
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-white">
-            {t("legal")}
+        <div className="lg:col-span-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-anthracite-500">
+            {content.footer.locations}
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-anthracite-400">
-            {t("disclaimer")}
-          </p>
+          <div className="mt-4 space-y-4 text-sm">
+            <div>
+              <p className="font-medium text-white">{companies.wima.name}</p>
+              <p>
+                {companies.wima.postal} {companies.wima.city}
+              </p>
+            </div>
+            <div>
+              <p className="font-medium text-white">{companies.sas.name}</p>
+              <p>
+                {companies.sas.postal} {companies.sas.city}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-anthracite-800">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-anthracite-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-anthracite-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p>
-            © {year} SAS Sauer-Automation Sachsen · WiMa Industrie-Automation
-            GmbH. {t("rights")}
+            © {year} WiMa Industrie-Automation · SAS Sauer-Automation Sachsen.{" "}
+            {content.footer.rights}
           </p>
-          <p>info@sas-mail.de</p>
+          <p className="text-anthracite-600">G-Force · Easy Arm Service EU</p>
         </div>
       </div>
     </footer>

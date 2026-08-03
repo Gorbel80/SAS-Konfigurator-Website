@@ -1,58 +1,50 @@
 import { cn } from "@/lib/utils";
-import { type ButtonHTMLAttributes, forwardRef } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "ghost" | "outline" | "dark";
+type Variant = "primary" | "secondary" | "ghost" | "outline";
 type Size = "sm" | "md" | "lg";
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: Variant;
-  size?: Size;
-}
 
 const variants: Record<Variant, string> = {
   primary:
     "bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm border border-transparent",
   secondary:
-    "bg-anthracite-800 text-white hover:bg-anthracite-700 shadow-sm border border-transparent",
+    "bg-anthracite-900 text-white hover:bg-anthracite-800 border border-transparent shadow-sm",
   ghost:
-    "bg-transparent text-anthracite-700 hover:bg-anthracite-100 border border-transparent",
+    "bg-transparent text-anthracite-800 hover:bg-anthracite-100 border border-transparent",
   outline:
-    "bg-surface text-anthracite-800 hover:bg-anthracite-50 border border-border-strong",
-  dark: "bg-anthracite-900 text-white hover:bg-anthracite-800 border border-anthracite-700",
+    "bg-surface text-anthracite-900 border border-border hover:border-anthracite-400 hover:bg-anthracite-50",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-3 text-sm gap-1.5 rounded-md",
-  md: "h-11 px-4 text-sm gap-2 rounded-lg",
-  lg: "h-12 px-6 text-base gap-2.5 rounded-lg",
+  sm: "h-9 px-3.5 text-sm rounded-lg",
+  md: "h-11 px-5 text-sm rounded-xl",
+  lg: "h-12 px-6 text-base rounded-xl",
 };
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      variant = "primary",
-      size = "md",
-      type = "button",
-      disabled,
-      ...props
-    },
-    ref
-  ) => (
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: Variant;
+  size?: Size;
+  children: ReactNode;
+};
+
+export function Button({
+  className,
+  variant = "primary",
+  size = "md",
+  children,
+  ...props
+}: Props) {
+  return (
     <button
-      ref={ref}
-      type={type}
-      disabled={disabled}
       className={cn(
-        "inline-flex items-center justify-center font-medium transition-colors",
-        "disabled:opacity-50 disabled:pointer-events-none",
+        "inline-flex items-center justify-center gap-2 font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none",
         variants[variant],
         sizes[size],
-        className
+        className,
       )}
       {...props}
-    />
-  )
-);
-
-Button.displayName = "Button";
+    >
+      {children}
+    </button>
+  );
+}

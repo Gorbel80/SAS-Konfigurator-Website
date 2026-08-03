@@ -5,7 +5,10 @@ import { DM_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import "../globals.css";
+import { readContent } from "@/lib/content-store";
+import type { Locale } from "@/content/types";
+
+export const dynamic = "force-dynamic";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -31,14 +34,16 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const content = await readContent();
+  const localeContent = content.locales[locale as Locale];
 
   return (
     <html lang={locale} className={`${dmSans.variable} h-full`}>
       <body className="min-h-full flex flex-col font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
-          <Header />
+          <Header nav={localeContent.nav} brand="SAS × WiMa Service" />
           <main className="flex-1">{children}</main>
-          <Footer />
+          <Footer content={localeContent} companies={content.companies} />
         </NextIntlClientProvider>
       </body>
     </html>

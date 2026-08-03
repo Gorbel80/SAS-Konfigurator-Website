@@ -40,7 +40,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} className={`${dmSans.variable} h-full`}>
-      <body className="min-h-full flex flex-col font-sans antialiased">
+      <body className="min-h-full font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
           <Header
             nav={localeContent.nav}
@@ -48,7 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             configuratorLabel={localeContent.home.configuratorLabel}
             configuratorHint={localeContent.home.configuratorHint}
           />
-          <main className="flex-1">
+          <main>
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer content={localeContent} companies={content.companies} />

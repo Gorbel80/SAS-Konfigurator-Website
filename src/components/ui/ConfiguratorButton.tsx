@@ -3,15 +3,29 @@ import { Box } from "lucide-react";
 
 type Size = "hero" | "header" | "mobile";
 
-const sizes: Record<Size, string> = {
-  hero: "h-[3.75rem] min-w-[17rem] gap-3 rounded-2xl px-7 text-[0.95rem] sm:h-16 sm:min-w-[19rem] sm:px-8 sm:text-base",
-  header: "h-11 gap-2 rounded-xl px-4 text-sm",
-  mobile: "h-12 w-full gap-2 rounded-xl px-4 text-sm",
+const sizes: Record<
+  Size,
+  { btn: string; icon: string; badge: string }
+> = {
+  hero: {
+    btn: "h-11 gap-2 rounded-full px-4 pl-3.5 text-sm sm:h-12 sm:px-5 sm:text-[0.9375rem]",
+    icon: "h-4 w-4",
+    badge: "px-2 py-0.5 text-[9px] tracking-[0.1em]",
+  },
+  header: {
+    btn: "h-9 gap-1.5 rounded-full px-3 pl-2.5 text-xs sm:text-[13px]",
+    icon: "h-3.5 w-3.5",
+    badge: "px-1.5 py-px text-[8px] tracking-[0.08em]",
+  },
+  mobile: {
+    btn: "h-11 w-full gap-2 rounded-full px-4 text-sm",
+    icon: "h-4 w-4",
+    badge: "px-2 py-0.5 text-[9px] tracking-[0.1em]",
+  },
 };
 
 /**
- * Visual placeholder for the future 3D configurator.
- * Disabled for now — refined but clearly primary.
+ * Placeholder for the future 3D configurator — elegant, visible, professional.
  */
 export function ConfiguratorButton({
   label,
@@ -24,6 +38,8 @@ export function ConfiguratorButton({
   size?: Size;
   className?: string;
 }) {
+  const s = sizes[size];
+
   return (
     <button
       type="button"
@@ -31,37 +47,31 @@ export function ConfiguratorButton({
       title={hint}
       aria-disabled="true"
       className={cn(
-        "group relative inline-flex items-center justify-center overflow-hidden",
-        "font-semibold tracking-wide text-white",
-        "bg-gradient-to-b from-[#f0a04b] via-accent to-[#b45309]",
-        "shadow-[0_1px_0_0_rgba(255,255,255,0.25)_inset,0_10px_28px_-6px_rgba(180,83,9,0.55)]",
-        "ring-1 ring-white/15",
+        "group relative inline-flex items-center justify-center",
+        "font-semibold text-white",
+        "bg-accent",
+        "shadow-[0_1px_0_rgba(255,255,255,0.18)_inset,0_4px_14px_-4px_rgba(180,83,9,0.45)]",
+        "ring-1 ring-accent/30",
         "transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        "hover:brightness-[1.04] hover:shadow-[0_1px_0_0_rgba(255,255,255,0.3)_inset,0_14px_32px_-6px_rgba(180,83,9,0.6)]",
+        "hover:bg-accent-hover hover:shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_6px_18px_-4px_rgba(180,83,9,0.5)]",
         "disabled:cursor-not-allowed",
-        sizes[size],
+        s.btn,
         className,
       )}
     >
-      {/* Soft top sheen */}
       <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent opacity-80"
-      />
-      <Box
         className={cn(
-          "relative shrink-0 opacity-95",
-          size === "hero" ? "h-5 w-5" : "h-4 w-4",
+          "relative flex shrink-0 items-center justify-center rounded-full bg-white/15",
+          size === "header" ? "h-6 w-6" : "h-7 w-7",
         )}
-        strokeWidth={2.25}
-      />
-      <span className="relative">{label}</span>
+      >
+        <Box className={cn(s.icon, "opacity-95")} strokeWidth={2} />
+      </span>
+      <span className="relative tracking-tight">{label}</span>
       <span
         className={cn(
-          "relative rounded-md border border-white/20 bg-anthracite-950/25 font-semibold uppercase tracking-[0.12em] text-white/95 backdrop-blur-[2px]",
-          size === "hero"
-            ? "px-2 py-1 text-[10px] sm:text-[11px]"
-            : "px-1.5 py-0.5 text-[9px]",
+          "relative rounded-full bg-white/15 font-semibold uppercase text-white/90",
+          s.badge,
         )}
       >
         {hint}

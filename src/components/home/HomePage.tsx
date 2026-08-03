@@ -62,65 +62,69 @@ export function HomePage({ content, images, companies }: Props) {
         </div>
       </section>
 
-      {/* Who + offer */}
-      <section className="mx-auto grid max-w-5xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8 lg:py-14">
-        <div className="animate-fade-up flex flex-col">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-            SAS × WiMa
-          </p>
-          <h2 className="mt-2 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
-            {content.home.whoTitle}
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-anthracite-500 sm:text-[0.95rem] sm:leading-relaxed">
-            {content.home.whoBody}
-          </p>
+      {/* Who + image (balanced columns) */}
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-10">
+          <div className="animate-fade-up flex flex-col">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+              SAS × WiMa
+            </p>
+            <h2 className="mt-2 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
+              {content.home.whoTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-anthracite-500 sm:text-[0.95rem] sm:leading-relaxed">
+              {content.home.whoBody}
+            </p>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            {[companies.wima, companies.sas].map((c) => (
-              <div
-                key={c.name}
-                className="card-lift rounded-2xl border border-border bg-surface px-4 py-3.5 shadow-sm"
-              >
-                <p className="text-sm font-semibold tracking-tight text-anthracite-900">
-                  {c.name}
-                </p>
-                <p className="mt-1 text-sm text-anthracite-500">
-                  {c.postal} {c.city}
-                </p>
-              </div>
-            ))}
+            <div className="mt-6 grid flex-1 content-start gap-3 sm:grid-cols-2">
+              {[companies.wima, companies.sas].map((c) => (
+                <div
+                  key={c.name}
+                  className="card-lift rounded-2xl border border-border bg-surface px-4 py-3.5 shadow-sm"
+                >
+                  <p className="text-sm font-semibold tracking-tight text-anthracite-900">
+                    {c.name}
+                  </p>
+                  <p className="mt-1 text-sm text-anthracite-500">
+                    {c.postal} {c.city}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="animate-fade-up animate-delay-1 min-h-[14rem] lg:min-h-0">
+            <div className="img-zoom relative h-full min-h-[14rem] overflow-hidden rounded-2xl border border-border shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)] lg:min-h-full">
+              <Image
+                src={images.side}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="animate-fade-up animate-delay-1">
-          <div className="img-zoom relative mb-5 aspect-[16/10] overflow-hidden rounded-2xl border border-border shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)]">
-            <Image
-              src={images.side}
-              alt=""
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
-
+        {/* Problem / solution — side by side, fills width under image row */}
+        <div className="animate-fade-up animate-delay-2 mt-10">
           <h2 className="text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
             {content.home.offerTitle}
           </h2>
-
-          <ul className="mt-4 space-y-3">
-            <li className="card-lift flex items-start gap-3.5 rounded-2xl border border-border bg-surface px-4 py-3.5 shadow-sm">
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 sm:gap-4">
+            <li className="card-lift flex h-full items-start gap-3.5 rounded-2xl border border-border bg-surface px-4 py-4 shadow-sm">
               <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-muted text-accent ring-1 ring-accent/10">
                 <Package className="h-4 w-4" strokeWidth={2.25} />
               </span>
-              <span className="pt-1.5 text-sm font-medium leading-snug text-anthracite-800">
+              <span className="text-sm font-medium leading-snug text-anthracite-800">
                 {content.home.offerParts}
               </span>
             </li>
-            <li className="card-lift flex items-start gap-3.5 rounded-2xl border border-border bg-surface px-4 py-3.5 shadow-sm">
+            <li className="card-lift flex h-full items-start gap-3.5 rounded-2xl border border-border bg-surface px-4 py-4 shadow-sm">
               <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-muted text-accent ring-1 ring-accent/10">
                 <Wrench className="h-4 w-4" strokeWidth={2.25} />
               </span>
-              <span className="pt-1.5 text-sm font-medium leading-snug text-anthracite-800">
+              <span className="text-sm font-medium leading-snug text-anthracite-800">
                 {content.home.offerService}
               </span>
             </li>

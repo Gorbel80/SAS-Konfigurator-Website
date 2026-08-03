@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ConfiguratorButton } from "@/components/ui/ConfiguratorButton";
 import type { LocaleContent, SiteContent } from "@/content/types";
-import { ArrowRight, Package, Wrench } from "lucide-react";
+import { AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
 
 type Props = {
   content: LocaleContent;
@@ -106,29 +106,53 @@ export function HomePage({ content, images, companies }: Props) {
           </div>
         </div>
 
-        {/* Problem / solution — side by side, fills width under image row */}
+        {/* Problem → Solution */}
         <div className="animate-fade-up animate-delay-2 mt-10">
           <h2 className="text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
             {content.home.offerTitle}
           </h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 sm:gap-4">
-            <li className="card-lift flex h-full items-start gap-3.5 rounded-2xl border border-border bg-surface px-4 py-4 shadow-sm">
-              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-muted text-accent ring-1 ring-accent/10">
-                <Package className="h-4 w-4" strokeWidth={2.25} />
-              </span>
-              <span className="text-sm font-medium leading-snug text-anthracite-800">
+
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-0">
+            {/* Problem */}
+            <div className="card-lift flex min-w-0 flex-1 flex-col rounded-2xl border border-anthracite-200 bg-anthracite-50/80 px-4 py-4 shadow-sm sm:rounded-r-none sm:border-r-0">
+              <div className="mb-3 flex items-center gap-2.5">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-anthracite-200/80 text-anthracite-700 ring-1 ring-anthracite-300/60">
+                  <AlertCircle className="h-4 w-4" strokeWidth={2.25} />
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-anthracite-500">
+                  {content.home.problemLabel}
+                </span>
+              </div>
+              <p className="text-sm font-medium leading-snug text-anthracite-700">
                 {content.home.offerParts}
+              </p>
+            </div>
+
+            {/* Flow arrow */}
+            <div
+              className="flex shrink-0 items-center justify-center sm:w-11 sm:self-stretch sm:bg-gradient-to-r sm:from-anthracite-50/80 sm:to-emerald-50/90"
+              aria-hidden
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-accent shadow-sm">
+                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </span>
-            </li>
-            <li className="card-lift flex h-full items-start gap-3.5 rounded-2xl border border-border bg-surface px-4 py-4 shadow-sm">
-              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-muted text-accent ring-1 ring-accent/10">
-                <Wrench className="h-4 w-4" strokeWidth={2.25} />
-              </span>
-              <span className="text-sm font-medium leading-snug text-anthracite-800">
+            </div>
+
+            {/* Solution */}
+            <div className="card-lift flex min-w-0 flex-1 flex-col rounded-2xl border border-emerald-200/80 bg-emerald-50/50 px-4 py-4 shadow-sm ring-1 ring-emerald-600/5 sm:rounded-l-none sm:border-l-0">
+              <div className="mb-3 flex items-center gap-2.5">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 ring-1 ring-emerald-600/15">
+                  <CheckCircle2 className="h-4 w-4" strokeWidth={2.25} />
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-emerald-700">
+                  {content.home.solutionLabel}
+                </span>
+              </div>
+              <p className="text-sm font-medium leading-snug text-anthracite-800">
                 {content.home.offerService}
-              </span>
-            </li>
-          </ul>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

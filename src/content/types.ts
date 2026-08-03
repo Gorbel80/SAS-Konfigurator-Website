@@ -31,6 +31,8 @@ export type LocaleContent = {
     whoTitle: string;
     whoBody: string;
     offerTitle: string;
+    problemLabel: string;
+    solutionLabel: string;
     offerParts: string;
     offerService: string;
     configuratorLabel: string;

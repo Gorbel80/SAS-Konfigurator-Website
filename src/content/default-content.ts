@@ -20,6 +20,8 @@ const de: LocaleContent = {
     whoBody:
       "WiMa Industrie-Automation GmbH entwickelt und baut Systeme für die Hebetechnik und rüstet Seil- und Kettenzüge mit innovativer Elektronik aus. Gemeinsam mit SAS betreuen wir Gorbel G-Force Anlagen in der Praxis.",
     offerTitle: "Das Problem – und unsere Lösung",
+    problemLabel: "Problem",
+    solutionLabel: "Lösung",
     offerParts:
       "Viele europäische Produktionsstandorte erhalten für Gorbel G-Force keine zeitnahen Ersatzteile und keinen qualifizierten Service mehr.",
     offerService:
@@ -67,6 +69,8 @@ const en: LocaleContent = {
     whoBody:
       "WiMa Industrie-Automation GmbH develops and builds systems for lifting technology and equips rope and chain hoists with innovative electronics. Together with SAS, we support Gorbel G-Force systems in the field.",
     offerTitle: "The problem – and our answer",
+    problemLabel: "Problem",
+    solutionLabel: "Solution",
     offerParts:
       "Many European production sites can no longer get timely spare parts or qualified service for their Gorbel G-Force devices.",
     offerService:
@@ -114,6 +118,8 @@ const zh: LocaleContent = {
     whoBody:
       "WiMa Industrie-Automation GmbH 开发并建造起重技术系统，为钢丝绳与环链葫芦配备创新电子技术。与 SAS 一起，我们在现场服务 Gorbel G-Force 设备。",
     offerTitle: "问题——以及我们的答案",
+    problemLabel: "问题",
+    solutionLabel: "方案",
     offerParts:
       "许多欧洲生产现场已无法为 Gorbel G-Force 及时获得备件或合格服务。",
     offerService:
@@ -141,7 +147,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 11,
+  version: 12,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",

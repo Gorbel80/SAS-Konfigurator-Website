@@ -367,19 +367,31 @@ export function AdminApp() {
                   rows={4}
                 />
                 <Field
-                  label="Angebot – Titel"
+                  label="Problem/Lösung – Überschrift"
                   value={t.home.offerTitle}
                   onChange={(v) => setHome("offerTitle", v)}
                 />
                 <Field
-                  label="Angebot – Ersatzteile"
-                  value={t.home.offerParts}
-                  onChange={(v) => setHome("offerParts", v)}
+                  label="Label Problem"
+                  value={t.home.problemLabel}
+                  onChange={(v) => setHome("problemLabel", v)}
                 />
                 <Field
-                  label="Angebot – Service"
+                  label="Text Problem"
+                  value={t.home.offerParts}
+                  onChange={(v) => setHome("offerParts", v)}
+                  multiline
+                />
+                <Field
+                  label="Label Lösung"
+                  value={t.home.solutionLabel}
+                  onChange={(v) => setHome("solutionLabel", v)}
+                />
+                <Field
+                  label="Text Lösung"
                   value={t.home.offerService}
                   onChange={(v) => setHome("offerService", v)}
+                  multiline
                 />
               </Block>
             </>

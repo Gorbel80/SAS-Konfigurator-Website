@@ -11,40 +11,40 @@ export function Footer({ content, companies }: Props) {
 
   return (
     <footer className="border-t border-border bg-anthracite-950 text-anthracite-300">
-      <div className="mx-auto flex max-w-5xl flex-col gap-5 px-4 py-7 sm:flex-row sm:items-start sm:justify-between sm:px-6 lg:px-8">
-        <div>
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-[10px] font-bold text-white">
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-white/10 text-[10px] font-bold text-white">
               S×W
             </span>
             <p className="text-sm font-semibold tracking-tight text-white">
               SAS × WiMa
             </p>
           </div>
-          <p className="mt-2 max-w-md text-sm leading-relaxed text-anthracite-400">
+          <p className="mt-1.5 max-w-lg text-xs leading-relaxed text-anthracite-400 sm:text-sm">
             {content.footer.tagline}
           </p>
-          <p className="mt-2 text-xs font-medium tracking-wide text-anthracite-500">
-            {companies.wima.city} · {companies.sas.city}
-          </p>
         </div>
-        <div className="flex flex-col gap-2 text-sm">
+        <div className="flex shrink-0 items-center gap-4 text-sm">
           <Link
             href="/"
-            className="w-fit text-anthracite-300 transition-colors hover:text-white"
+            className="text-anthracite-300 transition-colors hover:text-white"
           >
             {content.nav.home}
           </Link>
           <Link
             href="/contact"
-            className="w-fit text-anthracite-300 transition-colors hover:text-white"
+            className="text-anthracite-300 transition-colors hover:text-white"
           >
             {content.nav.contact}
           </Link>
+          <span className="hidden text-xs text-anthracite-500 sm:inline">
+            {companies.wima.city} · {companies.sas.city}
+          </span>
         </div>
       </div>
       <div className="border-t border-white/[0.07]">
-        <p className="mx-auto max-w-5xl px-4 py-3 text-xs text-anthracite-500 sm:px-6 lg:px-8">
+        <p className="mx-auto max-w-5xl px-4 py-2.5 text-xs text-anthracite-500 sm:px-6 lg:px-8">
           © {year} WiMa · SAS. {content.footer.rights}
         </p>
       </div>

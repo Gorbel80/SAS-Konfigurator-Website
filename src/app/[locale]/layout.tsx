@@ -39,8 +39,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   const localeContent = content.locales[locale as Locale];
 
   return (
-    <html lang={locale} className={`${dmSans.variable} h-full`}>
-      <body className="min-h-full font-sans antialiased">
+    <html lang={locale} className={dmSans.variable}>
+      <body className="font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
           <Header
             nav={localeContent.nav}
@@ -48,7 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             configuratorLabel={localeContent.home.configuratorLabel}
             configuratorHint={localeContent.home.configuratorHint}
           />
-          <main>
+          <main className="block">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer content={localeContent} companies={content.companies} />

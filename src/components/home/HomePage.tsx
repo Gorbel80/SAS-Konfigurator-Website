@@ -73,7 +73,7 @@ export function HomePage({ content, images }: Props) {
       <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-10 lg:px-8">
         <div className="animate-fade-up mb-5 max-w-2xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-            {content.nav.products}
+            {content.nav.home}
           </p>
           <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
             {o.title}

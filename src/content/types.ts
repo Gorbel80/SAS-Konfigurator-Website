@@ -16,7 +16,18 @@ export type CompanyInfo = {
   vatId: string;
 };
 
-export type ImageKey = "hero" | "side" | "contact";
+export type ImageKey =
+  | "hero"
+  | "side"
+  | "contact"
+  | "service"
+  | "parts"
+  | "lifts";
+
+export type OfferBlock = {
+  title: string;
+  body: string;
+};
 
 export type LocaleContent = {
   meta: {
@@ -25,6 +36,7 @@ export type LocaleContent = {
   };
   nav: {
     home: string;
+    offerings: string;
     contact: string;
     cta: string;
   };
@@ -42,6 +54,15 @@ export type LocaleContent = {
     configuratorLabel: string;
     configuratorHint: string;
     contactCta: string;
+  };
+  offerings: {
+    title: string;
+    intro: string;
+    journeyNote: string;
+    service: OfferBlock;
+    parts: OfferBlock;
+    lifts: OfferBlock;
+    ctaLabel: string;
   };
   contact: {
     title: string;
@@ -98,7 +119,6 @@ export type SiteContent = {
     wima: CompanyInfo;
     sas: CompanyInfo;
   };
-  /** Website operator key for Impressum responsibility */
   siteOperator: "wima" | "sas";
   locales: Record<Locale, LocaleContent>;
 };

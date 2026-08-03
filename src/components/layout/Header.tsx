@@ -27,6 +27,7 @@ export function Header({
 
   const items = [
     { href: "/", label: nav.home },
+    { href: "/leistungen", label: nav.offerings },
     { href: "/contact", label: nav.contact },
   ] as const;
 

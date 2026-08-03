@@ -34,33 +34,54 @@ const sasBase: CompanyInfo = {
 
 const de: LocaleContent = {
   meta: {
-    title: "Gorbel G-Force – Größtes Ersatzteillager Deutschlands | SAS × WiMa",
+    title: "Gorbel G-Force® – Größtes Ersatzteillager Deutschlands | SAS × WiMa",
     description:
-      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force. WiMa entwickelt Hebetechnik und schließt die Lücke bei Ersatzteilen und Service in Europa.",
+      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force® und Easy Arm®. Service und eigene Seil-/Kettenzüge von WiMa und SAS.",
   },
   nav: {
     home: "Start",
+    offerings: "Leistungen",
     contact: "Kontakt",
     cta: "Kontakt",
   },
   home: {
-    eyebrow: "Gorbel G-Force · Service & Ersatzteile",
-    heroTitle: "Größtes Ersatzteillager Deutschlands für Gorbel G-Force",
+    eyebrow: "G-Force® · Easy Arm® · Service & Ersatzteile",
+    heroTitle: "Größtes Ersatzteillager Deutschlands für Gorbel G-Force®",
     heroSubtitle:
-      "Schnelle Ersatzteile und qualifizierter Service – wenn europäische Werke nicht mehr rechtzeitig beliefert werden.",
+      "Schnelle Ersatzteile und qualifizierter Service für G-Force® und Easy Arm® – wenn europäische Werke nicht mehr rechtzeitig beliefert werden.",
     whoTitle: "Was WiMa macht",
     whoBody:
-      "WiMa Industrie-Automation GmbH entwickelt und baut Systeme für die Hebetechnik und rüstet Seil- und Kettenzüge mit innovativer Elektronik aus. Gemeinsam mit SAS betreuen wir Gorbel G-Force Anlagen in der Praxis.",
+      "WiMa Industrie-Automation GmbH entwickelt und baut Systeme für die Hebetechnik und rüstet Seil- und Kettenzüge mit innovativer Elektronik aus. Gemeinsam mit SAS betreuen wir Gorbel G-Force® und Easy Arm® in der Praxis.",
     offerTitle: "Das Problem – und unsere Lösung",
     problemLabel: "Problem",
     solutionLabel: "Lösung",
     offerParts:
-      "Viele europäische Produktionsstandorte erhalten für Gorbel G-Force keine zeitnahen Ersatzteile und keinen qualifizierten Service mehr.",
+      "Viele europäische Produktionsstandorte erhalten für Gorbel G-Force® und Easy Arm® keine zeitnahen Ersatzteile und keinen qualifizierten Service mehr.",
     offerService:
       "Wir schließen diese Lücke: komplettes Ersatzteillager von e-motion Handlingsysteme übernommen, Know-how integriert – Service und Teile aus einer Hand.",
     configuratorLabel: "3D Konfigurator",
     configuratorHint: "Bald verfügbar",
     contactCta: "Jetzt anfragen",
+  },
+  offerings: {
+    title: "Leistungen",
+    intro:
+      "Service, Gorbel-Ersatzteile und eigene Hebezeuge – klar und praxisnah.",
+    journeyNote:
+      "Viele Kunden kommen zuerst wegen G-Force®- oder Easy Arm®-Ersatzteilen – und entdecken danach unsere eigenen Seil- und Kettenzüge.",
+    service: {
+      title: "Service",
+      body: "Wartung, Diagnose und Reparatur für intelligente Hebesysteme. Erfahrene Techniker von WiMa und SAS – werkstattseitig und vor Ort.",
+    },
+    parts: {
+      title: "G-Force® & Easy Arm® Ersatzteile",
+      body: "Großes deutsches Ersatzteillager für Gorbel G-Force® und Easy Arm®. Identifikation, Lieferung und Unterstützung, wenn der frühere Europa-Support fehlt.",
+    },
+    lifts: {
+      title: "Eigene Seil- und Kettenzüge",
+      body: "WiMa/SAS-Hebezeuge mit innovativer Elektronik – Seilzüge und Kettenzüge zu etwa der Hälfte des Preises vergleichbarer Gorbel-Systeme.",
+    },
+    ctaLabel: "Beratung anfragen",
   },
   contact: {
     title: "Kontakt",
@@ -76,7 +97,7 @@ const de: LocaleContent = {
   },
   footer: {
     tagline:
-      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force · Service & Reparatur",
+      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force® & Easy Arm® · Service & Reparatur",
     rights: "Alle Rechte vorbehalten.",
     impressum: "Impressum",
     privacy: "Datenschutz",
@@ -149,33 +170,53 @@ const de: LocaleContent = {
 
 const en: LocaleContent = {
   meta: {
-    title: "Gorbel G-Force – Germany’s largest spare-parts stock | SAS × WiMa",
+    title: "Gorbel G-Force® – Germany’s largest spare-parts stock | SAS × WiMa",
     description:
-      "Germany’s largest spare-parts warehouse for Gorbel G-Force. WiMa builds lifting systems and closes the gap in parts and service across Europe.",
+      "Germany’s largest spare-parts warehouse for Gorbel G-Force® and Easy Arm®. Service and own rope/chain hoists from WiMa and SAS.",
   },
   nav: {
     home: "Home",
+    offerings: "Solutions",
     contact: "Contact",
     cta: "Contact",
   },
   home: {
-    eyebrow: "Gorbel G-Force · Service & spare parts",
-    heroTitle: "Germany’s largest spare-parts warehouse for Gorbel G-Force",
+    eyebrow: "G-Force® · Easy Arm® · Service & spare parts",
+    heroTitle: "Germany’s largest spare-parts warehouse for Gorbel G-Force®",
     heroSubtitle:
-      "Fast spare parts and qualified service – when European plants can no longer get timely support.",
+      "Fast spare parts and qualified service for G-Force® and Easy Arm® – when European plants can no longer get timely support.",
     whoTitle: "What WiMa does",
     whoBody:
-      "WiMa Industrie-Automation GmbH develops and builds systems for lifting technology and equips rope and chain hoists with innovative electronics. Together with SAS, we support Gorbel G-Force systems in the field.",
+      "WiMa Industrie-Automation GmbH develops and builds systems for lifting technology and equips rope and chain hoists with innovative electronics. Together with SAS, we support Gorbel G-Force® and Easy Arm® in the field.",
     offerTitle: "The problem – and our answer",
     problemLabel: "Problem",
     solutionLabel: "Solution",
     offerParts:
-      "Many European production sites can no longer get timely spare parts or qualified service for their Gorbel G-Force devices.",
+      "Many European production sites can no longer get timely spare parts or qualified service for Gorbel G-Force® and Easy Arm®.",
     offerService:
       "We closed this gap: full spare-parts warehouse from e-motion Handlingsysteme, expertise integrated – service and parts from one partner.",
     configuratorLabel: "3D Configurator",
     configuratorHint: "Coming soon",
     contactCta: "Contact us",
+  },
+  offerings: {
+    title: "Solutions",
+    intro: "Service, Gorbel spare parts and our own lifting systems – clear and practical.",
+    journeyNote:
+      "Most customers first come for G-Force® or Easy Arm® spare parts – then discover our own rope and chain hoists.",
+    service: {
+      title: "Service",
+      body: "Maintenance, diagnostics and repair for intelligent lifting systems. Experienced WiMa and SAS technicians – workshop and on site.",
+    },
+    parts: {
+      title: "G-Force® & Easy Arm® spare parts",
+      body: "Large German spare-parts stock for Gorbel G-Force® and Easy Arm®. Identification, supply and support when former European manufacturer support is gone.",
+    },
+    lifts: {
+      title: "Our own rope and chain hoists",
+      body: "WiMa/SAS lifting devices with innovative electronics – rope and chain hoists at roughly half the price of comparable Gorbel systems.",
+    },
+    ctaLabel: "Request advice",
   },
   contact: {
     title: "Contact",
@@ -191,7 +232,7 @@ const en: LocaleContent = {
   },
   footer: {
     tagline:
-      "Germany’s largest spare-parts warehouse for Gorbel G-Force · Service & repair",
+      "Germany’s largest spare-parts warehouse for Gorbel G-Force® & Easy Arm® · Service & repair",
     rights: "All rights reserved.",
     impressum: "Legal notice",
     privacy: "Privacy",
@@ -264,33 +305,53 @@ const en: LocaleContent = {
 
 const zh: LocaleContent = {
   meta: {
-    title: "Gorbel G-Force – 德国最大备件库 | SAS × WiMa",
+    title: "Gorbel G-Force® – 德国最大备件库 | SAS × WiMa",
     description:
-      "德国最大的 Gorbel G-Force 备件库。WiMa 开发起重技术，填补欧洲备件与服务空白。",
+      "德国最大的 Gorbel G-Force® 与 Easy Arm® 备件库。WiMa/SAS 服务与自有钢丝绳/环链葫芦。",
   },
   nav: {
     home: "首页",
+    offerings: "服务方案",
     contact: "联系",
     cta: "联系",
   },
   home: {
-    eyebrow: "Gorbel G-Force · 服务与备件",
-    heroTitle: "德国最大的 Gorbel G-Force 备件库",
+    eyebrow: "G-Force® · Easy Arm® · 服务与备件",
+    heroTitle: "德国最大的 Gorbel G-Force® 备件库",
     heroSubtitle:
-      "快速备件与专业服务——当欧洲工厂再也无法及时获得支持时。",
+      "G-Force® 与 Easy Arm® 的快速备件与专业服务——当欧洲工厂再也无法及时获得支持时。",
     whoTitle: "WiMa 做什么",
     whoBody:
-      "WiMa Industrie-Automation GmbH 开发并建造起重技术系统，为钢丝绳与环链葫芦配备创新电子技术。与 SAS 一起，我们在现场服务 Gorbel G-Force 设备。",
+      "WiMa Industrie-Automation GmbH 开发并建造起重技术系统，为钢丝绳与环链葫芦配备创新电子技术。与 SAS 一起，我们在现场服务 Gorbel G-Force® 与 Easy Arm®。",
     offerTitle: "问题——以及我们的答案",
     problemLabel: "问题",
     solutionLabel: "方案",
     offerParts:
-      "许多欧洲生产现场已无法为 Gorbel G-Force 及时获得备件或合格服务。",
+      "许多欧洲生产现场已无法为 Gorbel G-Force® 与 Easy Arm® 及时获得备件或合格服务。",
     offerService:
       "我们填补了这一空白：接管 e-motion Handlingsysteme 的完整备件库并整合其专长——服务与备件统一对接。",
     configuratorLabel: "3D 配置器",
     configuratorHint: "即将推出",
     contactCta: "立即咨询",
+  },
+  offerings: {
+    title: "服务方案",
+    intro: "服务、Gorbel 备件与自有提升设备——清晰务实。",
+    journeyNote:
+      "多数客户先因 G-Force® 或 Easy Arm® 备件而来——随后发现我们的自有钢丝绳与环链葫芦。",
+    service: {
+      title: "服务",
+      body: "智能提升系统的维护、诊断与维修。WiMa 与 SAS 经验丰富的技术员——车间与现场。",
+    },
+    parts: {
+      title: "G-Force® 与 Easy Arm® 备件",
+      body: "德国大型 Gorbel G-Force® 与 Easy Arm® 备件库存。在原欧洲原厂支持缺失时提供识别、供应与支持。",
+    },
+    lifts: {
+      title: "自有钢丝绳与环链葫芦",
+      body: "WiMa/SAS 提升设备配备创新电子技术——钢丝绳与环链葫芦价格约为同类 Gorbel 系统的一半。",
+    },
+    ctaLabel: "咨询方案",
   },
   contact: {
     title: "联系",
@@ -305,7 +366,7 @@ const zh: LocaleContent = {
     formSuccess: "应已打开邮件应用。",
   },
   footer: {
-    tagline: "德国最大 Gorbel G-Force 备件库 · 服务与维修",
+    tagline: "德国最大 Gorbel G-Force® 与 Easy Arm® 备件库 · 服务与维修",
     rights: "版权所有。",
     impressum: "法律信息",
     privacy: "隐私政策",
@@ -377,11 +438,14 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 13,
+  version: 14,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",
     contact: "/images/site/contact.jpg",
+    service: "/images/site/service.jpg",
+    parts: "/images/site/workshop.jpg",
+    lifts: "/images/site/story.jpg",
   },
   companies: {
     wima: wimaBase,

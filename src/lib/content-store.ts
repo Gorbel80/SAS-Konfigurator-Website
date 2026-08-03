@@ -61,6 +61,16 @@ function deepLocale(
     meta: { ...base.meta, ...override.meta },
     nav: { ...base.nav, ...override.nav },
     home: { ...base.home, ...override.home },
+    offerings: {
+      ...base.offerings,
+      ...override.offerings,
+      service: {
+        ...base.offerings.service,
+        ...override.offerings?.service,
+      },
+      parts: { ...base.offerings.parts, ...override.offerings?.parts },
+      lifts: { ...base.offerings.lifts, ...override.offerings?.lifts },
+    },
     contact: { ...base.contact, ...override.contact },
     footer: { ...base.footer, ...override.footer },
     cookies: { ...base.cookies, ...override.cookies },

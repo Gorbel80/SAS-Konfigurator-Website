@@ -10,17 +10,22 @@ import type { LocaleContent } from "@/content/types";
 type Props = {
   nav: LocaleContent["nav"];
   brand: string;
+  configuratorLabel: string;
+  configuratorHint: string;
 };
 
-export function Header({ nav, brand }: Props) {
+export function Header({
+  nav,
+  brand,
+  configuratorLabel,
+  configuratorHint,
+}: Props) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const items = [
     { href: "/", label: nav.home },
-    { href: "/about", label: nav.about },
-    { href: "/service", label: nav.service },
     { href: "/contact", label: nav.contact },
   ] as const;
 
@@ -53,7 +58,7 @@ export function Header({ nav, brand }: Props) {
           : "border-border/70 bg-surface/90 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="flex min-w-0 items-center gap-2.5"
@@ -62,7 +67,7 @@ export function Header({ nav, brand }: Props) {
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-anthracite-900 text-xs font-bold tracking-tight text-white">
             S×W
           </span>
-          <span className="truncate text-sm font-semibold tracking-tight text-anthracite-900 sm:text-[0.95rem]">
+          <span className="truncate text-sm font-semibold tracking-tight text-anthracite-900">
             {brand}
           </span>
         </Link>
@@ -93,72 +98,56 @@ export function Header({ nav, brand }: Props) {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2.5 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <LanguageSwitcher align="right" />
-          <Link
-            href="/contact"
-            className="inline-flex h-10 items-center rounded-xl bg-accent px-4 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-accent-hover hover:shadow-md active:scale-[0.98]"
+          <button
+            type="button"
+            disabled
+            title={configuratorHint}
+            className="inline-flex h-11 items-center rounded-xl bg-accent px-4 text-sm font-bold text-white shadow-[0_4px_0_0_#9a3412] ring-2 ring-accent/25"
           >
-            {nav.cta}
-          </Link>
+            {configuratorLabel}
+          </button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
           <LanguageSwitcher align="right" />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-anthracite-800 transition-colors hover:bg-anthracite-50"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-anthracite-800"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={open}
-            aria-controls="mobile-nav"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile full-height panel */}
       <div
-        id="mobile-nav"
         className={cn(
-          "md:hidden overflow-hidden border-t border-border bg-surface transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          open ? "max-h-[100dvh] opacity-100" : "max-h-0 opacity-0 border-t-0",
+          "md:hidden overflow-hidden border-t border-border bg-surface transition-[max-height,opacity] duration-300",
+          open ? "max-h-[80dvh] opacity-100" : "max-h-0 opacity-0 border-t-0",
         )}
       >
-        <div className="flex max-h-[calc(100dvh-3.5rem)] flex-col px-4 py-4 sm:px-6">
-          <nav className="flex flex-col gap-1" aria-label="Mobilnavigation">
-            {items.map((item) => {
-              const active =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "rounded-xl px-4 py-3.5 text-base font-medium transition-colors",
-                    active
-                      ? "bg-anthracite-900 text-white"
-                      : "text-anthracite-800 hover:bg-anthracite-50",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-          <div className="mt-4 border-t border-border pt-4">
+        <div className="space-y-2 px-4 py-4">
+          {items.map((item) => (
             <Link
-              href="/contact"
+              key={item.href}
+              href={item.href}
               onClick={() => setOpen(false)}
-              className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-accent px-4 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-hover active:scale-[0.99]"
+              className="block rounded-xl px-4 py-3 text-base font-medium text-anthracite-800 hover:bg-anthracite-50"
             >
-              {nav.cta}
+              {item.label}
             </Link>
-          </div>
+          ))}
+          <button
+            type="button"
+            disabled
+            className="flex h-12 w-full items-center justify-center rounded-xl bg-accent text-sm font-bold text-white"
+          >
+            {configuratorLabel}
+          </button>
         </div>
       </div>
     </header>

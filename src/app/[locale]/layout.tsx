@@ -42,7 +42,12 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale} className={`${dmSans.variable} h-full`}>
       <body className="min-h-full flex flex-col font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
-          <Header nav={localeContent.nav} brand="SAS × WiMa Service" />
+          <Header
+            nav={localeContent.nav}
+            brand="SAS × WiMa"
+            configuratorLabel={localeContent.home.configuratorLabel}
+            configuratorHint={localeContent.home.configuratorHint}
+          />
           <main className="flex-1">
             <PageTransition>{children}</PageTransition>
           </main>

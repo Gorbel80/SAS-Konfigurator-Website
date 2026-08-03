@@ -1,12 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { PageHero } from "@/components/layout/PageHero";
-import { Section } from "@/components/ui/Section";
-import { Card } from "@/components/ui/Card";
-import { Reveal } from "@/components/ui/Reveal";
 import type { LocaleContent, SiteContent } from "@/content/types";
-import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 
 type Props = {
@@ -29,7 +25,7 @@ export function ContactPage({ content, images, companies }: Props) {
 
     const to = companies.sas.email;
     const subject = encodeURIComponent(
-      `Service-Anfrage Gorbel G-Force – ${company || name}`,
+      `G-Force Anfrage – ${company || name}`,
     );
     const body = encodeURIComponent(
       [
@@ -38,186 +34,133 @@ export function ContactPage({ content, images, companies }: Props) {
         `E-Mail: ${email}`,
         `Telefon: ${phone}`,
         "",
-        "Anliegen:",
         message,
       ].join("\n"),
     );
-
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     setSent(true);
   }
 
-  const locations = [
-    { key: "wima", data: companies.wima },
-    { key: "sas", data: companies.sas },
-  ] as const;
-
   return (
-    <>
-      <PageHero
-        eyebrow={content.contact.eyebrow}
-        title={content.contact.title}
-        subtitle={content.contact.intro}
-      >
-        <div className="relative mt-5 max-w-xl aspect-[21/9] overflow-hidden rounded-xl border border-border">
-          <Image
-            src={images.contact}
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 36rem"
-          />
-        </div>
-      </PageHero>
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight text-anthracite-900 sm:text-3xl">
+            {content.contact.title}
+          </h1>
+          <p className="mt-2 text-sm text-anthracite-500">
+            {content.contact.intro}
+          </p>
 
-      <Section>
-        <div className="grid gap-6 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-4">
-            <h2 className="text-base font-semibold text-anthracite-900">
-              {content.contact.locationsTitle}
-            </h2>
-            {locations.map(({ key, data }, i) => (
-              <Reveal key={key} delay={i * 50}>
-                <Card className="p-4">
-                  <p className="text-sm font-semibold text-anthracite-900">
-                    {data.legalName}
-                  </p>
-                  <div className="mt-3 space-y-2.5 text-sm text-anthracite-500">
-                    <p className="flex gap-2">
-                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                      <span>
-                        {data.street}
-                        <br />
-                        {data.postal} {data.city}
-                        <br />
-                        {data.country}
-                      </span>
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 shrink-0 text-accent" />
-                      <a
-                        href={`tel:${data.phone}`}
-                        className="hover:text-anthracite-900"
-                      >
-                        {data.phone}
-                      </a>
-                    </p>
-                    <p className="flex items-center gap-2">
-                      <Mail className="h-4 w-4 shrink-0 text-accent" />
-                      <a
-                        href={`mailto:${data.email}`}
-                        className="break-all hover:text-anthracite-900"
-                      >
-                        {data.email}
-                      </a>
-                    </p>
-                  </div>
-                  <a
-                    href={data.mapUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-anthracite-900 hover:text-accent"
-                  >
-                    Google Maps
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
-                </Card>
-              </Reveal>
-            ))}
-
-            <Reveal delay={120}>
-              <Card className="border-accent/20 bg-accent-muted p-4">
-                <p className="text-sm font-semibold text-anthracite-900">
-                  {content.contact.hoursTitle}
-                </p>
-                <p className="mt-1.5 text-sm text-anthracite-600">
-                  {content.contact.hoursBody}
-                </p>
-              </Card>
-            </Reveal>
+          <div className="relative mt-5 aspect-[21/9] overflow-hidden rounded-xl border border-border">
+            <Image
+              src={images.contact}
+              alt=""
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
 
-          <Reveal delay={60} className="lg:col-span-7">
-            <Card className="p-5 md:p-6">
-              <h2 className="text-base font-semibold text-anthracite-900">
-                {content.contact.formTitle}
-              </h2>
-              <form
-                onSubmit={onSubmit}
-                className="mt-4 grid gap-3 sm:grid-cols-2"
+          <div className="mt-5 grid gap-3">
+            {([companies.wima, companies.sas] as const).map((c) => (
+              <div
+                key={c.legalName}
+                className="rounded-xl border border-border bg-surface p-4 text-sm"
               >
-                <label className="block text-sm">
-                  <span className="mb-1 block font-medium text-anthracite-700">
-                    {content.contact.formName}
-                  </span>
-                  <input
-                    name="name"
-                    required
-                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
-                  />
-                </label>
-                <label className="block text-sm">
-                  <span className="mb-1 block font-medium text-anthracite-700">
-                    {content.contact.formCompany}
-                  </span>
-                  <input
-                    name="company"
-                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
-                  />
-                </label>
-                <label className="block text-sm">
-                  <span className="mb-1 block font-medium text-anthracite-700">
-                    {content.contact.formEmail}
-                  </span>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
-                  />
-                </label>
-                <label className="block text-sm">
-                  <span className="mb-1 block font-medium text-anthracite-700">
-                    {content.contact.formPhone}
-                  </span>
-                  <input
-                    name="phone"
-                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
-                  />
-                </label>
-                <label className="block text-sm sm:col-span-2">
-                  <span className="mb-1 block font-medium text-anthracite-700">
-                    {content.contact.formMessage}
-                  </span>
-                  <textarea
-                    name="message"
-                    required
-                    rows={4}
-                    className="w-full rounded-xl border border-border bg-background px-3 py-2 outline-none focus:border-accent"
-                  />
-                </label>
-                <div className="sm:col-span-2">
-                  <button
-                    type="submit"
-                    className="inline-flex h-11 items-center rounded-xl bg-accent px-5 text-sm font-semibold text-white hover:bg-accent-hover"
-                  >
-                    {content.contact.formSubmit}
-                  </button>
-                  <p className="mt-2 text-xs text-anthracite-400">
-                    {content.contact.formHint}
-                  </p>
-                  {sent ? (
-                    <p className="mt-2 text-sm font-medium text-success">
-                      {content.contact.formSuccess}
-                    </p>
-                  ) : null}
-                </div>
-              </form>
-            </Card>
-          </Reveal>
+                <p className="font-semibold text-anthracite-900">{c.legalName}</p>
+                <p className="mt-2 flex gap-2 text-anthracite-500">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  {c.postal} {c.city}
+                </p>
+                <p className="mt-1.5 flex items-center gap-2 text-anthracite-500">
+                  <Phone className="h-4 w-4 shrink-0 text-accent" />
+                  <a href={`tel:${c.phone}`}>{c.phone}</a>
+                </p>
+                <p className="mt-1.5 flex items-center gap-2 text-anthracite-500">
+                  <Mail className="h-4 w-4 shrink-0 text-accent" />
+                  <a href={`mailto:${c.email}`} className="break-all">
+                    {c.email}
+                  </a>
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </Section>
-    </>
+
+        <form
+          onSubmit={onSubmit}
+          className="rounded-2xl border border-border bg-surface p-5 shadow-sm"
+        >
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="block text-sm sm:col-span-1">
+              <span className="mb-1 block font-medium text-anthracite-700">
+                {content.contact.formName}
+              </span>
+              <input
+                name="name"
+                required
+                className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+              />
+            </label>
+            <label className="block text-sm">
+              <span className="mb-1 block font-medium text-anthracite-700">
+                {content.contact.formCompany}
+              </span>
+              <input
+                name="company"
+                className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+              />
+            </label>
+            <label className="block text-sm">
+              <span className="mb-1 block font-medium text-anthracite-700">
+                {content.contact.formEmail}
+              </span>
+              <input
+                name="email"
+                type="email"
+                required
+                className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+              />
+            </label>
+            <label className="block text-sm">
+              <span className="mb-1 block font-medium text-anthracite-700">
+                {content.contact.formPhone}
+              </span>
+              <input
+                name="phone"
+                className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+              />
+            </label>
+            <label className="block text-sm sm:col-span-2">
+              <span className="mb-1 block font-medium text-anthracite-700">
+                {content.contact.formMessage}
+              </span>
+              <textarea
+                name="message"
+                required
+                rows={4}
+                className="w-full rounded-xl border border-border bg-background px-3 py-2 outline-none focus:border-accent"
+              />
+            </label>
+          </div>
+          <button
+            type="submit"
+            className="mt-4 inline-flex h-11 items-center rounded-xl bg-accent px-5 text-sm font-semibold text-white hover:bg-accent-hover"
+          >
+            {content.contact.formSubmit}
+          </button>
+          <p className="mt-2 text-xs text-anthracite-400">
+            {content.contact.formHint}
+          </p>
+          {sent ? (
+            <p className="mt-2 text-sm font-medium text-success">
+              {content.contact.formSuccess}
+            </p>
+          ) : null}
+        </form>
+      </div>
+    </div>
   );
 }

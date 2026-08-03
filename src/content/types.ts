@@ -12,23 +12,7 @@ export type CompanyInfo = {
   mapUrl: string;
 };
 
-export type ImageKey =
-  | "hero"
-  | "about"
-  | "service"
-  | "workshop"
-  | "contact"
-  | "warehouse";
-
-export type ValueItem = {
-  title: string;
-  body: string;
-};
-
-export type ProcessStep = {
-  title: string;
-  body: string;
-};
+export type ImageKey = "hero" | "side" | "contact";
 
 export type LocaleContent = {
   meta: {
@@ -37,8 +21,6 @@ export type LocaleContent = {
   };
   nav: {
     home: string;
-    about: string;
-    service: string;
     contact: string;
     cta: string;
   };
@@ -46,55 +28,18 @@ export type LocaleContent = {
     eyebrow: string;
     heroTitle: string;
     heroSubtitle: string;
-    heroCtaPrimary: string;
-    heroCtaSecondary: string;
-    trustLabel: string;
-    trustItems: string[];
-    valueTitle: string;
-    valueSubtitle: string;
-    values: ValueItem[];
-    storyTitle: string;
-    storyBody: string;
-    ctaTitle: string;
-    ctaBody: string;
-    ctaButton: string;
-  };
-  about: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    storyTitle: string;
-    storyBody: string[];
-    companiesTitle: string;
-    companiesSubtitle: string;
-    wimaRole: string;
-    sasRole: string;
-    factsTitle: string;
-    facts: ValueItem[];
-  };
-  service: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    helpTitle: string;
-    helpIntro: string;
-    helpItems: ValueItem[];
-    processTitle: string;
-    processSubtitle: string;
-    steps: ProcessStep[];
-    devicesTitle: string;
-    devicesBody: string;
-    devices: string[];
-    ctaTitle: string;
-    ctaBody: string;
-    ctaButton: string;
+    whoTitle: string;
+    whoBody: string;
+    offerTitle: string;
+    offerParts: string;
+    offerService: string;
+    configuratorLabel: string;
+    configuratorHint: string;
+    contactCta: string;
   };
   contact: {
-    eyebrow: string;
     title: string;
     intro: string;
-    locationsTitle: string;
-    formTitle: string;
     formName: string;
     formCompany: string;
     formEmail: string;
@@ -103,14 +48,10 @@ export type LocaleContent = {
     formSubmit: string;
     formHint: string;
     formSuccess: string;
-    hoursTitle: string;
-    hoursBody: string;
   };
   footer: {
     tagline: string;
     rights: string;
-    locations: string;
-    links: string;
   };
 };
 

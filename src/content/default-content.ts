@@ -4,7 +4,7 @@ const de: LocaleContent = {
   meta: {
     title: "Gorbel G-Force – Größtes Ersatzteillager Deutschlands | SAS × WiMa",
     description:
-      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force. Service, Wartung und Reparatur durch WiMa und SAS.",
+      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force. WiMa entwickelt Hebetechnik und schließt die Lücke bei Ersatzteilen und Service in Europa.",
   },
   nav: {
     home: "Start",
@@ -12,23 +12,25 @@ const de: LocaleContent = {
     cta: "Kontakt",
   },
   home: {
-    eyebrow: "Gorbel G-Force · Deutschland & Europa",
+    eyebrow: "Gorbel G-Force · Service & Ersatzteile",
     heroTitle: "Größtes Ersatzteillager Deutschlands für Gorbel G-Force",
     heroSubtitle:
-      "Service, Wartung, Reparatur und Ersatzteile – aus einer Hand. WiMa (Wetter) und SAS (Hohndorf).",
-    whoTitle: "Wer wir sind",
+      "Schnelle Ersatzteile und qualifizierter Service – wenn europäische Werke nicht mehr rechtzeitig beliefert werden.",
+    whoTitle: "Was WiMa macht",
     whoBody:
-      "WiMa Industrie-Automation und SAS Sauer-Automation Sachsen betreuen Gorbel G-Force Anlagen seit Jahren. Offizieller Support von Gorbel in Europa fehlt – wir liefern Teile und technischen Service.",
-    offerTitle: "Was wir bieten",
-    offerParts: "Ersatzteile aus dem größten G-Force-Lager in Deutschland",
-    offerService: "Qualifizierter Service, Wartung und Reparatur",
+      "WiMa Industrie-Automation GmbH entwickelt und baut Systeme für die Hebetechnik und rüstet Seil- und Kettenzüge mit innovativer Elektronik aus. Gemeinsam mit SAS betreuen wir Gorbel G-Force Anlagen in der Praxis.",
+    offerTitle: "Das Problem – und unsere Lösung",
+    offerParts:
+      "Viele europäische Produktionsstandorte erhalten für Gorbel G-Force keine zeitnahen Ersatzteile und keinen qualifizierten Service mehr.",
+    offerService:
+      "Wir schließen diese Lücke: komplettes Ersatzteillager von e-motion Handlingsysteme übernommen, Know-how integriert – Service und Teile aus einer Hand.",
     configuratorLabel: "3D Konfigurator",
     configuratorHint: "Bald verfügbar",
     contactCta: "Jetzt anfragen",
   },
   contact: {
     title: "Kontakt",
-    intro: "Kurz Ihr Anliegen schildern – wir melden uns.",
+    intro: "Ersatzteil, Störung oder Service? Kurz melden – wir antworten.",
     formName: "Name",
     formCompany: "Unternehmen",
     formEmail: "E-Mail",
@@ -49,7 +51,7 @@ const en: LocaleContent = {
   meta: {
     title: "Gorbel G-Force – Germany’s largest spare-parts stock | SAS × WiMa",
     description:
-      "Germany’s largest spare-parts warehouse for Gorbel G-Force. Service, maintenance and repair by WiMa and SAS.",
+      "Germany’s largest spare-parts warehouse for Gorbel G-Force. WiMa builds lifting systems and closes the gap in parts and service across Europe.",
   },
   nav: {
     home: "Home",
@@ -57,23 +59,25 @@ const en: LocaleContent = {
     cta: "Contact",
   },
   home: {
-    eyebrow: "Gorbel G-Force · Germany & Europe",
+    eyebrow: "Gorbel G-Force · Service & spare parts",
     heroTitle: "Germany’s largest spare-parts warehouse for Gorbel G-Force",
     heroSubtitle:
-      "Service, maintenance, repair and spare parts – from one partner. WiMa (Wetter) and SAS (Hohndorf).",
-    whoTitle: "Who we are",
+      "Fast spare parts and qualified service – when European plants can no longer get timely support.",
+    whoTitle: "What WiMa does",
     whoBody:
-      "WiMa Industrie-Automation and SAS Sauer-Automation Sachsen have supported Gorbel G-Force systems for years. Official Gorbel support in Europe is no longer available – we supply parts and technical service.",
-    offerTitle: "What we offer",
-    offerParts: "Spare parts from Germany’s largest G-Force stock",
-    offerService: "Qualified service, maintenance and repair",
+      "WiMa Industrie-Automation GmbH develops and builds systems for lifting technology and equips rope and chain hoists with innovative electronics. Together with SAS, we support Gorbel G-Force systems in the field.",
+    offerTitle: "The problem – and our answer",
+    offerParts:
+      "Many European production sites can no longer get timely spare parts or qualified service for their Gorbel G-Force devices.",
+    offerService:
+      "We closed this gap: full spare-parts warehouse from e-motion Handlingsysteme, expertise integrated – service and parts from one partner.",
     configuratorLabel: "3D Configurator",
     configuratorHint: "Coming soon",
     contactCta: "Contact us",
   },
   contact: {
     title: "Contact",
-    intro: "Briefly describe your request – we will get back to you.",
+    intro: "Spare part, fault or service? Send a short note – we will reply.",
     formName: "Name",
     formCompany: "Company",
     formEmail: "Email",
@@ -94,7 +98,7 @@ const zh: LocaleContent = {
   meta: {
     title: "Gorbel G-Force – 德国最大备件库 | SAS × WiMa",
     description:
-      "德国最大的 Gorbel G-Force 备件库存。WiMa 与 SAS 提供服务、维护与维修。",
+      "德国最大的 Gorbel G-Force 备件库。WiMa 开发起重技术，填补欧洲备件与服务空白。",
   },
   nav: {
     home: "首页",
@@ -102,23 +106,25 @@ const zh: LocaleContent = {
     cta: "联系",
   },
   home: {
-    eyebrow: "Gorbel G-Force · 德国与欧洲",
+    eyebrow: "Gorbel G-Force · 服务与备件",
     heroTitle: "德国最大的 Gorbel G-Force 备件库",
     heroSubtitle:
-      "服务、维护、维修与备件——统一对接。WiMa（Wetter）与 SAS（Hohndorf）。",
-    whoTitle: "我们是谁",
+      "快速备件与专业服务——当欧洲工厂再也无法及时获得支持时。",
+    whoTitle: "WiMa 做什么",
     whoBody:
-      "WiMa 与 SAS 多年来服务 Gorbel G-Force 设备。欧洲已无官方 Gorbel 支持——我们提供备件与技术服务。",
-    offerTitle: "我们提供",
-    offerParts: "来自德国最大 G-Force 库存的备件",
-    offerService: "专业服务、维护与维修",
+      "WiMa Industrie-Automation GmbH 开发并建造起重技术系统，为钢丝绳与环链葫芦配备创新电子技术。与 SAS 一起，我们在现场服务 Gorbel G-Force 设备。",
+    offerTitle: "问题——以及我们的答案",
+    offerParts:
+      "许多欧洲生产现场已无法为 Gorbel G-Force 及时获得备件或合格服务。",
+    offerService:
+      "我们填补了这一空白：接管 e-motion Handlingsysteme 的完整备件库并整合其专长——服务与备件统一对接。",
     configuratorLabel: "3D 配置器",
     configuratorHint: "即将推出",
     contactCta: "立即咨询",
   },
   contact: {
     title: "联系",
-    intro: "简要说明需求——我们会回复。",
+    intro: "备件、故障或服务？简短留言——我们会回复。",
     formName: "姓名",
     formCompany: "公司",
     formEmail: "邮箱",
@@ -135,7 +141,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 10,
+  version: 11,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",

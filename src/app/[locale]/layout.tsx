@@ -5,6 +5,7 @@ import { DM_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CookieBanner } from "@/components/legal/CookieBanner";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { readContent } from "@/lib/content-store";
 import type { Locale } from "@/content/types";
@@ -52,6 +53,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer content={localeContent} companies={content.companies} />
+          <CookieBanner cookies={localeContent.cookies} />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -28,7 +28,7 @@ export function Footer({ content, companies }: Props) {
             {content.footer.tagline}
           </p>
         </div>
-        <div className="flex shrink-0 items-center gap-4 text-sm">
+        <div className="flex shrink-0 flex-wrap items-center gap-x-4 gap-y-2 text-sm">
           <Link
             href="/"
             className="text-anthracite-300 transition-colors hover:text-white"
@@ -41,15 +41,29 @@ export function Footer({ content, companies }: Props) {
           >
             {content.nav.contact}
           </Link>
-          <span className="hidden text-xs text-anthracite-500 sm:inline">
-            {companies.wima.city} · {companies.sas.city}
-          </span>
+          <Link
+            href="/impressum"
+            className="text-anthracite-300 transition-colors hover:text-white"
+          >
+            {content.footer.impressum}
+          </Link>
+          <Link
+            href="/datenschutz"
+            className="text-anthracite-300 transition-colors hover:text-white"
+          >
+            {content.footer.privacy}
+          </Link>
         </div>
       </div>
       <div className="border-t border-white/[0.07]">
-        <p className="mx-auto max-w-5xl px-4 py-2.5 text-xs text-anthracite-500 sm:px-6 lg:px-8">
-          © {year} WiMa · SAS. {content.footer.rights}
-        </p>
+        <div className="mx-auto flex max-w-5xl flex-col gap-1 px-4 py-2.5 text-xs text-anthracite-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p>
+            © {year} WiMa · SAS. {content.footer.rights}
+          </p>
+          <p className="text-anthracite-600">
+            {companies.wima.city} · {companies.sas.city}
+          </p>
+        </div>
       </div>
     </footer>
   );

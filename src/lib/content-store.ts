@@ -14,7 +14,6 @@ export async function readContent(): Promise<SiteContent> {
   try {
     const raw = await fs.readFile(CONTENT_FILE, "utf8");
     const parsed = JSON.parse(raw) as Partial<SiteContent>;
-    // Prefer fresh defaults when structure version changes
     if (!parsed.version || parsed.version < defaultContent.version) {
       return structuredClone(defaultContent);
     }
@@ -37,15 +36,39 @@ function mergeWithDefaults(input: SiteContent): SiteContent {
     ...defaultContent,
     ...input,
     version: input.version ?? defaultContent.version,
+    siteOperator: input.siteOperator ?? defaultContent.siteOperator,
     images: { ...defaultContent.images, ...input.images },
     companies: {
       wima: { ...defaultContent.companies.wima, ...input.companies?.wima },
       sas: { ...defaultContent.companies.sas, ...input.companies?.sas },
     },
     locales: {
-      de: { ...defaultContent.locales.de, ...input.locales?.de },
-      en: { ...defaultContent.locales.en, ...input.locales?.en },
-      zh: { ...defaultContent.locales.zh, ...input.locales?.zh },
+      de: deepLocale(defaultContent.locales.de, input.locales?.de),
+      en: deepLocale(defaultContent.locales.en, input.locales?.en),
+      zh: deepLocale(defaultContent.locales.zh, input.locales?.zh),
+    },
+  };
+}
+
+function deepLocale(
+  base: SiteContent["locales"]["de"],
+  override?: Partial<SiteContent["locales"]["de"]>,
+) {
+  if (!override) return structuredClone(base);
+  return {
+    ...base,
+    ...override,
+    meta: { ...base.meta, ...override.meta },
+    nav: { ...base.nav, ...override.nav },
+    home: { ...base.home, ...override.home },
+    contact: { ...base.contact, ...override.contact },
+    footer: { ...base.footer, ...override.footer },
+    cookies: { ...base.cookies, ...override.cookies },
+    impressum: { ...base.impressum, ...override.impressum },
+    privacy: {
+      ...base.privacy,
+      ...override.privacy,
+      sections: override.privacy?.sections ?? base.privacy.sections,
     },
   };
 }

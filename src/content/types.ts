@@ -10,6 +10,10 @@ export type CompanyInfo = {
   phone: string;
   email: string;
   mapUrl: string;
+  managingDirector: string;
+  registerCourt: string;
+  registerNumber: string;
+  vatId: string;
 };
 
 export type ImageKey = "hero" | "side" | "contact";
@@ -54,6 +58,36 @@ export type LocaleContent = {
   footer: {
     tagline: string;
     rights: string;
+    impressum: string;
+    privacy: string;
+  };
+  cookies: {
+    title: string;
+    body: string;
+    acceptAll: string;
+    essentialOnly: string;
+    privacyLink: string;
+  };
+  impressum: {
+    title: string;
+    intro: string;
+    sectionCompany: string;
+    sectionContact: string;
+    sectionRegister: string;
+    sectionVat: string;
+    sectionResponsible: string;
+    sectionNote: string;
+    noteBody: string;
+    managingDirectorLabel: string;
+    registerLabel: string;
+    vatLabel: string;
+    responsibleLabel: string;
+  };
+  privacy: {
+    title: string;
+    intro: string;
+    lastUpdated: string;
+    sections: { heading: string; body: string }[];
   };
 };
 
@@ -64,5 +98,7 @@ export type SiteContent = {
     wima: CompanyInfo;
     sas: CompanyInfo;
   };
+  /** Website operator key for Impressum responsibility */
+  siteOperator: "wima" | "sas";
   locales: Record<Locale, LocaleContent>;
 };

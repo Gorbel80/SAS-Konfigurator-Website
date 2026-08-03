@@ -3,180 +3,180 @@ import type { LocaleContent, SiteContent } from "./types";
 const de: LocaleContent = {
   meta: {
     title:
-      "Gorbel Service Europa – G-Force & Easy Arm Reparatur, Service & Ersatzteile",
+      "Gorbel G-Force Service Europa – Wartung, Reparatur & Ersatzteile",
     description:
-      "Professioneller Service, Reparatur und Ersatzteile für Gorbel G-Force und Easy Arm in Europa. Komplettes europäisches Ersatzteillager. WiMa (Wetter) & SAS (Hohndorf).",
+      "Professioneller Service, Wartung, Reparatur und Ersatzteillieferung für Gorbel G-Force in Europa. WiMa (Wetter) und SAS (Hohndorf) – qualifizierte Betreuung bestehender Anlagen.",
   },
   nav: {
     home: "Start",
     about: "Über uns",
-    service: "Gorbel Service",
+    service: "G-Force Service",
     contact: "Kontakt",
-    cta: "Gorbel-Hilfe anfordern",
+    cta: "Service anfragen",
   },
   home: {
-    eyebrow: "Europäischer Gorbel-Servicepartner",
+    eyebrow: "Europäischer G-Force-Servicepartner",
     heroTitle:
-      "Service, Reparatur und Ersatzteile für Gorbel G-Force und Easy Arm",
+      "Professioneller Service für Ihre Gorbel G-Force Systeme in Europa",
     heroSubtitle:
-      "Wenn Ihr G-Force oder Easy Arm steht – wir helfen. Qualifizierter Service und Reparatur in Europa, mit dem kompletten übernommenen europäischen Ersatzteillager. WiMa (Wetter) und SAS (Hohndorf) – Ihre Ansprechpartner, wenn offizieller Gorbel-Support fehlt.",
-    heroCtaPrimary: "Problem melden",
-    heroCtaSecondary: "Gorbel Service im Detail",
-    trustLabel: "Warum Instandhaltungs- und Produktionsleiter uns rufen",
+      "Wartung, Reparatur und Ersatzteillieferung für Gorbel G-Force – aus einer Hand. WiMa (Wetter) und SAS (Hohndorf) betreuen bestehende Anlagen seit Jahren qualifiziert. Wenn der offizielle technische Support von Gorbel in Europa fehlt, sind wir Ihr erfahrener Ansprechpartner.",
+    heroCtaPrimary: "Service anfragen",
+    heroCtaSecondary: "Leistungen im Detail",
+    trustLabel: "Für Instandhaltung und Produktion",
     trustItems: [
-      "Fokus: Gorbel G-Force und Easy Arm – nichts anderes",
-      "Komplettes europäisches Ersatzteillager (nach e-Motion / Gorbel-Support-Ende)",
-      "Jahrelange Praxis: Diagnose, Reparatur, Inbetriebnahme",
-      "Zwei Standorte in Deutschland – schnelle, klare Hilfe",
+      "Fokus: Gorbel G-Force – Service, Wartung, Reparatur",
+      "Jahrelange Praxis an bestehenden Anlagen in Europa",
+      "Ersatzteillieferung aus dem übernommenen europäischen Lager",
+      "Standorte Wetter (NRW) und Hohndorf (Sachsen)",
     ],
-    valueTitle: "Wenn der G-Force oder Easy Arm Probleme macht",
+    valueTitle: "Zuverlässige Betreuung Ihrer G-Force-Anlagen",
     valueSubtitle:
-      "Viele Betreiber wissen nicht, dass in Europa weiterhin professioneller Gorbel-Service existiert. Wir sind genau dafür da: Geräte wieder in Betrieb bringen – mit Teilen, Technik und klaren nächsten Schritten.",
+      "Viele Betreiber haben aktuell keinen offiziellen technischen Support für ihre Gorbel G-Force Geräte in Europa. Wir bieten genau das, was Sie brauchen: erfahrene Techniker, klare Prozesse und die passende Ersatzteilversorgung.",
     values: [
       {
-        title: "Europäisches Gorbel-Ersatzteillager",
-        body: "Das komplette europäische Ersatzteillager wurde übernommen, nachdem e-Motion Handlingsysteme vom Markt verschwand und Gorbel den technischen Support in Europa einstellte. Kritische G-Force- und Easy-Arm-Komponenten bleiben in Europa verfügbar.",
+        title: "Service, Wartung & Reparatur",
+        body: "Qualifizierte Diagnose, planmäßige Wartung und fachgerechte Reparatur von Gorbel G-Force Systemen – werkstattseitig und vor Ort, abgestimmt auf Ihre Instandhaltung und Produktion.",
       },
       {
-        title: "Qualifizierter Service & Reparatur",
-        body: "WiMa und SAS warten und reparieren Gorbel G-Force und Easy Arm seit Jahren: Störungsdiagnose, Werkstatt- und Vor-Ort-Reparatur, Verschleißteile und Inbetriebnahme – für Instandhaltung und Produktion.",
+        title: "Ersatzteillieferung in Europa",
+        body: "WiMa und SAS haben das komplette europäische Ersatzteillager übernommen und können G-Force-Komponenten zuverlässig liefern – ergänzend zu unserem technischen Service, nicht als alleiniges Angebot.",
       },
       {
-        title: "Hilfe ohne offiziellen Support",
-        body: "Kein langer Umweg über den US-Hersteller. Sie sprechen mit Technikern, die die Systeme kennen – und die Teile haben. Standorte: Wetter (NRW) und Hohndorf (Sachsen).",
+        title: "Erfahrung mit Bestandsanlagen",
+        body: "Wir kennen die Systeme aus der Praxis: Störungsaufnahme, Instandsetzung und Wiederinbetriebnahme. Zwei erreichbare Standorte in Deutschland – für Kunden in ganz Europa.",
       },
     ],
-    storyTitle: "Warum es uns gibt: die Gorbel-Service-Lücke in Europa",
+    storyTitle: "Warum Sie uns als Servicepartner brauchen",
     storyBody:
-      "Gorbel (USA) stellt den technischen Support in Europa ein. Die frühere Firma e-Motion Handlingsysteme existiert nicht mehr. Das komplette europäische Ersatzteillager wurde übernommen. WiMa Industrie-Automation GmbH und SAS Sauer-Automation Sachsen bündeln seither den professionellen Service für G-Force und Easy Arm – damit Ihre Produktion nicht auf der Suche nach einem Ansprechpartner stecken bleibt.",
-    ctaTitle: "G-Force oder Easy Arm defekt?",
+      "Gorbel (USA) hat den technischen Support in Europa eingestellt. Die frühere Firma e-Motion Handlingsysteme existiert nicht mehr. WiMa Industrie-Automation GmbH und SAS Sauer-Automation Sachsen betreuen Gorbel G-Force Systeme seit Jahren und haben zusätzlich das komplette europäische Ersatzteillager übernommen – damit bestehende Anlagen weiter professionell gewartet, repariert und mit Teilen versorgt werden können.",
+    ctaTitle: "G-Force-Gerät mit Problem?",
     ctaBody:
-      "Schildern Sie Gerätetyp, Symptom und Dringlichkeit. Wir melden uns mit einer klaren Einschätzung zu Diagnose, Ersatzteilen und Reparatur.",
-    ctaButton: "Jetzt Gorbel-Service anfragen",
+      "Schildern Sie Gerät, Symptom und Dringlichkeit. Wir melden uns mit einer klaren Einschätzung zu Service, Wartung, Reparatur oder Ersatzteil.",
+    ctaButton: "Jetzt Service anfragen",
   },
   about: {
-    eyebrow: "Über uns – Gorbel Service Europa",
-    title: "WiMa & SAS: Ihr europäischer Gorbel-Service",
+    eyebrow: "Über uns",
+    title: "WiMa & SAS – Ihr G-Force-Service in Europa",
     intro:
-      "Wir sind kein generischer Automatisierungs-Shop. Unser Fokus: professioneller Service, Reparatur und Ersatzteile für Gorbel G-Force und Easy Arm – für Instandhaltungs- und Produktionsverantwortliche in Europa.",
-    storyTitle: "Wie wir zum Gorbel-Servicepartner wurden",
+      "Wir sind erfahrene Industriepartner für professionellen Service an Gorbel G-Force Systemen: Wartung, Reparatur und Ersatzteillieferung für bestehende Installationen in Europa.",
+    storyTitle: "Unsere Rolle als Servicepartner",
     storyBody: [
-      "Als Gorbel den technischen Support in Europa einstellte und e-Motion Handlingsysteme vom Markt verschwand, blieben viele G-Force- und Easy-Arm-Anlagen ohne klaren Servicepartner – obwohl die Geräte im Alltag unverzichtbar sind.",
-      "Vor zwei Jahren wurde das komplette europäische Ersatzteillager übernommen. Seither bündeln WiMa Industrie-Automation GmbH (Wetter) und SAS Sauer-Automation Sachsen (Hohndorf) die praktische Betreuung: von der Störungsaufnahme über die Teileidentifikation bis zur Reparatur und Wiederinbetriebnahme.",
-      "Unser Auftrag: Diese Gorbel-Servicekompetenz sichtbar machen – damit Instandhaltungsleiter und Produktionsmanager im Ernstfall den richtigen Ansprechpartner finden, nicht monatelang suchen müssen.",
+      "Gorbel hat den technischen Support in Europa eingestellt. Die frühere Firma e-Motion Handlingsysteme gibt es nicht mehr. Für viele Betreiber stellt sich seither die Frage: Wer wartet und repariert unsere G-Force-Anlagen – und wer liefert die Teile?",
+      "WiMa Industrie-Automation GmbH (Wetter) und SAS Sauer-Automation Sachsen (Hohndorf) bieten seit Jahren qualifizierten Service für diese Systeme. Ergänzend wurde das komplette europäische Ersatzteillager übernommen – damit technische Betreuung und Teileversorgung zusammenpassen.",
+      "Unser Anspruch: Instandhaltungs- und Produktionsverantwortlichen einen verlässlichen, fachlich fundierten Ansprechpartner in Europa zu geben – klar, praxisnah und ohne Umwege.",
     ],
-    companiesTitle: "Die Servicepartner",
+    companiesTitle: "Die Partner",
     companiesSubtitle:
-      "Zwei Standorte in Deutschland – eine gemeinsame Kompetenz für Gorbel G-Force und Easy Arm.",
+      "Zwei Standorte in Deutschland – gemeinsame Kompetenz für Gorbel G-Force Service.",
     wimaRole:
-      "Industrie-Automation und Gorbel-Service mit Fokus auf zuverlässige Produktionsprozesse – Standort Wetter (Ruhr), 58300.",
+      "Industrie-Automation und G-Force-Service mit Fokus auf zuverlässige Produktionsprozesse – Standort Wetter (Ruhr), 58300.",
     sasRole:
-      "Automatisierung und Gorbel-Service aus Sachsen – Standort Hohndorf, 09394, nah an mittelständischer Fertigung.",
+      "Automatisierung und G-Force-Service aus Sachsen – Standort Hohndorf, 09394, nah an mittelständischer Fertigung.",
     factsTitle: "Auf einen Blick",
     facts: [
       {
         title: "Geräte im Fokus",
-        body: "Ausschließlich Gorbel G-Force und Easy Arm – intelligente Seilbalancer und Hebeassistenzsysteme im europäischen Bestand.",
+        body: "Gorbel G-Force Systeme im europäischen Bestand – professioneller Service und Instandhaltung.",
       },
       {
-        title: "Was wir liefern",
-        body: "Qualifizierter Service, Reparatur, europäische Ersatzteile, Wartung und praxisnahe Unterstützung vor Ort.",
+        title: "Leistungen",
+        body: "Service, Wartung, Reparatur und Ersatzteillieferung – abgestimmt auf Ihre Anlage und Dringlichkeit.",
       },
       {
-        title: "Warum das zählt",
-        body: "Kein offizieller Gorbel-Support mehr in Europa – wir schließen diese Lücke mit Teilen und Systemkenntnis.",
+        title: "Erfahrung",
+        body: "Jahrelange praktische Betreuung bestehender Installationen durch WiMa und SAS.",
       },
       {
-        title: "Für wen",
-        body: "Instandhaltungsleiter, Produktionsverantwortliche und Technikteams, die ihre G-Force-/Easy-Arm-Systeme stabil halten müssen.",
+        title: "Zielgruppe",
+        body: "Instandhaltungsleiter, Produktionsverantwortliche und Technikteams ohne offiziellen Gorbel-Support in Europa.",
       },
     ],
   },
   service: {
-    eyebrow: "Gorbel Service",
-    title: "So helfen wir bei G-Force- und Easy-Arm-Problemen",
+    eyebrow: "G-Force Service",
+    title: "Wartung, Reparatur und Ersatzteile für Gorbel G-Force",
     intro:
-      "Ob Produktionsstillstand, unruhiges Verhalten, Fehlercodes oder Verschleiß: Wir strukturieren Diagnose, Ersatzteil und Reparatur für Ihre Gorbel-Geräte – klar und industriell.",
-    helpTitle: "Typische Gorbel-Anliegen",
+      "Von der Störung in der Linie bis zur planmäßigen Wartung: Wir unterstützen Sie mit technischem Service und der passenden Ersatzteilversorgung für Ihre G-Force-Anlagen.",
+    helpTitle: "Unsere Leistungen",
     helpIntro:
-      "Genau dafür sind wir da – besonders wenn der frühere europäische Hersteller-Support und e-Motion nicht mehr erreichbar sind.",
+      "Genau dafür sind wir da – besonders wenn Sie aktuell keinen offiziellen technischen Support für Ihre Gorbel G-Force Geräte in Europa haben.",
     helpItems: [
       {
-        title: "Störung & Ausfall am G-Force / Easy Arm",
-        body: "Gerät reagiert nicht, fährt unkontrolliert oder geht in Störung. Wir nehmen den Fall auf, priorisieren und leiten die technische Klärung ein – mit Blick auf Ihre Produktion.",
+        title: "Störung & Reparatur",
+        body: "Ausfall, Fehlermeldung oder unruhiges Verhalten: Wir nehmen den Fall auf, diagnostizieren und führen die Instandsetzung werkstattseitig oder vor Ort durch.",
       },
       {
-        title: "Gorbel-Ersatzteile aus Europa",
-        body: "Komponenten aus dem übernommenen kompletten europäischen Lager. Wir unterstützen bei der Identifikation der passenden Teile für Ihren G-Force- oder Easy-Arm-Typ.",
+        title: "Wartung & Instandhaltung",
+        body: "Planmäßige und bedarfsorientierte Wartung, damit Ihre G-Force-Systeme zuverlässig im Produktionsalltag laufen.",
       },
       {
-        title: "Reparatur & Instandhaltung",
-        body: "Werkstatt- und Vor-Ort-Service durch Techniker mit jahrelanger Praxis an Gorbel-Systemen – nicht nur generische Elektroreparatur.",
+        title: "Ersatzteillieferung",
+        body: "Lieferung aus dem übernommenen kompletten europäischen Ersatzteillager – inklusive Unterstützung bei der Teileidentifikation für Ihren Gerätetyp.",
       },
       {
         title: "Inbetriebnahme & Beratung",
-        body: "Nach Umbau, Standortwechsel oder Stillstand: praxisnahe Unterstützung, damit Ihr G-Force oder Easy Arm wieder zuverlässig läuft.",
+        body: "Praxisnahe Unterstützung nach Umbau, Stillstand oder Standortwechsel – verständlich und abgestimmt mit Ihrer Instandhaltung.",
       },
     ],
-    processTitle: "Unser Gorbel-Serviceablauf",
+    processTitle: "So arbeiten wir mit Ihnen",
     processSubtitle:
-      "Transparent und schnell – von der ersten Meldung bis zur wieder laufenden Anlage.",
+      "Transparent und nachvollziehbar – von der ersten Meldung bis zur wieder laufenden Anlage.",
     steps: [
       {
         title: "1. Anfrage",
-        body: "Sie nennen Gerät (G-Force / Easy Arm), Typenschild wenn möglich, Symptom und Dringlichkeit – Formular, E-Mail oder Telefon.",
+        body: "Sie beschreiben Gerät, Symptom und Dringlichkeit – per Formular, E-Mail oder Telefon.",
       },
       {
         title: "2. Einschätzung",
-        body: "Wir ordnen das Gorbel-Problem ein und sagen klar, was sinnvoll ist: Ferndiagnose, Ersatzteil, Werkstatt oder Einsatz vor Ort.",
+        body: "Wir ordnen das Anliegen ein und sagen klar, was sinnvoll ist: Ferndiagnose, Wartung, Reparatur, Ersatzteil oder Einsatz vor Ort.",
       },
       {
         title: "3. Umsetzung",
-        body: "Teil aus dem europäischen Lager, Reparatur oder Serviceeinsatz – abgestimmt mit Ihrer Instandhaltung und dokumentiert.",
+        body: "Serviceeinsatz, Werkstattreparatur oder Teilelieferung – abgestimmt mit Ihrem Team und dokumentiert.",
       },
       {
         title: "4. Wieder in Betrieb",
-        body: "Ziel: stabiles G-Force- oder Easy-Arm-System – und ein europäischer Ansprechpartner für den nächsten Fall.",
+        body: "Ziel ist ein stabil laufendes G-Force-System und ein verlässlicher europäischer Ansprechpartner für die Zukunft.",
       },
     ],
-    devicesTitle: "Geräte, die wir bedienen",
+    devicesTitle: "Systeme im Fokus",
     devicesBody:
-      "Spezialisiert auf die Gorbel-Familie im europäischen Bestand – intelligente Seilbalancer und Hebeassistenz.",
+      "Spezialisiert auf Gorbel G-Force im europäischen Bestand – intelligente Seilbalancer / Hebeassistenzsysteme.",
     devices: [
       "Gorbel G-Force",
-      "Gorbel Easy Arm",
-      "Zubehör & Verschleißteile",
-      "Steuerung, Sensorik & Ersatzkomponenten",
+      "Wartung & Inspektion",
+      "Reparatur & Instandsetzung",
+      "Ersatzteile & Komponenten",
     ],
-    ctaTitle: "Gorbel-Problem schildern – wir melden uns",
+    ctaTitle: "Servicebedarf melden",
     ctaBody:
-      "Je präziser Typenschild, Fehlerbild und Fotos, desto schneller Diagnose und Teilevorschlag.",
-    ctaButton: "Gorbel-Service anfragen",
+      "Je präziser Typenschild, Fehlerbild und Fotos, desto schneller die Einschätzung zu Wartung, Reparatur oder Ersatzteil.",
+    ctaButton: "G-Force Service anfragen",
   },
   contact: {
-    eyebrow: "Kontakt – Gorbel Service Europa",
-    title: "Sprechen Sie mit dem europäischen Gorbel-Service-Team",
+    eyebrow: "Kontakt",
+    title: "Sprechen Sie mit dem G-Force-Service-Team",
     intro:
-      "Zwei Standorte in Deutschland – ein Ziel: Ihre Gorbel G-Force- und Easy-Arm-Systeme wieder zuverlässig in Betrieb bringen. Richten Sie Ihre Anfrage an Instandhaltung, Produktion oder Technik – wir antworten klar und praxisnah.",
+      "Zwei Standorte in Deutschland – ein gemeinsames Ziel: Ihre Gorbel G-Force Anlagen zuverlässig warten, reparieren und mit Ersatzteilen versorgen. Anfragen aus Instandhaltung, Produktion und Technik sind willkommen.",
     locationsTitle: "Service-Standorte",
-    formTitle: "Gorbel-Serviceanfrage senden",
+    formTitle: "Serviceanfrage senden",
     formName: "Name",
     formCompany: "Unternehmen",
     formEmail: "E-Mail",
     formPhone: "Telefon",
     formMessage:
-      "Anliegen (Gerät G-Force/Easy Arm, Symptom, Dringlichkeit)",
+      "Anliegen (G-Force Gerät, Symptom, Dringlichkeit)",
     formSubmit: "Anfrage senden",
     formHint:
-      "Hinweis: Das Formular öffnet Ihre E-Mail-App mit vorausgefüllter Nachricht an den Gorbel-Service.",
+      "Hinweis: Das Formular öffnet Ihre E-Mail-App mit vorausgefüllter Nachricht an den Service.",
     formSuccess: "Vielen Dank – Ihre E-Mail-App sollte sich geöffnet haben.",
     hoursTitle: "Erreichbarkeit",
     hoursBody:
-      "Anfragen werden werktags bearbeitet. Bei Produktionsstillstand durch G-Force/Easy Arm bitte Dringlichkeit im Betreff vermerken.",
+      "Anfragen werden werktags bearbeitet. Bei Produktionsstillstand durch ein G-Force-Gerät bitte Dringlichkeit im Betreff vermerken.",
   },
   footer: {
     tagline:
-      "Europäischer Service, Reparatur und Ersatzteile für Gorbel G-Force und Easy Arm.",
+      "Service, Wartung, Reparatur und Ersatzteillieferung für Gorbel G-Force in Europa.",
     rights: "Alle Rechte vorbehalten.",
     locations: "Standorte",
     links: "Navigation",
@@ -186,180 +186,179 @@ const de: LocaleContent = {
 const en: LocaleContent = {
   meta: {
     title:
-      "Gorbel Service Europe – G-Force & Easy Arm Repair, Service & Spare Parts",
+      "Gorbel G-Force Service Europe – Maintenance, Repair & Spare Parts",
     description:
-      "Professional service, repair and spare parts for Gorbel G-Force and Easy Arm in Europe. Complete European spare-parts warehouse. WiMa (Wetter) & SAS (Hohndorf).",
+      "Professional service, maintenance, repair and spare-parts supply for Gorbel G-Force in Europe. WiMa (Wetter) and SAS (Hohndorf) – qualified support for existing installations.",
   },
   nav: {
     home: "Home",
     about: "About",
-    service: "Gorbel Service",
+    service: "G-Force Service",
     contact: "Contact",
-    cta: "Request Gorbel help",
+    cta: "Request service",
   },
   home: {
-    eyebrow: "European Gorbel service partner",
+    eyebrow: "European G-Force service partner",
     heroTitle:
-      "Service, repair and spare parts for Gorbel G-Force and Easy Arm",
+      "Professional service for your Gorbel G-Force systems in Europe",
     heroSubtitle:
-      "When your G-Force or Easy Arm is down – we are the team that can help. Qualified service and repair in Europe, backed by the complete acquired European spare-parts warehouse. WiMa (Wetter) and SAS (Hohndorf) – your contact when official Gorbel support is no longer available.",
-    heroCtaPrimary: "Report a problem",
-    heroCtaSecondary: "Gorbel service in detail",
-    trustLabel: "Why maintenance and production managers call us",
+      "Maintenance, repair and spare-parts supply for Gorbel G-Force – from one partner. WiMa (Wetter) and SAS (Hohndorf) have supported existing installations for years. When official Gorbel technical support in Europe is no longer available, we are your experienced contact.",
+    heroCtaPrimary: "Request service",
+    heroCtaSecondary: "Our services",
+    trustLabel: "For maintenance and production teams",
     trustItems: [
-      "Focus: Gorbel G-Force and Easy Arm – nothing else",
-      "Complete European spare-parts stock (after e-Motion / end of Gorbel EU support)",
-      "Years of hands-on diagnostics, repair and recommissioning",
-      "Two locations in Germany – fast, clear help",
+      "Focus: Gorbel G-Force – service, maintenance, repair",
+      "Years of practical experience on existing European installations",
+      "Spare-parts supply from the acquired European warehouse",
+      "Locations in Wetter (NRW) and Hohndorf (Saxony)",
     ],
-    valueTitle: "When a G-Force or Easy Arm fails",
+    valueTitle: "Reliable support for your G-Force equipment",
     valueSubtitle:
-      "Most operators do not know that professional Gorbel service still exists in Europe. That is exactly what we do: get units back into production – with parts, technical know-how and clear next steps.",
+      "Many operators currently have no official technical support for their Gorbel G-Force units in Europe. We provide what you need: experienced technicians, clear processes and matching spare-parts supply.",
     values: [
       {
-        title: "European Gorbel spare-parts warehouse",
-        body: "The complete European spare-parts warehouse was acquired after e-Motion Handlingsysteme left the market and Gorbel discontinued technical support in Europe. Critical G-Force and Easy Arm components remain available in Europe.",
+        title: "Service, maintenance & repair",
+        body: "Qualified diagnostics, scheduled maintenance and professional repair of Gorbel G-Force systems – in the workshop or on site, aligned with your maintenance and production teams.",
       },
       {
-        title: "Qualified service & repair",
-        body: "WiMa and SAS have maintained and repaired Gorbel G-Force and Easy Arm systems for years: fault diagnosis, workshop and on-site repair, wear parts and recommissioning – for maintenance and production teams.",
+        title: "Spare-parts supply in Europe",
+        body: "WiMa and SAS took over the complete European spare-parts warehouse and can supply G-Force components reliably – as a complement to our technical service, not as a stand-alone business story.",
       },
       {
-        title: "Help without official support",
-        body: "No long detour via the US manufacturer. You talk to technicians who know the systems – and who hold the parts. Locations: Wetter (NRW) and Hohndorf (Saxony).",
+        title: "Experience with installed base",
+        body: "We know the systems in practice: fault intake, repair and return to service. Two reachable locations in Germany – for customers across Europe.",
       },
     ],
-    storyTitle: "Why we exist: the Gorbel service gap in Europe",
+    storyTitle: "Why customers rely on us as a service partner",
     storyBody:
-      "Gorbel (USA) discontinued technical support in Europe. The former company e-Motion Handlingsysteme no longer exists. The complete European spare-parts warehouse was acquired. WiMa Industrie-Automation GmbH and SAS Sauer-Automation Sachsen now deliver professional service for G-Force and Easy Arm – so your production is not left searching for a partner.",
-    ctaTitle: "G-Force or Easy Arm down?",
+      "Gorbel (USA) has discontinued technical support in Europe. The former company e-Motion Handlingsysteme no longer exists. WiMa Industrie-Automation GmbH and SAS Sauer-Automation Sachsen have provided qualified service for Gorbel G-Force systems for years and additionally took over the complete European spare-parts warehouse – so existing installations can continue to be maintained, repaired and supplied with parts professionally.",
+    ctaTitle: "Issue with a G-Force unit?",
     ctaBody:
-      "Describe the unit type, symptoms and urgency. We respond with a clear view on diagnostics, spare parts and repair.",
-    ctaButton: "Request Gorbel service now",
+      "Describe the unit, symptoms and urgency. We respond with a clear view on service, maintenance, repair or spare parts.",
+    ctaButton: "Request service now",
   },
   about: {
-    eyebrow: "About us – Gorbel Service Europe",
-    title: "WiMa & SAS: your European Gorbel service",
+    eyebrow: "About us",
+    title: "WiMa & SAS – your G-Force service in Europe",
     intro:
-      "We are not a generic automation shop. Our focus: professional service, repair and spare parts for Gorbel G-Force and Easy Arm – for maintenance and production managers across Europe.",
-    storyTitle: "How we became the Gorbel service partner",
+      "We are experienced industrial partners for professional service on Gorbel G-Force systems: maintenance, repair and spare-parts supply for existing installations in Europe.",
+    storyTitle: "Our role as a service partner",
     storyBody: [
-      "When Gorbel ended technical support in Europe and e-Motion Handlingsysteme left the market, many G-Force and Easy Arm installations lost a clear service partner – even though the equipment remains critical day to day.",
-      "Two years ago the complete European spare-parts warehouse was acquired. Since then, WiMa Industrie-Automation GmbH (Wetter) and SAS Sauer-Automation Sachsen (Hohndorf) have bundled practical care: from first fault report through part identification to repair and return to service.",
-      "Our mission: make this Gorbel service capability visible – so maintenance leaders and production managers find the right partner when it matters, instead of searching for months.",
+      "Gorbel discontinued technical support in Europe. The former company e-Motion Handlingsysteme no longer exists. Many operators are left asking: who maintains and repairs our G-Force systems – and who supplies the parts?",
+      "WiMa Industrie-Automation GmbH (Wetter) and SAS Sauer-Automation Sachsen (Hohndorf) have offered qualified service for these systems for years. In addition, the complete European spare-parts warehouse was taken over – so technical support and parts supply fit together.",
+      "Our commitment: give maintenance and production managers a reliable, technically grounded partner in Europe – clear, practical and without unnecessary detours.",
     ],
-    companiesTitle: "The service partners",
+    companiesTitle: "The partners",
     companiesSubtitle:
-      "Two locations in Germany – one shared capability for Gorbel G-Force and Easy Arm.",
+      "Two locations in Germany – shared expertise in Gorbel G-Force service.",
     wimaRole:
-      "Industrial automation and Gorbel service focused on reliable production processes – based in Wetter (Ruhr area), 58300.",
+      "Industrial automation and G-Force service focused on reliable production processes – based in Wetter (Ruhr area), 58300.",
     sasRole:
-      "Automation and Gorbel service from Saxony – based in Hohndorf, 09394, close to mid-sized manufacturing.",
+      "Automation and G-Force service from Saxony – based in Hohndorf, 09394, close to mid-sized manufacturing.",
     factsTitle: "At a glance",
     facts: [
       {
         title: "Equipment focus",
-        body: "Gorbel G-Force and Easy Arm only – intelligent lifting / assist systems in European installations.",
+        body: "Gorbel G-Force systems in the European installed base – professional service and maintenance.",
       },
       {
         title: "What we deliver",
-        body: "Qualified service, repair, European spare parts, maintenance and practical on-site support.",
+        body: "Service, maintenance, repair and spare-parts supply – matched to your unit and urgency.",
       },
       {
-        title: "Why it matters",
-        body: "No official Gorbel support left in Europe – we close that gap with parts and system knowledge.",
+        title: "Experience",
+        body: "Years of practical support for existing installations by WiMa and SAS.",
       },
       {
         title: "Who we serve",
-        body: "Maintenance managers, production leaders and technical teams who must keep G-Force / Easy Arm systems running.",
+        body: "Maintenance managers, production leaders and technical teams without official Gorbel support in Europe.",
       },
     ],
   },
   service: {
-    eyebrow: "Gorbel Service",
-    title: "How we help with G-Force and Easy Arm problems",
+    eyebrow: "G-Force Service",
+    title: "Maintenance, repair and spare parts for Gorbel G-Force",
     intro:
-      "Whether a line stoppage, unstable motion, fault codes or wear: we structure diagnostics, spare parts and repair for your Gorbel units – clear and industrial.",
-    helpTitle: "Typical Gorbel requests",
+      "From a line stoppage to scheduled maintenance: we support you with technical service and matching spare-parts supply for your G-Force systems.",
+    helpTitle: "Our services",
     helpIntro:
-      "This is exactly what we are built for – especially when former European manufacturer support and e-Motion are no longer reachable.",
+      "This is exactly what we do – especially if you currently have no official technical support for your Gorbel G-Force devices in Europe.",
     helpItems: [
       {
-        title: "Faults & downtime on G-Force / Easy Arm",
-        body: "No response, uncontrolled motion or fault modes. We take the case, prioritise and drive technical clarification – with your production in mind.",
+        title: "Faults & repair",
+        body: "Downtime, fault messages or unstable behaviour: we take the case, diagnose and carry out repair in the workshop or on site.",
       },
       {
-        title: "Gorbel spare parts from Europe",
-        body: "Components from the acquired complete European warehouse. We help identify the right parts for your G-Force or Easy Arm type.",
+        title: "Maintenance",
+        body: "Scheduled and needs-based maintenance so your G-Force systems run reliably in daily production.",
       },
       {
-        title: "Repair & maintenance",
-        body: "Workshop and on-site service by technicians with years of practice on Gorbel systems – not generic electrical repair alone.",
+        title: "Spare-parts supply",
+        body: "Supply from the acquired complete European spare-parts warehouse – including help identifying the right parts for your unit type.",
       },
       {
         title: "Commissioning & advice",
-        body: "After relocation, rebuilds or idle periods: practical support so your G-Force or Easy Arm runs reliably again.",
+        body: "Practical support after rebuilds, idle periods or relocation – clear and aligned with your maintenance team.",
       },
     ],
-    processTitle: "Our Gorbel service process",
+    processTitle: "How we work with you",
     processSubtitle:
-      "Transparent and fast – from first report to a unit back in operation.",
+      "Transparent and traceable – from first report to a unit back in operation.",
     steps: [
       {
         title: "1. Request",
-        body: "You share the unit (G-Force / Easy Arm), nameplate if available, symptoms and urgency – form, email or phone.",
+        body: "You describe the unit, symptoms and urgency – via form, email or phone.",
       },
       {
         title: "2. Assessment",
-        body: "We classify the Gorbel issue and state clearly what makes sense: remote diagnosis, spare part, workshop or on-site visit.",
+        body: "We classify the request and state clearly what makes sense: remote diagnosis, maintenance, repair, spare part or on-site visit.",
       },
       {
         title: "3. Execution",
-        body: "Part from the European stock, repair or service visit – aligned with your maintenance team and documented.",
+        body: "Service visit, workshop repair or parts delivery – aligned with your team and documented.",
       },
       {
         title: "4. Back in operation",
-        body: "Goal: a stable G-Force or Easy Arm system – and a European contact for the next case.",
+        body: "The goal is a stable G-Force system and a reliable European contact for the future.",
       },
     ],
-    devicesTitle: "Equipment we support",
+    devicesTitle: "Systems in focus",
     devicesBody:
-      "Specialised in the Gorbel family in European installations – intelligent cable balancers and lift assists.",
+      "Specialised in Gorbel G-Force in the European installed base – intelligent lifting / assist systems.",
     devices: [
       "Gorbel G-Force",
-      "Gorbel Easy Arm",
-      "Accessories & wear parts",
-      "Controls, sensing & replacement components",
+      "Maintenance & inspection",
+      "Repair & overhaul",
+      "Spare parts & components",
     ],
-    ctaTitle: "Describe the Gorbel issue – we will respond",
+    ctaTitle: "Report a service need",
     ctaBody:
-      "The more precise the nameplate, fault pattern and photos, the faster diagnostics and part recommendations.",
-    ctaButton: "Request Gorbel service",
+      "The more precise the nameplate, fault pattern and photos, the faster we can assess maintenance, repair or spare parts.",
+    ctaButton: "Request G-Force service",
   },
   contact: {
-    eyebrow: "Contact – Gorbel Service Europe",
-    title: "Talk to the European Gorbel service team",
+    eyebrow: "Contact",
+    title: "Talk to the G-Force service team",
     intro:
-      "Two locations in Germany – one goal: get your Gorbel G-Force and Easy Arm systems back to reliable operation. Send maintenance, production or engineering requests – we answer clearly and practically.",
+      "Two locations in Germany – one shared goal: maintain, repair and supply spare parts for your Gorbel G-Force systems reliably. Requests from maintenance, production and engineering are welcome.",
     locationsTitle: "Service locations",
-    formTitle: "Send a Gorbel service request",
+    formTitle: "Send a service request",
     formName: "Name",
     formCompany: "Company",
     formEmail: "Email",
     formPhone: "Phone",
-    formMessage:
-      "Issue (G-Force/Easy Arm unit, symptoms, urgency)",
+    formMessage: "Issue (G-Force unit, symptoms, urgency)",
     formSubmit: "Send request",
     formHint:
-      "Note: the form opens your email app with a pre-filled message to Gorbel service.",
+      "Note: the form opens your email app with a pre-filled message to the service team.",
     formSuccess: "Thank you – your email app should have opened.",
     hoursTitle: "Availability",
     hoursBody:
-      "Requests are handled on business days. For production stoppages caused by G-Force/Easy Arm, please mark urgency in the subject line.",
+      "Requests are handled on business days. For production stoppages caused by a G-Force unit, please mark urgency in the subject line.",
   },
   footer: {
     tagline:
-      "European service, repair and spare parts for Gorbel G-Force and Easy Arm.",
+      "Service, maintenance, repair and spare-parts supply for Gorbel G-Force in Europe.",
     rights: "All rights reserved.",
     locations: "Locations",
     links: "Navigation",
@@ -368,176 +367,176 @@ const en: LocaleContent = {
 
 const zh: LocaleContent = {
   meta: {
-    title:
-      "Gorbel 欧洲服务 – G-Force / Easy Arm 维修、服务与备件",
+    title: "Gorbel G-Force 欧洲服务 – 维护、维修与备件供应",
     description:
-      "为欧洲 Gorbel G-Force 与 Easy Arm 提供专业服务、维修与备件。完整欧洲备件库。WiMa（Wetter）与 SAS（Hohndorf）。",
+      "为欧洲 Gorbel G-Force 提供专业服务、维护、维修与备件供应。WiMa（Wetter）与 SAS（Hohndorf）——长期服务在役设备。",
   },
   nav: {
     home: "首页",
     about: "关于我们",
-    service: "Gorbel 服务",
+    service: "G-Force 服务",
     contact: "联系",
-    cta: "申请 Gorbel 支持",
+    cta: "申请服务",
   },
   home: {
-    eyebrow: "欧洲 Gorbel 服务伙伴",
-    heroTitle: "Gorbel G-Force 与 Easy Arm 的服务、维修与备件",
+    eyebrow: "欧洲 G-Force 服务伙伴",
+    heroTitle: "为您的欧洲 Gorbel G-Force 系统提供专业服务",
     heroSubtitle:
-      "当您的 G-Force 或 Easy Arm 出现故障时——我们就是能帮您的团队。欧洲本地的专业服务与维修，依托完整收购的欧洲备件库。WiMa（Wetter）与 SAS（Hohndorf）——在官方 Gorbel 支持缺失时的可靠联系人。",
-    heroCtaPrimary: "报告问题",
-    heroCtaSecondary: "了解 Gorbel 服务",
-    trustLabel: "维保与生产负责人选择我们的原因",
+      "Gorbel G-Force 的维护、维修与备件供应——统一对接。WiMa（Wetter）与 SAS（Hohndorf）长期为在役设备提供合格服务。当欧洲官方 Gorbel 技术支持不可用时，我们是您经验丰富的联系方。",
+    heroCtaPrimary: "申请服务",
+    heroCtaSecondary: "服务详情",
+    trustLabel: "面向维保与生产团队",
     trustItems: [
-      "专注：Gorbel G-Force 与 Easy Arm——不做其它",
-      "完整欧洲备件库存（e-Motion 退出 / Gorbel 停止欧洲支持之后）",
-      "多年诊断、维修与重新投运实战经验",
-      "德国两地布局——响应清晰、直接",
+      "专注：Gorbel G-Force——服务、维护、维修",
+      "多年欧洲在役设备实战经验",
+      "来自已接管欧洲备件库的备件供应",
+      "地点：Wetter（北威州）与 Hohndorf（萨克森）",
     ],
-    valueTitle: "当 G-Force 或 Easy Arm 出问题",
+    valueTitle: "可靠支持您的 G-Force 设备",
     valueSubtitle:
-      "多数用户并不知道欧洲仍有专业的 Gorbel 服务能力。这正是我们的工作：用备件、技术与明确步骤，让设备恢复生产。",
+      "许多用户目前在欧洲没有官方的 Gorbel G-Force 技术支持。我们提供您所需的：经验丰富的技术团队、清晰流程与匹配的备件供应。",
     values: [
       {
-        title: "欧洲 Gorbel 备件库",
-        body: "在 e-Motion Handlingsysteme 退出市场、Gorbel 停止欧洲技术支持后，完整欧洲备件库被收购。关键 G-Force 与 Easy Arm 部件仍可在欧洲获取。",
+        title: "服务、维护与维修",
+        body: "专业诊断、计划维护与规范维修 Gorbel G-Force 系统——可在车间或现场进行，并与您的维保与生产团队对齐。",
       },
       {
-        title: "专业服务与维修",
-        body: "WiMa 与 SAS 长期维护与维修 Gorbel G-Force 和 Easy Arm：故障诊断、车间与现场维修、易损件与投运——服务维保与生产团队。",
+        title: "欧洲备件供应",
+        body: "WiMa 与 SAS 接管了完整欧洲备件库，可可靠供应 G-Force 部件——作为技术服务的补充，而非唯一业务故事。",
       },
       {
-        title: "无官方支持时的帮助",
-        body: "无需绕道美国原厂。您对接的是了解系统、并持有备件的技术团队。地点：Wetter（北威州）与 Hohndorf（萨克森）。",
+        title: "在役设备经验",
+        body: "我们熟悉实际系统：故障受理、修复与恢复运行。德国两处可触达基地——服务全欧洲客户。",
       },
     ],
-    storyTitle: "我们为何存在：欧洲 Gorbel 服务断层",
+    storyTitle: "客户为何信赖我们作为服务伙伴",
     storyBody:
-      "Gorbel（美国）停止欧洲技术支持，原 e-Motion Handlingsysteme 已不存在。完整欧洲备件库被收购。WiMa Industrie-Automation GmbH 与 SAS Sauer-Automation Sachsen 现共同提供 G-Force 与 Easy Arm 的专业服务——避免您的生产线找不到服务方。",
-    ctaTitle: "G-Force 或 Easy Arm 故障？",
+      "Gorbel（美国）已停止欧洲技术支持。原 e-Motion Handlingsysteme 已不存在。WiMa Industrie-Automation GmbH 与 SAS Sauer-Automation Sachsen 多年来为 Gorbel G-Force 系统提供合格服务，并另外接管了完整欧洲备件库——使在役设备能继续得到专业维护、维修与备件供应。",
+    ctaTitle: "G-Force 设备出现问题？",
     ctaBody:
-      "请说明设备型号、现象与紧急程度。我们将就诊断、备件与维修给出明确回复。",
-    ctaButton: "立即申请 Gorbel 服务",
+      "请说明设备、现象与紧急程度。我们将就服务、维护、维修或备件给出明确评估。",
+    ctaButton: "立即申请服务",
   },
   about: {
-    eyebrow: "关于我们 – 欧洲 Gorbel 服务",
-    title: "WiMa 与 SAS：您的欧洲 Gorbel 服务方",
+    eyebrow: "关于我们",
+    title: "WiMa 与 SAS——您在欧洲的 G-Force 服务方",
     intro:
-      "我们不是泛化的自动化商店。我们的焦点：为 Gorbel G-Force 与 Easy Arm 提供专业服务、维修与备件——服务欧洲的维保与生产负责人。",
-    storyTitle: "我们如何成为 Gorbel 服务伙伴",
+      "我们是经验丰富的工业伙伴，专注 Gorbel G-Force 系统的专业服务：维护、维修与备件供应，服务欧洲在役安装。",
+    storyTitle: "我们作为服务伙伴的角色",
     storyBody: [
-      "当 Gorbel 结束欧洲技术支持、e-Motion Handlingsysteme 退出市场后，许多 G-Force 与 Easy Arm 设备失去了明确的服务伙伴——尽管设备在日常生产中仍不可或缺。",
-      "两年前完整欧洲备件库被收购。此后 WiMa Industrie-Automation GmbH（Wetter）与 SAS Sauer-Automation Sachsen（Hohndorf）共同承担实务服务：从故障受理、备件识别到维修与恢复运行。",
-      "我们的使命：让这项 Gorbel 服务能力被看见——让维保主管与生产经理在关键时刻找到正确伙伴，而不是漫长寻路。",
+      "Gorbel 停止了欧洲技术支持，原 e-Motion Handlingsysteme 已不存在。许多用户随之面临：谁来维护与维修我们的 G-Force 系统——谁来供应备件？",
+      "WiMa Industrie-Automation GmbH（Wetter）与 SAS Sauer-Automation Sachsen（Hohndorf）多年来为这些系统提供合格服务。此外还接管了完整欧洲备件库——使技术服务与备件供应相互匹配。",
+      "我们的承诺：为维保与生产负责人提供可靠、专业的欧洲联系方——清晰、务实、避免不必要绕路。",
     ],
-    companiesTitle: "服务伙伴",
+    companiesTitle: "合作伙伴",
     companiesSubtitle:
-      "德国两处基地——共同服务 Gorbel G-Force 与 Easy Arm。",
+      "德国两处基地——共同专注 Gorbel G-Force 服务。",
     wimaRole:
-      "工业自动化与 Gorbel 服务，专注可靠生产流程——位于 Wetter（鲁尔区），邮编 58300。",
+      "工业自动化与 G-Force 服务，专注可靠生产流程——位于 Wetter（鲁尔区），邮编 58300。",
     sasRole:
-      "来自萨克森的自动化与 Gorbel 服务——位于 Hohndorf，邮编 09394，贴近中型制造。",
+      "来自萨克森的自动化与 G-Force 服务——位于 Hohndorf，邮编 09394，贴近中型制造。",
     factsTitle: "一览",
     facts: [
       {
         title: "设备范围",
-        body: "专注 Gorbel G-Force 与 Easy Arm——欧洲在役智能提升 / 助力系统。",
+        body: "欧洲在役 Gorbel G-Force 系统——专业服务与维护。",
       },
       {
         title: "服务内容",
-        body: "专业服务、维修、欧洲备件、维护及现场支持。",
+        body: "服务、维护、维修与备件供应——按设备与紧急程度匹配。",
       },
       {
-        title: "为何重要",
-        body: "欧洲已无官方 Gorbel 支持——我们用备件与系统认知填补空白。",
+        title: "经验",
+        body: "WiMa 与 SAS 多年服务在役安装的实践经验。",
       },
       {
         title: "服务对象",
-        body: "必须保持 G-Force / Easy Arm 稳定运行的维保经理、生产负责人与技术团队。",
+        body: "在欧洲没有官方 Gorbel 支持的维保经理、生产负责人与技术团队。",
       },
     ],
   },
   service: {
-    eyebrow: "Gorbel 服务",
-    title: "G-Force / Easy Arm 出问题时我们如何帮助",
+    eyebrow: "G-Force 服务",
+    title: "Gorbel G-Force 的维护、维修与备件",
     intro:
-      "无论产线停机、运行不稳、故障代码还是磨损：我们为您的 Gorbel 设备理顺诊断、备件与维修——清晰、工业、务实。",
-    helpTitle: "典型 Gorbel 需求",
+      "从产线停机到计划维护：我们以技术服务与匹配的备件供应支持您的 G-Force 系统。",
+    helpTitle: "我们的服务",
     helpIntro:
-      "这正是我们存在的意义——尤其在原欧洲原厂支持与 e-Motion 均不可达时。",
+      "这正是我们的工作——尤其当您目前在欧洲没有官方的 Gorbel G-Force 技术支持时。",
     helpItems: [
       {
-        title: "G-Force / Easy Arm 故障与停机",
-        body: "无响应、失控运动或故障状态。我们受理、分级并推进技术判定——始终考虑您的生产影响。",
+        title: "故障与维修",
+        body: "停机、故障提示或不稳定运行：我们受理、诊断并在车间或现场实施修复。",
       },
       {
-        title: "来自欧洲的 Gorbel 备件",
-        body: "来自完整收购欧洲库的部件，并协助识别与您 G-Force 或 Easy Arm 型号匹配的零件。",
+        title: "维护",
+        body: "计划性与按需维护，保障 G-Force 系统在日常生产中可靠运行。",
       },
       {
-        title: "维修与维护",
-        body: "具备多年 Gorbel 系统经验的技术员提供车间与现场服务——而非仅通用电气维修。",
+        title: "备件供应",
+        body: "来自已接管的完整欧洲备件库——并协助识别与您设备型号匹配的部件。",
       },
       {
         title: "投运与咨询",
-        body: "搬迁、改造或停用后：务实支持，使 G-Force 或 Easy Arm 重新可靠运行。",
+        body: "改造、停用或搬迁后的务实支持——清晰，并与您的维保团队对齐。",
       },
     ],
-    processTitle: "Gorbel 服务流程",
-    processSubtitle: "从首次报修到恢复运行，透明高效。",
+    processTitle: "我们如何与您协作",
+    processSubtitle: "从首次报修到恢复运行，透明可追溯。",
     steps: [
       {
         title: "1. 提出需求",
-        body: "说明设备（G-Force / Easy Arm）、铭牌（如有）、现象与紧急程度——表单、邮件或电话。",
+        body: "说明设备、现象与紧急程度——表单、邮件或电话。",
       },
       {
         title: "2. 评估",
-        body: "我们判定 Gorbel 问题并明确下一步：远程诊断、备件、返修或现场。",
+        body: "我们判定需求并明确下一步：远程诊断、维护、维修、备件或现场。",
       },
       {
         title: "3. 实施",
-        body: "欧洲库存备件、维修或上门——与维保团队对齐并留痕。",
+        body: "上门服务、车间维修或备件交付——与您的团队对齐并留痕。",
       },
       {
         title: "4. 恢复运行",
-        body: "目标：稳定的 G-Force 或 Easy Arm——以及下次仍可联系的欧洲服务方。",
+        body: "目标是稳定运行的 G-Force 系统，以及未来可联系的欧洲服务方。",
       },
     ],
-    devicesTitle: "我们支持的设备",
+    devicesTitle: "重点系统",
     devicesBody:
-      "专注欧洲在役 Gorbel 系列——智能钢丝绳平衡器与助力提升系统。",
+      "专注欧洲在役 Gorbel G-Force——智能提升 / 助力系统。",
     devices: [
       "Gorbel G-Force",
-      "Gorbel Easy Arm",
-      "附件与易损件",
-      "控制、传感与替换部件",
+      "维护与检查",
+      "维修与修复",
+      "备件与组件",
     ],
-    ctaTitle: "描述 Gorbel 问题——我们会回复",
-    ctaBody: "铭牌、故障现象与照片越准确，诊断与备件建议越快。",
-    ctaButton: "申请 Gorbel 服务",
+    ctaTitle: "提交服务需求",
+    ctaBody:
+      "铭牌、故障现象与照片越准确，对维护、维修或备件的评估越快。",
+    ctaButton: "申请 G-Force 服务",
   },
   contact: {
-    eyebrow: "联系 – 欧洲 Gorbel 服务",
-    title: "联系欧洲 Gorbel 服务团队",
+    eyebrow: "联系",
+    title: "联系 G-Force 服务团队",
     intro:
-      "德国两处基地，同一目标：让您的 Gorbel G-Force 与 Easy Arm 重新可靠运行。欢迎维保、生产或工程团队提出需求——我们回复清晰、务实。",
+      "德国两处基地，同一目标：可靠地维护、维修并为您的 Gorbel G-Force 系统供应备件。欢迎维保、生产与工程团队提出需求。",
     locationsTitle: "服务地点",
-    formTitle: "发送 Gorbel 服务请求",
+    formTitle: "发送服务请求",
     formName: "姓名",
     formCompany: "公司",
     formEmail: "邮箱",
     formPhone: "电话",
-    formMessage: "问题（G-Force/Easy Arm 设备、现象、紧急程度）",
+    formMessage: "问题（G-Force 设备、现象、紧急程度）",
     formSubmit: "发送请求",
-    formHint: "说明：表单会打开邮件应用并预填 Gorbel 服务邮件内容。",
+    formHint: "说明：表单会打开邮件应用并预填服务邮件内容。",
     formSuccess: "谢谢——应已打开邮件应用。",
     hoursTitle: "可联系时间",
     hoursBody:
-      "工作日处理询价。若 G-Force/Easy Arm 导致产线停机，请在主题中标注紧急。",
+      "工作日处理询价。若 G-Force 设备导致产线停机，请在主题中标注紧急。",
   },
   footer: {
     tagline:
-      "Gorbel G-Force 与 Easy Arm 的欧洲服务、维修与备件。",
+      "欧洲 Gorbel G-Force 的服务、维护、维修与备件供应。",
     rights: "版权所有。",
     locations: "地点",
     links: "导航",
@@ -545,7 +544,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 2,
+  version: 3,
   images: {
     hero:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",

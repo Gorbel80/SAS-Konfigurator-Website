@@ -28,7 +28,7 @@ export function ContactPage({ content, images, companies }: Props) {
 
     const to = companies.sas.email;
     const subject = encodeURIComponent(
-      `Service-Anfrage G-Force / Easy Arm – ${company || name}`,
+      `Service-Anfrage Gorbel G-Force – ${company || name}`,
     );
     const body = encodeURIComponent(
       [

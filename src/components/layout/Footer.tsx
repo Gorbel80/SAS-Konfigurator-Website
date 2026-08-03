@@ -87,7 +87,7 @@ export function Footer({ content, companies }: Props) {
             © {year} WiMa Industrie-Automation · SAS Sauer-Automation Sachsen.{" "}
             {content.footer.rights}
           </p>
-          <p className="text-anthracite-600">G-Force · Easy Arm Service EU</p>
+          <p className="text-anthracite-600">Gorbel G-Force Service EU</p>
         </div>
       </div>
     </footer>

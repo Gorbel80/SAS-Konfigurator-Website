@@ -2,7 +2,7 @@
   "name": "sas-wima-service",
   "version": "0.2.0",
   "private": true,
-  "description": "European service presentation website for Gorbel G-Force / Easy Arm (WiMa × SAS)",
+  "description": "European service presentation website for Gorbel G-Force (WiMa × SAS)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

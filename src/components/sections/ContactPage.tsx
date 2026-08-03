@@ -45,7 +45,7 @@ export function ContactPage({ content, images, companies }: Props) {
     "h-9 w-full rounded-lg border border-border bg-background px-3 text-sm outline-none transition-[border-color,box-shadow] duration-200 focus:border-accent focus:ring-2 focus:ring-accent/15";
 
   return (
-    <div className="border-b border-border bg-background">
+    <div className="bg-background">
       <div className="mx-auto max-w-5xl px-4 pt-5 pb-6 sm:px-6 sm:pt-6 sm:pb-7 lg:px-8">
         {/* Compact header row */}
         <div className="animate-fade-up mb-4 flex flex-col gap-1 sm:mb-5 sm:flex-row sm:items-end sm:justify-between sm:gap-6">

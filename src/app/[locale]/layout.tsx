@@ -48,7 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             configuratorLabel={localeContent.home.configuratorLabel}
             configuratorHint={localeContent.home.configuratorHint}
           />
-          <main className="block">
+          <main id="site-main">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer content={localeContent} companies={content.companies} />

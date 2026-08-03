@@ -41,6 +41,7 @@
   --shadow-lg: 0 18px 48px rgb(18 22 27 / 0.12);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -96,6 +97,15 @@ body {
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.011em;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
 ::selection {
@@ -138,14 +148,14 @@ button {
 
 .card-lift {
   transition:
-    transform 0.35s var(--ease-out-soft),
-    box-shadow 0.35s var(--ease-out-soft),
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo),
     border-color 0.3s var(--ease-out-soft);
 }
 
 .card-lift:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 40px -16px rgb(18 22 27 / 0.18);
   border-color: var(--anthracite-300);
 }
 
@@ -170,11 +180,11 @@ button {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.65s var(--ease-out-soft) both;
+  animation: fade-up 0.7s var(--ease-out-expo) both;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.5s var(--ease-out-soft) both;
+  animation: fade-in 0.55s var(--ease-out-soft) both;
 }
 
 .animate-delay-1 {

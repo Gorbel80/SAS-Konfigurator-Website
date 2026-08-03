@@ -18,7 +18,7 @@ export function PageTransition({
     <div
       key={pathname}
       className={cn(
-        "animate-fade-up motion-reduce:animate-none",
+        "animate-fade-in motion-reduce:animate-none",
         className,
       )}
     >

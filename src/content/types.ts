@@ -36,7 +36,10 @@ export type LocaleContent = {
   };
   nav: {
     home: string;
+    /** Was WiMa / SAS machen */
     offerings: string;
+    /** Service, Ersatzteile, eigene Hebezeuge */
+    products: string;
     contact: string;
     cta: string;
   };

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { AboutCompanyPage } from "@/components/sections/AboutCompanyPage";
+import { OfferingsPage } from "@/components/sections/OfferingsPage";
 import { readContent } from "@/lib/content-store";
 import type { Locale } from "@/content/types";
 
@@ -13,11 +13,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const content = await readContent();
   const t = content.locales[locale as Locale];
   return {
-    title: t.home.whoTitle,
-    description: t.home.whoBody,
+    title: t.offerings.title,
+    description: t.offerings.intro,
   };
 }
 
+/** Service · G-Force®/Easy Arm® parts · own lifts */
 export default async function Page({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -25,10 +26,6 @@ export default async function Page({ params }: Props) {
   const localeContent = content.locales[locale as Locale];
 
   return (
-    <AboutCompanyPage
-      content={localeContent}
-      images={content.images}
-      companies={content.companies}
-    />
+    <OfferingsPage content={localeContent} images={content.images} />
   );
 }

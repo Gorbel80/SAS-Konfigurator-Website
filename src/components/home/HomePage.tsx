@@ -10,18 +10,9 @@ type Props = {
   companies: SiteContent["companies"];
 };
 
-const offerBlocks = [
-  { key: "service" as const, image: "service" as const },
-  { key: "parts" as const, image: "parts" as const },
-  { key: "lifts" as const, image: "lifts" as const },
-];
-
 export function HomePage({ content, images, companies }: Props) {
-  const o = content.offerings;
-
   return (
     <div className="flex-1 bg-background">
-      {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0">
           <Image
@@ -58,7 +49,6 @@ export function HomePage({ content, images, companies }: Props) {
               hint={content.home.configuratorHint}
               size="hero"
             />
-
             <Link
               href="/contact"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.07] px-5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/35 hover:bg-white/12"
@@ -70,114 +60,46 @@ export function HomePage({ content, images, companies }: Props) {
         </div>
       </section>
 
-      {/* 1. Leistungen first */}
-      <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-10 lg:px-8">
-          <div className="animate-fade-up mb-5 flex flex-col gap-2 sm:mb-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-                {content.nav.offerings}
-              </p>
-              <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
-                {o.title}
-              </h2>
-              <p className="mt-1.5 max-w-xl text-sm text-anthracite-500">
-                {o.intro}
-              </p>
-            </div>
-            <Link
-              href="/leistungen"
-              className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-anthracite-900 transition-colors hover:text-accent"
-            >
-              {o.ctaLabel}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <p className="animate-fade-up animate-delay-1 mb-4 rounded-lg border border-accent/15 bg-accent-muted/50 px-3 py-2 text-xs font-medium leading-relaxed text-anthracite-700 sm:text-sm">
-            {o.journeyNote}
-          </p>
-
-          <div className="grid gap-3 sm:grid-cols-3 sm:gap-3.5">
-            {offerBlocks.map((b, i) => {
-              const block = o[b.key];
-              return (
-                <article
-                  key={b.key}
-                  className={`animate-fade-up card-lift overflow-hidden rounded-2xl border border-border bg-background shadow-sm ${
-                    i === 1
-                      ? "animate-delay-1"
-                      : i === 2
-                        ? "animate-delay-2"
-                        : ""
-                  }`}
-                >
-                  <div className="img-zoom relative aspect-[16/10]">
-                    <Image
-                      src={images[b.image]}
-                      alt=""
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                    />
-                  </div>
-                  <div className="p-3.5">
-                    <h3 className="text-sm font-semibold tracking-tight text-anthracite-900">
-                      {block.title}
-                    </h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-anthracite-500 sm:text-[0.8125rem]">
-                      {block.body}
-                    </p>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Über uns after */}
-      <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-10 lg:px-8">
-        <div className="grid gap-7 lg:grid-cols-2 lg:items-stretch lg:gap-9">
-          <div className="animate-fade-up flex flex-col">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-              SAS × WiMa
+      {/* Compact path into the two content pages */}
+      <section className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-9 lg:px-8">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Link
+            href="/angebot"
+            className="card-lift group rounded-2xl border border-border bg-surface p-5 shadow-sm"
+          >
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">
+              {content.nav.products}
             </p>
-            <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
+            <h2 className="mt-2 text-lg font-semibold tracking-tight text-anthracite-900">
+              {content.offerings.title}
+            </h2>
+            <p className="mt-1.5 text-sm leading-relaxed text-anthracite-500">
+              {content.offerings.intro}
+            </p>
+            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-anthracite-900 transition-colors group-hover:text-accent">
+              {content.offerings.ctaLabel}
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          </Link>
+
+          <Link
+            href="/leistungen"
+            className="card-lift group rounded-2xl border border-border bg-surface p-5 shadow-sm"
+          >
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">
+              {content.nav.offerings}
+            </p>
+            <h2 className="mt-2 text-lg font-semibold tracking-tight text-anthracite-900">
               {content.home.whoTitle}
             </h2>
-            <p className="mt-2.5 text-sm leading-relaxed text-anthracite-500">
+            <p className="mt-1.5 line-clamp-3 text-sm leading-relaxed text-anthracite-500">
               {content.home.whoBody}
             </p>
-
-            <div className="mt-5 grid content-start gap-2.5 sm:grid-cols-2">
-              {[companies.wima, companies.sas].map((c) => (
-                <div
-                  key={c.name}
-                  className="card-lift rounded-2xl border border-border bg-surface px-3.5 py-3 shadow-sm"
-                >
-                  <p className="text-sm font-semibold tracking-tight text-anthracite-900">
-                    {c.name}
-                  </p>
-                  <p className="mt-1 text-sm text-anthracite-500">
-                    {c.postal} {c.city}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="animate-fade-up animate-delay-1 min-h-[12rem] lg:min-h-0">
-            <div className="img-zoom relative h-full min-h-[12rem] overflow-hidden rounded-2xl border border-border shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)] lg:min-h-full">
-              <Image
-                src={images.side}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-          </div>
+            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-anthracite-900 transition-colors group-hover:text-accent">
+              {companies.wima.city} · {companies.sas.city}
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          </Link>
         </div>
       </section>
     </div>

@@ -42,6 +42,12 @@ export function Footer({ content, companies }: Props) {
             {content.nav.offerings}
           </Link>
           <Link
+            href="/angebot"
+            className="text-anthracite-300 transition-colors hover:text-white"
+          >
+            {content.nav.products}
+          </Link>
+          <Link
             href="/contact"
             className="text-anthracite-300 transition-colors hover:text-white"
           >

@@ -4,8 +4,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-/** Legacy path → Leistungen */
+/** Legacy path → Angebot (product/service offerings) */
 export default async function Page({ params }: Props) {
   const { locale } = await params;
-  redirect(`/${locale}/leistungen`);
+  redirect(`/${locale}/angebot`);
 }

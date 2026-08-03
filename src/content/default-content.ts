@@ -41,6 +41,7 @@ const de: LocaleContent = {
   nav: {
     home: "Start",
     offerings: "Leistungen",
+    products: "Angebot",
     contact: "Kontakt",
     cta: "Kontakt",
   },
@@ -64,7 +65,7 @@ const de: LocaleContent = {
     contactCta: "Jetzt anfragen",
   },
   offerings: {
-    title: "Leistungen",
+    title: "Angebot",
     intro:
       "Service, Gorbel-Ersatzteile und eigene Hebezeuge – klar und praxisnah.",
     journeyNote:
@@ -176,7 +177,8 @@ const en: LocaleContent = {
   },
   nav: {
     home: "Home",
-    offerings: "Solutions",
+    offerings: "What we do",
+    products: "Solutions",
     contact: "Contact",
     cta: "Contact",
   },
@@ -201,7 +203,8 @@ const en: LocaleContent = {
   },
   offerings: {
     title: "Solutions",
-    intro: "Service, Gorbel spare parts and our own lifting systems – clear and practical.",
+    intro:
+      "Service, Gorbel spare parts and our own lifting systems – clear and practical.",
     journeyNote:
       "Most customers first come for G-Force® or Easy Arm® spare parts – then discover our own rope and chain hoists.",
     service: {
@@ -311,7 +314,8 @@ const zh: LocaleContent = {
   },
   nav: {
     home: "首页",
-    offerings: "服务方案",
+    offerings: "我们做什么",
+    products: "服务方案",
     contact: "联系",
     cta: "联系",
   },
@@ -438,7 +442,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 14,
+  version: 15,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",

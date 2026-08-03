@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { Section, SectionHeading } from "@/components/ui/Section";
+import { PageHero } from "@/components/layout/PageHero";
+import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import type { LocaleContent, SiteContent } from "@/content/types";
@@ -10,11 +10,11 @@ import { useState } from "react";
 
 type Props = {
   content: LocaleContent;
-  images: SiteContent["images"];
+  images?: SiteContent["images"];
   companies: SiteContent["companies"];
 };
 
-export function ContactPage({ content, images, companies }: Props) {
+export function ContactPage({ content, companies }: Props) {
   const [sent, setSent] = useState(false);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -53,40 +53,25 @@ export function ContactPage({ content, images, companies }: Props) {
 
   return (
     <>
-      <Section className="pb-8">
-        <Reveal>
-          <SectionHeading
-            eyebrow={content.contact.eyebrow}
-            title={content.contact.title}
-            subtitle={content.contact.intro}
-          />
-        </Reveal>
-        <Reveal delay={60}>
-          <div className="relative mb-12 aspect-[21/8] overflow-hidden rounded-2xl border border-border">
-            <Image
-              src={images.contact}
-              alt=""
-              fill
-              priority
-              className="object-cover"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-anthracite-950/35" />
-          </div>
-        </Reveal>
+      <PageHero
+        eyebrow={content.contact.eyebrow}
+        title={content.contact.title}
+        subtitle={content.contact.intro}
+      />
 
-        <div className="grid gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-5">
-            <h3 className="text-lg font-semibold text-anthracite-900">
+      <Section>
+        <div className="grid gap-6 lg:grid-cols-12">
+          <div className="lg:col-span-5 space-y-4">
+            <h2 className="text-base font-semibold text-anthracite-900">
               {content.contact.locationsTitle}
-            </h3>
+            </h2>
             {locations.map(({ key, data }, i) => (
-              <Reveal key={key} delay={i * 80}>
-                <Card className="h-full">
-                  <p className="text-base font-semibold text-anthracite-900">
+              <Reveal key={key} delay={i * 50}>
+                <Card className="p-4">
+                  <p className="text-sm font-semibold text-anthracite-900">
                     {data.legalName}
                   </p>
-                  <div className="mt-4 space-y-3 text-sm text-anthracite-500">
+                  <div className="mt-3 space-y-2.5 text-sm text-anthracite-500">
                     <p className="flex gap-2">
                       <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                       <span>
@@ -99,7 +84,10 @@ export function ContactPage({ content, images, companies }: Props) {
                     </p>
                     <p className="flex items-center gap-2">
                       <Phone className="h-4 w-4 shrink-0 text-accent" />
-                      <a href={`tel:${data.phone}`} className="hover:text-anthracite-900">
+                      <a
+                        href={`tel:${data.phone}`}
+                        className="hover:text-anthracite-900"
+                      >
                         {data.phone}
                       </a>
                     </p>
@@ -107,7 +95,7 @@ export function ContactPage({ content, images, companies }: Props) {
                       <Mail className="h-4 w-4 shrink-0 text-accent" />
                       <a
                         href={`mailto:${data.email}`}
-                        className="hover:text-anthracite-900 break-all"
+                        className="break-all hover:text-anthracite-900"
                       >
                         {data.email}
                       </a>
@@ -117,7 +105,7 @@ export function ContactPage({ content, images, companies }: Props) {
                     href={data.mapUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-anthracite-900 hover:text-accent"
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-anthracite-900 hover:text-accent"
                   >
                     Google Maps
                     <ExternalLink className="h-3.5 w-3.5" />
@@ -126,72 +114,75 @@ export function ContactPage({ content, images, companies }: Props) {
               </Reveal>
             ))}
 
-            <Reveal delay={160}>
-              <Card className="bg-accent-muted border-accent/20">
+            <Reveal delay={120}>
+              <Card className="border-accent/20 bg-accent-muted p-4">
                 <p className="text-sm font-semibold text-anthracite-900">
                   {content.contact.hoursTitle}
                 </p>
-                <p className="mt-2 text-sm text-anthracite-600">
+                <p className="mt-1.5 text-sm text-anthracite-600">
                   {content.contact.hoursBody}
                 </p>
               </Card>
             </Reveal>
           </div>
 
-          <Reveal delay={100} className="lg:col-span-7">
-            <Card className="h-full">
-              <h3 className="text-lg font-semibold text-anthracite-900">
+          <Reveal delay={60} className="lg:col-span-7">
+            <Card className="p-5 md:p-6">
+              <h2 className="text-base font-semibold text-anthracite-900">
                 {content.contact.formTitle}
-              </h3>
-              <form onSubmit={onSubmit} className="mt-6 grid gap-4 sm:grid-cols-2">
-                <label className="block text-sm sm:col-span-1">
-                  <span className="mb-1.5 block font-medium text-anthracite-700">
+              </h2>
+              <form
+                onSubmit={onSubmit}
+                className="mt-4 grid gap-3 sm:grid-cols-2"
+              >
+                <label className="block text-sm">
+                  <span className="mb-1 block font-medium text-anthracite-700">
                     {content.contact.formName}
                   </span>
                   <input
                     name="name"
                     required
-                    className="h-11 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
                   />
                 </label>
-                <label className="block text-sm sm:col-span-1">
-                  <span className="mb-1.5 block font-medium text-anthracite-700">
+                <label className="block text-sm">
+                  <span className="mb-1 block font-medium text-anthracite-700">
                     {content.contact.formCompany}
                   </span>
                   <input
                     name="company"
-                    className="h-11 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
                   />
                 </label>
-                <label className="block text-sm sm:col-span-1">
-                  <span className="mb-1.5 block font-medium text-anthracite-700">
+                <label className="block text-sm">
+                  <span className="mb-1 block font-medium text-anthracite-700">
                     {content.contact.formEmail}
                   </span>
                   <input
                     name="email"
                     type="email"
                     required
-                    className="h-11 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
                   />
                 </label>
-                <label className="block text-sm sm:col-span-1">
-                  <span className="mb-1.5 block font-medium text-anthracite-700">
+                <label className="block text-sm">
+                  <span className="mb-1 block font-medium text-anthracite-700">
                     {content.contact.formPhone}
                   </span>
                   <input
                     name="phone"
-                    className="h-11 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
+                    className="h-10 w-full rounded-xl border border-border bg-background px-3 outline-none focus:border-accent"
                   />
                 </label>
                 <label className="block text-sm sm:col-span-2">
-                  <span className="mb-1.5 block font-medium text-anthracite-700">
+                  <span className="mb-1 block font-medium text-anthracite-700">
                     {content.contact.formMessage}
                   </span>
                   <textarea
                     name="message"
                     required
-                    rows={5}
-                    className="w-full rounded-xl border border-border bg-background px-3 py-2.5 outline-none focus:border-accent"
+                    rows={4}
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2 outline-none focus:border-accent"
                   />
                 </label>
                 <div className="sm:col-span-2">
@@ -201,7 +192,7 @@ export function ContactPage({ content, images, companies }: Props) {
                   >
                     {content.contact.formSubmit}
                   </button>
-                  <p className="mt-3 text-xs text-anthracite-400">
+                  <p className="mt-2 text-xs text-anthracite-400">
                     {content.contact.formHint}
                   </p>
                   {sent ? (

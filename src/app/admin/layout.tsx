@@ -9,7 +9,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Admin | SAS × WiMa",
+  title: "Admin | G-Force Service · SAS × WiMa",
   robots: { index: false, follow: false },
 };
 

@@ -546,18 +546,13 @@ const zh: LocaleContent = {
 export const defaultContent: SiteContent = {
   version: 3,
   images: {
-    hero:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
-    about:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=80",
-    service:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1600&q=80",
-    workshop:
-      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1600&q=80",
-    contact:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
-    warehouse:
-      "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80",
+    // Optimized own photos from SAS BILDER (see public/images/site/)
+    hero: "/images/site/hero.jpg",
+    about: "/images/site/about.jpg",
+    service: "/images/site/service.jpg",
+    workshop: "/images/site/workshop.jpg",
+    contact: "/images/site/contact.jpg",
+    warehouse: "/images/site/story.jpg",
   },
   companies: {
     wima: {

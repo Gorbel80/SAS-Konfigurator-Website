@@ -59,7 +59,7 @@ function deepLocale(
     ...base,
     ...override,
     meta: { ...base.meta, ...override.meta },
-    nav: { ...base.nav, ...override.nav, products: override.nav?.products ?? base.nav.products },
+    nav: { ...base.nav, ...override.nav },
     home: { ...base.home, ...override.home },
     offerings: {
       ...base.offerings,

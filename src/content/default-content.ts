@@ -40,8 +40,7 @@ const de: LocaleContent = {
   },
   nav: {
     home: "Start",
-    offerings: "Leistungen",
-    products: "Angebot",
+    about: "Über uns",
     contact: "Kontakt",
     cta: "Kontakt",
   },
@@ -65,7 +64,7 @@ const de: LocaleContent = {
     contactCta: "Jetzt anfragen",
   },
   offerings: {
-    title: "Angebot",
+    title: "Leistungen & Angebot",
     intro:
       "Service, Gorbel-Ersatzteile und eigene Hebezeuge – klar und praxisnah.",
     journeyNote:
@@ -177,8 +176,7 @@ const en: LocaleContent = {
   },
   nav: {
     home: "Home",
-    offerings: "What we do",
-    products: "Solutions",
+    about: "About us",
     contact: "Contact",
     cta: "Contact",
   },
@@ -202,7 +200,7 @@ const en: LocaleContent = {
     contactCta: "Contact us",
   },
   offerings: {
-    title: "Solutions",
+    title: "Solutions & offer",
     intro:
       "Service, Gorbel spare parts and our own lifting systems – clear and practical.",
     journeyNote:
@@ -314,8 +312,7 @@ const zh: LocaleContent = {
   },
   nav: {
     home: "首页",
-    offerings: "我们做什么",
-    products: "服务方案",
+    about: "关于我们",
     contact: "联系",
     cta: "联系",
   },
@@ -339,7 +336,7 @@ const zh: LocaleContent = {
     contactCta: "立即咨询",
   },
   offerings: {
-    title: "服务方案",
+    title: "服务与方案",
     intro: "服务、Gorbel 备件与自有提升设备——清晰务实。",
     journeyNote:
       "多数客户先因 G-Force® 或 Easy Arm® 备件而来——随后发现我们的自有钢丝绳与环链葫芦。",
@@ -442,7 +439,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 15,
+  version: 16,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",

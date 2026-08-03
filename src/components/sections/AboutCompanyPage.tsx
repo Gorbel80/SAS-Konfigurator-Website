@@ -105,10 +105,10 @@ export function AboutCompanyPage({ content, images, companies }: Props) {
 
         <div className="animate-fade-up animate-delay-2 mt-7 flex flex-wrap justify-center gap-3">
           <Link
-            href="/angebot"
+            href="/"
             className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-surface px-5 text-sm font-semibold text-anthracite-900 transition-colors hover:border-anthracite-300"
           >
-            {content.nav.products}
+            {content.nav.home}
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link

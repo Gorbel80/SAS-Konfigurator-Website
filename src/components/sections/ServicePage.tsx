@@ -20,7 +20,7 @@ export function ServicePage({ content, images }: Props) {
         title={content.service.title}
         subtitle={content.service.intro}
       >
-        <div className="mt-5 relative max-w-xl aspect-[21/9] overflow-hidden rounded-xl border border-border">
+        <div className="img-zoom relative mt-5 max-w-xl aspect-[21/9] overflow-hidden rounded-xl border border-border">
           <Image
             src={images.service}
             alt=""
@@ -100,7 +100,7 @@ export function ServicePage({ content, images }: Props) {
             </ul>
           </Reveal>
           <Reveal delay={80}>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10">
+            <div className="img-zoom relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10">
               <Image
                 src={images.workshop}
                 alt=""

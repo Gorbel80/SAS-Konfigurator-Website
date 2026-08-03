@@ -125,7 +125,7 @@ export function HomePage({ content, images, companies }: Props) {
       <Section className="bg-surface border-y border-border">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <Reveal>
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border shadow-md">
+            <div className="img-zoom relative aspect-[16/10] overflow-hidden rounded-2xl border border-border shadow-md">
               <Image
                 src={images.warehouse}
                 alt=""

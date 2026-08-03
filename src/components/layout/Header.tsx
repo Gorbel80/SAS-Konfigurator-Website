@@ -94,32 +94,35 @@ export function Header({ nav, brand }: Props) {
         </nav>
 
         <div className="hidden items-center gap-2.5 md:flex">
-          <LanguageSwitcher />
+          <LanguageSwitcher align="right" />
           <Link
             href="/contact"
-            className="inline-flex h-10 items-center rounded-xl bg-accent px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
+            className="inline-flex h-10 items-center rounded-xl bg-accent px-4 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-accent-hover hover:shadow-md active:scale-[0.98]"
           >
             {nav.cta}
           </Link>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-anthracite-800 md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Menü schließen" : "Menü öffnen"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher align="right" />
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-anthracite-800 transition-colors hover:bg-anthracite-50"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile full-height panel */}
       <div
         id="mobile-nav"
         className={cn(
-          "md:hidden overflow-hidden border-t border-border bg-surface transition-[max-height,opacity] duration-300 ease-out",
+          "md:hidden overflow-hidden border-t border-border bg-surface transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
           open ? "max-h-[100dvh] opacity-100" : "max-h-0 opacity-0 border-t-0",
         )}
       >
@@ -147,12 +150,11 @@ export function Header({ nav, brand }: Props) {
               );
             })}
           </nav>
-          <div className="mt-4 space-y-3 border-t border-border pt-4">
-            <LanguageSwitcher className="w-full justify-center" />
+          <div className="mt-4 border-t border-border pt-4">
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-accent px-4 text-sm font-semibold text-white"
+              className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-accent px-4 text-sm font-semibold text-white transition-all duration-200 hover:bg-accent-hover active:scale-[0.99]"
             >
               {nav.cta}
             </Link>

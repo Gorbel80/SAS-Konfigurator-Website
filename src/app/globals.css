@@ -39,6 +39,8 @@
   --shadow-sm: 0 1px 2px rgb(18 22 27 / 0.05);
   --shadow: 0 8px 24px rgb(18 22 27 / 0.08);
   --shadow-lg: 0 18px 48px rgb(18 22 27 / 0.12);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
@@ -82,6 +84,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-padding-top: 4.5rem;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -98,6 +106,18 @@ body {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Smooth interactive defaults for common controls */
+a,
+button {
+  transition:
+    color 0.2s var(--ease-out-soft),
+    background-color 0.2s var(--ease-out-soft),
+    border-color 0.2s var(--ease-out-soft),
+    box-shadow 0.25s var(--ease-out-soft),
+    transform 0.25s var(--ease-out-soft),
+    opacity 0.2s var(--ease-out-soft);
 }
 
 .bg-industrial-grid {
@@ -118,13 +138,13 @@ body {
 
 .card-lift {
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    transform 0.35s var(--ease-out-soft),
+    box-shadow 0.35s var(--ease-out-soft),
+    border-color 0.3s var(--ease-out-soft);
 }
 
 .card-lift:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
   border-color: var(--anthracite-300);
 }
@@ -132,7 +152,7 @@ body {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -140,21 +160,47 @@ body {
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .animate-fade-up {
-  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-up 0.65s var(--ease-out-soft) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s var(--ease-out-soft) both;
 }
 
 .animate-delay-1 {
-  animation-delay: 0.08s;
+  animation-delay: 0.06s;
 }
 .animate-delay-2 {
-  animation-delay: 0.16s;
+  animation-delay: 0.12s;
 }
 .animate-delay-3 {
-  animation-delay: 0.24s;
+  animation-delay: 0.18s;
 }
 .animate-delay-4 {
-  animation-delay: 0.32s;
+  animation-delay: 0.24s;
+}
+
+/* Soft image hover polish */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img,
+.img-zoom > span {
+  transition: transform 0.7s var(--ease-out-soft);
+}
+.img-zoom:hover img,
+.img-zoom:hover > span {
+  transform: scale(1.03);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -162,8 +208,15 @@ body {
     scroll-behavior: auto;
   }
   .animate-fade-up,
-  .card-lift {
+  .animate-fade-in,
+  .card-lift,
+  a,
+  button {
     animation: none !important;
     transition: none !important;
+  }
+  .img-zoom:hover img,
+  .img-zoom:hover > span {
+    transform: none !important;
   }
 }

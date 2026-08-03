@@ -25,7 +25,7 @@ export function AboutPage({ content, images, companies }: Props) {
       <Section>
         <div className="grid items-start gap-8 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-md">
+            <div className="img-zoom relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-md">
               <Image
                 src={images.about}
                 alt=""

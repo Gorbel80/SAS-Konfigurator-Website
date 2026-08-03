@@ -5,6 +5,7 @@ import { DM_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { PageTransition } from "@/components/ui/PageTransition";
 import { readContent } from "@/lib/content-store";
 import type { Locale } from "@/content/types";
 
@@ -42,7 +43,9 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="min-h-full flex flex-col font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
           <Header nav={localeContent.nav} brand="SAS × WiMa Service" />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer content={localeContent} companies={content.companies} />
         </NextIntlClientProvider>
       </body>

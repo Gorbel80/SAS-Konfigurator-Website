@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local deploy / push helpers
+.push-*
+.micro-*
+.core-batch-*
+.gpush-*
+.vercel-*
+.out-*
+.pf-*
+.vercel-deploy-files.json
+.vercel-files-core.json

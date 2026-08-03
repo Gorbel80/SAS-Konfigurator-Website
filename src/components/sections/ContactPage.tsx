@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
@@ -10,11 +11,11 @@ import { useState } from "react";
 
 type Props = {
   content: LocaleContent;
-  images?: SiteContent["images"];
+  images: SiteContent["images"];
   companies: SiteContent["companies"];
 };
 
-export function ContactPage({ content, companies }: Props) {
+export function ContactPage({ content, images, companies }: Props) {
   const [sent, setSent] = useState(false);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -57,7 +58,18 @@ export function ContactPage({ content, companies }: Props) {
         eyebrow={content.contact.eyebrow}
         title={content.contact.title}
         subtitle={content.contact.intro}
-      />
+      >
+        <div className="relative mt-5 max-w-xl aspect-[21/9] overflow-hidden rounded-xl border border-border">
+          <Image
+            src={images.contact}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 36rem"
+          />
+        </div>
+      </PageHero>
 
       <Section>
         <div className="grid gap-6 lg:grid-cols-12">

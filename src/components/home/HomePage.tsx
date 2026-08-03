@@ -63,25 +63,6 @@ export function HomePage({ content, images, companies }: Props) {
                 {content.home.heroCtaSecondary}
               </Link>
             </div>
-
-            {/* Quick jump cards — less hunting, less scroll */}
-            <div className="animate-fade-up animate-delay-4 mt-8 grid grid-cols-3 gap-2 sm:gap-3">
-              {(
-                [
-                  ["/", content.nav.home],
-                  ["/about", content.nav.about],
-                  ["/service", content.nav.service],
-                ] as const
-              ).map(([href, label]) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="rounded-xl border border-white/15 bg-white/5 px-2 py-2.5 text-center text-xs font-semibold text-white/90 backdrop-blur transition-colors hover:bg-white/10 sm:text-sm"
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
           </div>
 
           <div className="animate-fade-up animate-delay-4 lg:col-span-5">

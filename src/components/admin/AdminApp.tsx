@@ -25,14 +25,59 @@ const LOCALE_LABELS: Record<Locale, string> = {
   zh: "中文",
 };
 
-const IMAGE_LABELS: Record<ImageKey, string> = {
-  hero: "Startseite Hero",
-  about: "Über uns",
-  service: "Service",
-  workshop: "Werkstatt",
-  contact: "Kontakt",
-  warehouse: "Lager / Logistik",
-};
+/** Images mapped to public pages/sections for clear admin context */
+const IMAGE_FIELDS: {
+  key: ImageKey;
+  page: string;
+  section: string;
+  title: string;
+  description: string;
+}[] = [
+  {
+    key: "hero",
+    page: "Startseite",
+    section: "Hero-Hintergrund",
+    title: "Startseite – Hero",
+    description:
+      "Großes Hintergrundbild im Hero der Startseite (hinter dem Haupttext).",
+  },
+  {
+    key: "warehouse",
+    page: "Startseite",
+    section: "Story / Partner-Bereich",
+    title: "Startseite – Story-Bild",
+    description:
+      "Bild neben dem Story-Text (europäisches Lager / Service-Story).",
+  },
+  {
+    key: "about",
+    page: "Über uns",
+    section: "Hauptbild",
+    title: "Über uns – Hauptbild",
+    description: "Bild im oberen Bereich der Seite „Über uns“.",
+  },
+  {
+    key: "service",
+    page: "Service",
+    section: "Seitenkopf",
+    title: "Service – Kopfbild",
+    description: "Kompaktes Bild im Service-Seitenkopf unter dem Einleitungstext.",
+  },
+  {
+    key: "workshop",
+    page: "Service",
+    section: "Geräte / Werkstatt",
+    title: "Service – Werkstattbild",
+    description: "Bild im dunklen Bereich „Systeme im Fokus“ auf der Service-Seite.",
+  },
+  {
+    key: "contact",
+    page: "Kontakt",
+    section: "Seitenkopf",
+    title: "Kontakt – Kopfbild",
+    description: "Bild im Kopfbereich der Kontaktseite unter dem Einleitungstext.",
+  },
+];
 
 type Tab = "texts" | "images" | "companies";
 
@@ -142,7 +187,10 @@ export function AdminApp() {
             }
           : prev,
       );
-      setMessage(`Bild „${IMAGE_LABELS[key]}“ aktualisiert – bitte speichern.`);
+      const meta = IMAGE_FIELDS.find((f) => f.key === key);
+      setMessage(
+        `Bild „${meta?.title ?? key}“ aktualisiert – bitte speichern.`,
+      );
     } catch {
       setError("Upload fehlgeschlagen.");
     } finally {
@@ -649,65 +697,111 @@ export function AdminApp() {
         ) : null}
 
         {tab === "images" ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {(Object.keys(content.images) as ImageKey[]).map((key) => (
-              <div
-                key={key}
-                className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm"
-              >
-                <div className="relative aspect-[16/10] bg-anthracite-100">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={content.images[key]}
-                    alt={IMAGE_LABELS[key]}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="p-4">
-                  <p className="text-sm font-semibold text-anthracite-900">
-                    {IMAGE_LABELS[key]}
-                  </p>
-                  <p className="mt-1 truncate text-xs text-anthracite-400">
-                    {content.images[key]}
-                  </p>
-                  <label className="mt-3 inline-flex h-10 cursor-pointer items-center rounded-xl border border-border bg-anthracite-50 px-4 text-sm font-medium text-anthracite-800 hover:bg-anthracite-100">
-                    {uploadingKey === key ? (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    ) : null}
-                    Bild ersetzen
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) void handleUpload(key, file);
-                      }}
-                    />
-                  </label>
-                  <label className="mt-3 block text-xs font-medium text-anthracite-500">
-                    Oder Bild-URL
-                    <input
-                      value={content.images[key]}
-                      onChange={(e) =>
-                        setContent((prev) =>
-                          prev
-                            ? {
-                                ...prev,
-                                images: {
-                                  ...prev.images,
-                                  [key]: e.target.value,
-                                },
-                              }
-                            : prev,
-                        )
-                      }
-                      className={`mt-1 h-9 ${fieldClass}`}
-                    />
-                  </label>
-                </div>
-              </div>
-            ))}
+          <div className="space-y-8">
+            <p className="text-sm text-anthracite-500">
+              Jedes Bild ist fest einer Seite und einem Abschnitt zugeordnet.
+              Ersetzen Sie nur das passende Feld – die Website zeigt es dort
+              automatisch.
+            </p>
+            {(
+              [
+                "Startseite",
+                "Über uns",
+                "Service",
+                "Kontakt",
+              ] as const
+            ).map((page) => {
+              const fields = IMAGE_FIELDS.filter((f) => f.page === page);
+              if (!fields.length) return null;
+              return (
+                <section key={page}>
+                  <div className="mb-3 flex items-end justify-between gap-3 border-b border-border pb-2">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                        Seite
+                      </p>
+                      <h2 className="text-lg font-semibold text-anthracite-900">
+                        {page}
+                      </h2>
+                    </div>
+                    <p className="text-xs text-anthracite-400">
+                      {fields.length} Bild{fields.length === 1 ? "" : "er"}
+                    </p>
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {fields.map((meta) => {
+                      const key = meta.key;
+                      return (
+                        <div
+                          key={key}
+                          className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm"
+                        >
+                          <div className="relative aspect-[16/10] bg-anthracite-100">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={content.images[key]}
+                              alt={meta.title}
+                              className="h-full w-full object-cover"
+                            />
+                          </div>
+                          <div className="p-4">
+                            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+                              {meta.section}
+                            </p>
+                            <p className="mt-1 text-sm font-semibold text-anthracite-900">
+                              {meta.title}
+                            </p>
+                            <p className="mt-1 text-xs leading-relaxed text-anthracite-500">
+                              {meta.description}
+                            </p>
+                            <p className="mt-2 truncate text-[11px] text-anthracite-400">
+                              Feld: <code className="text-anthracite-600">{key}</code>
+                              {" · "}
+                              {content.images[key]}
+                            </p>
+                            <label className="mt-3 inline-flex h-10 cursor-pointer items-center rounded-xl border border-border bg-anthracite-50 px-4 text-sm font-medium text-anthracite-800 hover:bg-anthracite-100">
+                              {uploadingKey === key ? (
+                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              ) : null}
+                              Bild ersetzen
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                  const file = e.target.files?.[0];
+                                  if (file) void handleUpload(key, file);
+                                }}
+                              />
+                            </label>
+                            <label className="mt-3 block text-xs font-medium text-anthracite-500">
+                              Oder Bild-URL
+                              <input
+                                value={content.images[key]}
+                                onChange={(e) =>
+                                  setContent((prev) =>
+                                    prev
+                                      ? {
+                                          ...prev,
+                                          images: {
+                                            ...prev.images,
+                                            [key]: e.target.value,
+                                          },
+                                        }
+                                      : prev,
+                                  )
+                                }
+                                className={`mt-1 h-9 ${fieldClass}`}
+                              />
+                            </label>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
           </div>
         ) : null}
 

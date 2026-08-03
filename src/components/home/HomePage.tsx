@@ -12,7 +12,7 @@ type Props = {
 
 export function HomePage({ content, images, companies }: Props) {
   return (
-    <div className="bg-background">
+    <div className="flex-1 bg-background">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0">

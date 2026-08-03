@@ -18,7 +18,7 @@ export function PageTransition({
     <div
       key={pathname}
       className={cn(
-        "animate-fade-in motion-reduce:animate-none",
+        "flex min-h-0 flex-1 flex-col animate-fade-in motion-reduce:animate-none",
         className,
       )}
     >

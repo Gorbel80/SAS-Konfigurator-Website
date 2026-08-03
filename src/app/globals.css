@@ -110,9 +110,20 @@ body {
 
 /* Light content region; grows so footer stays at the bottom of the viewport */
 #site-main {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
   background: var(--background);
   color: var(--foreground);
+  min-height: 0;
+}
+
+/* PageTransition wrapper fills main so pages can vertical-center */
+#site-main > * {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 #site-footer {

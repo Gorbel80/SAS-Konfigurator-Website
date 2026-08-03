@@ -131,10 +131,13 @@ External landing pages can open the configurator already focused:
 
 ### Vercel (recommended)
 
-1. Push this repository to GitHub.
-2. Import the project in [Vercel](https://vercel.com) (Framework preset: Next.js).
-3. Deploy — no extra env vars required for the MVP.
-4. Optional: connect custom domain for SAS / WiMa.
+1. Push this repository to GitHub (already available at `https://github.com/Ludomon-10/sas-wima-service`).
+2. In [Vercel](https://vercel.com): **Add New Project** → **Import** `Ludomon-10/sas-wima-service`.
+3. Framework preset: **Next.js** (auto-detected). No environment variables required for the MVP.
+4. Deploy — every push to `main` will produce a production deployment.
+5. Optional: connect a custom domain for SAS / WiMa.
+
+**One-click import:** https://vercel.com/new/clone?repository-url=https://github.com/Ludomon-10/sas-wima-service
 
 ### Manual
 

@@ -9,7 +9,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Admin | G-Force Service · SAS × WiMa",
+  title: "Admin · SAS × WiMa",
   robots: { index: false, follow: false },
 };
 
@@ -20,7 +20,9 @@ export default function AdminLayout({
 }) {
   return (
     <html lang="de" className={`${dmSans.variable} h-full`}>
-      <body className="min-h-full font-sans antialiased">{children}</body>
+      <body className="min-h-full bg-background font-sans text-foreground antialiased">
+        {children}
+      </body>
     </html>
   );
 }

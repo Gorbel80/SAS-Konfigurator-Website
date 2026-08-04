@@ -43,21 +43,23 @@ export function HomePage({ content, images }: Props) {
         </Link>
       </PageHeroBanner>
 
-      <section className="mx-auto max-w-5xl px-4 py-9 sm:px-6 sm:py-10 lg:px-8">
-        <div className="animate-fade-up mb-5 max-w-2xl">
+      <section className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-10 lg:px-8">
+        <div className="animate-fade-up mb-6 max-w-3xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
             {content.nav.home}
           </p>
-          <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.35rem]">
+          <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.45rem]">
             {o.title}
           </h2>
-          <p className="mt-1.5 text-sm text-anthracite-500">{o.intro}</p>
-          <p className="mt-3 rounded-lg border border-accent/15 bg-accent-muted/50 px-3 py-2 text-xs font-medium leading-relaxed text-anthracite-700 sm:text-sm">
+          <p className="mt-1.5 text-sm text-anthracite-500 sm:text-[0.9375rem]">
+            {o.intro}
+          </p>
+          <p className="mt-3 rounded-lg border border-accent/15 bg-accent-muted/50 px-3.5 py-2.5 text-xs font-medium leading-relaxed text-anthracite-700 sm:text-sm">
             {o.journeyNote}
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-3 sm:gap-3.5">
+        <div className="grid gap-3 sm:grid-cols-3 sm:gap-3 lg:gap-3.5">
           {offerBlocks.map((b, i) => {
             const block = o[b.key];
             return (
@@ -71,7 +73,7 @@ export function HomePage({ content, images }: Props) {
                       : ""
                 }`}
               >
-                <div className="img-zoom relative aspect-[16/10]">
+                <div className="img-zoom relative aspect-[16/10] sm:aspect-[5/3]">
                   <Image
                     src={images[b.image]}
                     alt={block.title}
@@ -79,14 +81,14 @@ export function HomePage({ content, images }: Props) {
                     loading="lazy"
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 33vw"
-                    quality={70}
+                    quality={72}
                   />
                 </div>
-                <div className="p-3.5">
-                  <h3 className="text-sm font-semibold tracking-tight text-anthracite-900">
+                <div className="p-4 sm:p-5">
+                  <h3 className="text-[0.9375rem] font-semibold tracking-tight text-anthracite-900 sm:text-base">
                     {block.title}
                   </h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-anthracite-500 sm:text-[0.8125rem]">
+                  <p className="mt-2 text-sm leading-relaxed text-anthracite-500">
                     {block.body}
                   </p>
                 </div>

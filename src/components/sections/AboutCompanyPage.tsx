@@ -27,7 +27,7 @@ export function AboutCompanyPage({ content, images, companies }: Props) {
         compact
       />
 
-      <div className="mx-auto w-full max-w-5xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
         <div className="grid gap-7 lg:grid-cols-2 lg:items-stretch lg:gap-9">
           <div className="animate-fade-up order-2 lg:order-1">
             <h2 className="text-lg font-semibold tracking-tight text-anthracite-900">

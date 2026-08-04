@@ -19,8 +19,8 @@ export function OfferingsPage({ content, images }: Props) {
 
   return (
     <div className="flex flex-1 flex-col bg-background">
-      <div className="mx-auto w-full max-w-5xl px-4 py-7 sm:px-6 sm:py-8 lg:px-8">
-        <header className="animate-fade-up mb-6 max-w-2xl">
+      <div className="mx-auto w-full max-w-7xl px-4 py-7 sm:px-6 sm:py-8 lg:px-8">
+        <header className="animate-fade-up mb-6 max-w-3xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
             SAS × WiMa
           </p>
@@ -35,7 +35,7 @@ export function OfferingsPage({ content, images }: Props) {
           </p>
         </header>
 
-        <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
+        <div className="grid gap-3 sm:grid-cols-3 sm:gap-3 lg:gap-3.5">
           {blocks.map((b, i) => {
             const block = o[b.key];
             return (
@@ -45,21 +45,21 @@ export function OfferingsPage({ content, images }: Props) {
                   i === 1 ? "animate-delay-1" : i === 2 ? "animate-delay-2" : ""
                 }`}
               >
-                <div className="img-zoom relative aspect-[16/10]">
+                <div className="img-zoom relative aspect-[16/10] sm:aspect-[5/3]">
                   <Image
                     src={images[b.image]}
-                    alt=""
+                    alt={block.title}
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 33vw"
                     priority={i === 0}
                   />
                 </div>
-                <div className="p-3.5 sm:p-4">
-                  <h2 className="text-sm font-semibold tracking-tight text-anthracite-900 sm:text-base">
+                <div className="p-4 sm:p-5">
+                  <h2 className="text-[0.9375rem] font-semibold tracking-tight text-anthracite-900 sm:text-base">
                     {block.title}
                   </h2>
-                  <p className="mt-1.5 text-xs leading-relaxed text-anthracite-500 sm:text-sm">
+                  <p className="mt-2 text-sm leading-relaxed text-anthracite-500">
                     {block.body}
                   </p>
                 </div>

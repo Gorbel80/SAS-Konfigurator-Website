@@ -60,7 +60,7 @@ export function Header({
           : "border-border/60 bg-surface/88 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-3 px-4 sm:h-[3.75rem] sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-[3.75rem] sm:px-6 lg:px-8">
         <Link
           href="/"
           className="group flex min-w-0 items-center gap-2.5"

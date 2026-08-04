@@ -1,0 +1,14 @@
+{
+  "name": "sas-konfigurator-website-monorepo",
+  "private": true,
+  "description": "Monorepo root – deploy uses website/. See README.",
+  "scripts": {
+    "dev": "npm --prefix website run dev",
+    "build": "npm --prefix website run build",
+    "start": "npm --prefix website run start",
+    "dev:website": "npm --prefix website run dev",
+    "dev:konfigurator": "npm --prefix konfigurator run dev",
+    "build:website": "npm --prefix website run build",
+    "build:konfigurator": "npm --prefix konfigurator run build"
+  }
+}

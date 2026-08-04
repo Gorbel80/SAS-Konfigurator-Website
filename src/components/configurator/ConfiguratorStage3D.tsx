@@ -1,13 +1,21 @@
 "use client";
 
 import { Canvas, ThreeEvent, useThree } from "@react-three/fiber";
-import { OrbitControls, TransformControls, Grid, useGLTF } from "@react-three/drei";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  OrbitControls,
+  TransformControls,
+  Grid,
+  useGLTF,
+} from "@react-three/drei";
+import { useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
 import type { BomPart, PartRole } from "@/data/configurator-catalog";
 import { defaultRolePositions } from "@/data/configurator-catalog";
 
 export type PartPositions = Record<string, [number, number, number]>;
+
+/** World units per millimetre (1 unit = 1 m) — keeps CAD mm models in a usable view size */
+const WORLD_PER_MM = 0.001;
 
 type Props = {
   className?: string;
@@ -101,7 +109,12 @@ function ProceduralPartMesh({
       {selected ? (
         <mesh>
           {geometry}
-          <meshBasicMaterial color="#f59e0b" wireframe transparent opacity={0.5} />
+          <meshBasicMaterial
+            color="#f59e0b"
+            wireframe
+            transparent
+            opacity={0.5}
+          />
         </mesh>
       ) : null}
     </group>
@@ -109,7 +122,9 @@ function ProceduralPartMesh({
 }
 
 /**
- * GLB profile scaled along its longest axis to match lengthMm / baseLengthMm.
+ * GLB profile:
+ * - Normalizes CAD units (often mm) into meters (1 unit = 1 m)
+ * - Scales length axis by lengthMm / baseLengthMm via React scale props (reliable updates)
  */
 function ProfileGlbMesh({
   part,
@@ -124,7 +139,6 @@ function ProfileGlbMesh({
 }) {
   const url = part.glbUrl!;
   const { scene } = useGLTF(url);
-  const groupRef = useRef<THREE.Group>(null);
 
   const prepared = useMemo(() => {
     const root = scene.clone(true);
@@ -148,37 +162,47 @@ function ProfileGlbMesh({
       }
     });
 
-    // Center geometry at origin
     const box = new THREE.Box3().setFromObject(root);
     const center = box.getCenter(new THREE.Vector3());
     const size = box.getSize(new THREE.Vector3());
     root.position.sub(center);
 
-    // Longest axis = extrusion length
     let axis: "x" | "y" | "z" = "x";
     if (size.y >= size.x && size.y >= size.z) axis = "y";
     else if (size.z >= size.x && size.z >= size.y) axis = "z";
 
-    return { root, size, axis, baseLen: size[axis] || 1 };
+    const modelLen = Math.max(size[axis], 1e-6);
+    return { root, size, axis, modelLen };
   }, [scene]);
 
-  const lengthMm = part.lengthMm ?? part.baseLengthMm ?? 3000;
-  const baseMm = part.baseLengthMm ?? 3000;
-  const scaleFactor = Math.max(0.05, lengthMm / baseMm);
+  const lengthMm = Number(part.lengthMm ?? part.baseLengthMm ?? 3000);
+  const baseMm = Number(part.baseLengthMm ?? 3000);
 
-  useLayoutEffect(() => {
-    if (!groupRef.current) return;
-    const { axis } = prepared;
-    const s = groupRef.current.scale;
-    s.set(1, 1, 1);
-    if (axis === "x") s.x = scaleFactor;
-    else if (axis === "y") s.y = scaleFactor;
-    else s.z = scaleFactor;
-  }, [prepared, scaleFactor]);
+  // Fit base CAD length into world meters, then apply user length ratio on that axis only
+  const normalize = (baseMm * WORLD_PER_MM) / prepared.modelLen;
+  const lengthRatio = Math.max(0.02, lengthMm / baseMm);
+
+  const scale: [number, number, number] =
+    prepared.axis === "x"
+      ? [normalize * lengthRatio, normalize, normalize]
+      : prepared.axis === "y"
+        ? [normalize, normalize * lengthRatio, normalize]
+        : [normalize, normalize, normalize * lengthRatio];
+
+  const wireSize: [number, number, number] = [
+    prepared.axis === "x"
+      ? prepared.modelLen * scale[0] * 1.02
+      : prepared.size.x * scale[0] * 1.05,
+    prepared.axis === "y"
+      ? prepared.modelLen * scale[1] * 1.02
+      : prepared.size.y * scale[1] * 1.05,
+    prepared.axis === "z"
+      ? prepared.modelLen * scale[2] * 1.02
+      : prepared.size.z * scale[2] * 1.05,
+  ];
 
   return (
     <group
-      ref={groupRef}
       position={position}
       name={part.id}
       userData={{ partId: part.id }}
@@ -194,17 +218,19 @@ function ProfileGlbMesh({
         document.body.style.cursor = "default";
       }}
     >
-      <primitive object={prepared.root} />
+      {/* Inner group holds length/size scale so TransformControls only move the outer group */}
+      <group scale={scale}>
+        <primitive object={prepared.root} />
+      </group>
       {selected ? (
         <mesh>
-          <boxGeometry
-            args={[
-              prepared.axis === "x" ? prepared.baseLen * scaleFactor : prepared.size.x * 1.05,
-              prepared.axis === "y" ? prepared.baseLen * scaleFactor : prepared.size.y * 1.05,
-              prepared.axis === "z" ? prepared.baseLen * scaleFactor : prepared.size.z * 1.05,
-            ]}
+          <boxGeometry args={wireSize} />
+          <meshBasicMaterial
+            color="#f59e0b"
+            wireframe
+            transparent
+            opacity={0.35}
           />
-          <meshBasicMaterial color="#f59e0b" wireframe transparent opacity={0.35} />
         </mesh>
       ) : null}
     </group>
@@ -252,40 +278,45 @@ function SceneContent({
   const [dragging, setDragging] = useState(false);
   const { scene } = useThree();
 
-  // Re-render after selection so TransformControls can attach
   const [, setTick] = useState(0);
   useEffect(() => {
     const t = requestAnimationFrame(() => setTick((n) => n + 1));
     return () => cancelAnimationFrame(t);
   }, [selectedPartId, parts, positions]);
 
+  // Re-attach transform after length scale changes
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setTick((n) => n + 1));
+    return () => cancelAnimationFrame(t);
+  }, [parts.map((p) => `${p.id}:${p.lengthMm ?? ""}`).join("|")]);
+
   const selectedObject = selectedPartId
-    ? scene.getObjectByName(selectedPartId) ?? null
+    ? (scene.getObjectByName(selectedPartId) ?? null)
     : null;
 
   return (
     <>
       <color attach="background" args={["#1a2028"]} />
-      <ambientLight intensity={0.6} />
+      <ambientLight intensity={0.65} />
       <directionalLight
         castShadow
         intensity={1.2}
-        position={[4, 7, 3]}
+        position={[6, 10, 4]}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
       />
-      <directionalLight intensity={0.4} position={[-3, 2, -2]} color="#88aaff" />
+      <directionalLight intensity={0.4} position={[-4, 3, -3]} color="#88aaff" />
 
       <Grid
-        position={[0, -1.05, 0]}
-        args={[16, 16]}
+        position={[0, -0.02, 0]}
+        args={[40, 40]}
         cellSize={0.5}
-        cellThickness={0.6}
+        cellThickness={0.55}
         cellColor="#2a323c"
         sectionSize={2}
         sectionThickness={1}
         sectionColor="#3a4452"
-        fadeDistance={22}
+        fadeDistance={50}
         infiniteGrid
       />
 
@@ -296,7 +327,7 @@ function SceneContent({
           ([0, 0, 0] as [number, number, number]);
         return (
           <PartNode
-            key={part.id}
+            key={`${part.id}-${part.lengthMm ?? "x"}`}
             part={part}
             selected={part.id === selectedPartId}
             position={pos}
@@ -309,7 +340,7 @@ function SceneContent({
         <TransformControls
           object={selectedObject}
           mode="translate"
-          size={0.75}
+          size={0.85}
           onMouseDown={() => setDragging(true)}
           onMouseUp={() => {
             setDragging(false);
@@ -340,9 +371,14 @@ function SceneContent({
         enabled={!dragging}
         enableDamping
         dampingFactor={0.08}
-        minDistance={0.8}
-        maxDistance={20}
-        target={[0, 0.1, 0]}
+        /** Allow very close inspection */
+        minDistance={0.15}
+        /** Allow zooming out far enough for long profiles (e.g. 6 m) */
+        maxDistance={120}
+        maxPolarAngle={Math.PI * 0.49}
+        target={[0, 0.15, 0]}
+        zoomSpeed={1.15}
+        rotateSpeed={0.85}
       />
     </>
   );
@@ -356,7 +392,6 @@ export function ConfiguratorStage3D({
   onSelectPart,
   onPositionChange,
 }: Props) {
-  // Preload known profile GLBs
   useEffect(() => {
     parts.forEach((p) => {
       if (p.glbUrl) {
@@ -373,7 +408,8 @@ export function ConfiguratorStage3D({
     <div className={className}>
       <Canvas
         shadows
-        camera={{ position: [2.8, 1.8, 3.6], fov: 40, near: 0.1, far: 100 }}
+        /** Start farther back so large profiles fit initially */
+        camera={{ position: [4.5, 2.8, 5.5], fov: 42, near: 0.05, far: 500 }}
         gl={{ antialias: true, alpha: true }}
         dpr={[1, 1.75]}
         onPointerMissed={() => onSelectPart(null)}

@@ -173,10 +173,30 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
       .join(", ") || "—"}`,
   )}`;
 
-  const lengthValue = selectedPart?.lengthMm ?? selectedPart?.baseLengthMm ?? 3000;
+  const lengthValue = Number(
+    selectedPart?.lengthMm ?? selectedPart?.baseLengthMm ?? 3000,
+  );
   const lengthMin = selectedProfileMeta?.minLengthMm ?? 200;
   const lengthMax = selectedProfileMeta?.maxLengthMm ?? 6000;
   const lengthStep = selectedProfileMeta?.stepMm ?? 10;
+
+  /** Local draft for mm input so typing stays smooth before commit */
+  const [lengthDraft, setLengthDraft] = useState(String(lengthValue));
+  useEffect(() => {
+    setLengthDraft(String(lengthValue));
+  }, [selectedPartId, lengthValue]);
+
+  function commitLengthDraft() {
+    if (!selectedPart || selectedPart.role !== "profile") return;
+    const raw = Number(String(lengthDraft).replace(",", "."));
+    if (Number.isNaN(raw)) {
+      setLengthDraft(String(lengthValue));
+      return;
+    }
+    const next = clampLength(raw, lengthMin, lengthMax, lengthStep);
+    setLengthDraft(String(next));
+    updateProfileLength(selectedPart.id, next);
+  }
 
   return (
     <div className="flex h-[100dvh] flex-col overflow-hidden bg-anthracite-950 text-anthracite-100">
@@ -466,22 +486,24 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
                   max={lengthMax}
                   step={lengthStep}
                   value={lengthValue}
-                  onChange={(e) =>
-                    updateProfileLength(
-                      selectedPart.id,
-                      clampLength(
-                        Number(e.target.value),
-                        lengthMin,
-                        lengthMax,
-                        lengthStep,
-                      ),
-                    )
-                  }
+                  onChange={(e) => {
+                    const next = clampLength(
+                      Number(e.target.value),
+                      lengthMin,
+                      lengthMax,
+                      lengthStep,
+                    );
+                    setLengthDraft(String(next));
+                    updateProfileLength(selectedPart.id, next);
+                  }}
                   className="h-2 w-full cursor-pointer appearance-none rounded-full bg-anthracite-700 accent-amber-500"
                   aria-label={labels.lengthLabel}
                 />
                 <div className="mt-1 flex justify-between text-[10px] text-anthracite-500">
                   <span>{lengthMin} mm</span>
+                  <span className="font-mono font-semibold text-accent">
+                    {lengthValue} mm
+                  </span>
                   <span>{lengthMax} mm</span>
                 </div>
               </div>
@@ -489,19 +511,18 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
               <div className="mt-3 flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={() =>
-                    updateProfileLength(
-                      selectedPart.id,
-                      clampLength(
-                        lengthValue - lengthStep,
-                        lengthMin,
-                        lengthMax,
-                        lengthStep,
-                      ),
-                    )
-                  }
+                  onClick={() => {
+                    const next = clampLength(
+                      lengthValue - lengthStep,
+                      lengthMin,
+                      lengthMax,
+                      lengthStep,
+                    );
+                    setLengthDraft(String(next));
+                    updateProfileLength(selectedPart.id, next);
+                  }}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-white transition-colors hover:bg-white/10"
-                  aria-label="-10 mm"
+                  aria-label={`-${lengthStep} mm`}
                 >
                   <Minus className="h-4 w-4" />
                 </button>
@@ -511,14 +532,13 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
                     min={lengthMin}
                     max={lengthMax}
                     step={lengthStep}
-                    value={lengthValue}
-                    onChange={(e) => {
-                      const raw = Number(e.target.value);
-                      if (Number.isNaN(raw)) return;
-                      updateProfileLength(
-                        selectedPart.id,
-                        clampLength(raw, lengthMin, lengthMax, lengthStep),
-                      );
+                    value={lengthDraft}
+                    onChange={(e) => setLengthDraft(e.target.value)}
+                    onBlur={commitLengthDraft}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.currentTarget.blur();
+                      }
                     }}
                     className="h-10 w-full rounded-lg border border-white/15 bg-anthracite-950 px-3 pr-10 text-center font-mono text-sm font-semibold text-white outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
                   />
@@ -528,19 +548,18 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
                 </div>
                 <button
                   type="button"
-                  onClick={() =>
-                    updateProfileLength(
-                      selectedPart.id,
-                      clampLength(
-                        lengthValue + lengthStep,
-                        lengthMin,
-                        lengthMax,
-                        lengthStep,
-                      ),
-                    )
-                  }
+                  onClick={() => {
+                    const next = clampLength(
+                      lengthValue + lengthStep,
+                      lengthMin,
+                      lengthMax,
+                      lengthStep,
+                    );
+                    setLengthDraft(String(next));
+                    updateProfileLength(selectedPart.id, next);
+                  }}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-white transition-colors hover:bg-white/10"
-                  aria-label="+10 mm"
+                  aria-label={`+${lengthStep} mm`}
                 >
                   <Plus className="h-4 w-4" />
                 </button>

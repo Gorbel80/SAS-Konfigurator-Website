@@ -1,5 +1,5 @@
 {
   "framework": "nextjs",
-  "installCommand": "npm --prefix website ci",
-  "buildCommand": "npm --prefix website run build"
+  "installCommand": "npm ci --prefix website",
+  "buildCommand": "npm run build --prefix website"
 }

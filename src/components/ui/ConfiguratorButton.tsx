@@ -25,7 +25,7 @@ const sizes: Record<Size, { btn: string; icon: string; badge: string }> = {
 };
 
 /**
- * Links to the 3D configurator placeholder page.
+ * Links to the 3D configurator workshop.
  */
 export function ConfiguratorButton({
   label,

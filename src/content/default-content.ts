@@ -60,7 +60,7 @@ const de: LocaleContent = {
     offerService:
       "Wir schließen diese Lücke: komplettes Ersatzteillager von e-motion Handlingsysteme übernommen, Know-how integriert – Service und Teile aus einer Hand.",
     configuratorLabel: "3D Konfigurator",
-    configuratorHint: "Bald verfügbar",
+    configuratorHint: "Öffnen",
     contactCta: "Jetzt anfragen",
   },
   offerings: {
@@ -107,10 +107,25 @@ const de: LocaleContent = {
   },
   configuratorPage: {
     title: "3D Konfigurator",
-    message: "Bald verfügbar",
+    message: "Werkstatt",
     badge: "3D · G-Force® · Easy Arm®",
-    hint: "Der interaktive 3D-Konfigurator für Gorbel G-Force® und Easy Arm® Ersatzteile folgt in Kürze.",
+    hint: "Teilebibliothek · Gerät auswählen · Anfrage vorbereiten",
     backLabel: "Zur Startseite",
+    libraryTitle: "Teilebibliothek",
+    allCategories: "Alle",
+    searchPlaceholder: "Suche Teilenummer, Name…",
+    detailTitle: "Ausgewähltes Teil",
+    partNumber: "Teilenummer",
+    categoryLabel: "Kategorie",
+    stageLabel: "Geräteansicht (3D-Platzhalter)",
+    selectHint: "Wählen Sie ein Teil aus der Bibliothek.",
+    addToTray: "Zur Auswahl hinzufügen",
+    removeFromTray: "Aus Auswahl entfernen",
+    trayLabel: "in Auswahl",
+    clearTray: "Leeren",
+    requestLabel: "Anfrage senden",
+    emptyLibrary: "Keine Teile gefunden.",
+    noImage: "Bild folgt",
   },
   footer: {
     tagline:
@@ -213,7 +228,7 @@ const en: LocaleContent = {
     offerService:
       "We closed this gap: full spare-parts warehouse from e-motion Handlingsysteme, expertise integrated – service and parts from one partner.",
     configuratorLabel: "3D Configurator",
-    configuratorHint: "Coming soon",
+    configuratorHint: "Open",
     contactCta: "Contact us",
   },
   offerings: {
@@ -260,10 +275,25 @@ const en: LocaleContent = {
   },
   configuratorPage: {
     title: "3D Configurator",
-    message: "Coming soon",
+    message: "Workshop",
     badge: "3D · G-Force® · Easy Arm®",
-    hint: "The interactive 3D configurator for Gorbel G-Force® and Easy Arm® spare parts will be available soon.",
+    hint: "Parts library · Select unit · Prepare request",
     backLabel: "Back to home",
+    libraryTitle: "Parts library",
+    allCategories: "All",
+    searchPlaceholder: "Search part number, name…",
+    detailTitle: "Selected part",
+    partNumber: "Part number",
+    categoryLabel: "Category",
+    stageLabel: "Unit view (3D placeholder)",
+    selectHint: "Select a part from the library.",
+    addToTray: "Add to selection",
+    removeFromTray: "Remove from selection",
+    trayLabel: "selected",
+    clearTray: "Clear",
+    requestLabel: "Send request",
+    emptyLibrary: "No parts found.",
+    noImage: "Image soon",
   },
   footer: {
     tagline:
@@ -366,7 +396,7 @@ const zh: LocaleContent = {
     offerService:
       "我们填补了这一空白：接管 e-motion Handlingsysteme 的完整备件库并整合其专长——服务与备件统一对接。",
     configuratorLabel: "3D 配置器",
-    configuratorHint: "即将推出",
+    configuratorHint: "打开",
     contactCta: "立即咨询",
   },
   offerings: {
@@ -412,10 +442,25 @@ const zh: LocaleContent = {
   },
   configuratorPage: {
     title: "3D 配置器",
-    message: "即将推出",
+    message: "车间",
     badge: "3D · G-Force® · Easy Arm®",
-    hint: "面向 Gorbel G-Force® 与 Easy Arm® 备件的交互式 3D 配置器即将上线。",
+    hint: "零件库 · 选择设备 · 准备申请",
     backLabel: "返回首页",
+    libraryTitle: "零件库",
+    allCategories: "全部",
+    searchPlaceholder: "搜索零件号、名称…",
+    detailTitle: "已选零件",
+    partNumber: "零件号",
+    categoryLabel: "类别",
+    stageLabel: "设备视图（3D 占位）",
+    selectHint: "请从零件库选择零件。",
+    addToTray: "加入选择",
+    removeFromTray: "从选择移除",
+    trayLabel: "已选",
+    clearTray: "清空",
+    requestLabel: "发送申请",
+    emptyLibrary: "未找到零件。",
+    noImage: "图片待补充",
   },
   footer: {
     tagline: "德国最大 Gorbel G-Force® 与 Easy Arm® 备件库 · 服务与维修",
@@ -490,7 +535,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 18,
+  version: 19,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",

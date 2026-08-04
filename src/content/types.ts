@@ -92,6 +92,21 @@ export type LocaleContent = {
     badge: string;
     hint: string;
     backLabel: string;
+    libraryTitle: string;
+    allCategories: string;
+    searchPlaceholder: string;
+    detailTitle: string;
+    partNumber: string;
+    categoryLabel: string;
+    stageLabel: string;
+    selectHint: string;
+    addToTray: string;
+    removeFromTray: string;
+    trayLabel: string;
+    clearTray: string;
+    requestLabel: string;
+    emptyLibrary: string;
+    noImage: string;
   };
   footer: {
     tagline: string;

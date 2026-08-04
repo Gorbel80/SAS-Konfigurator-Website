@@ -44,23 +44,23 @@ export function GForcePage({ content, images }: Props) {
         </Link>
       </PageHeroBanner>
 
-      <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <p className="animate-fade-up mx-auto max-w-3xl text-center text-sm leading-relaxed text-anthracite-600 sm:text-base">
+      <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
+        <p className="animate-fade-up mx-auto max-w-3xl text-center text-sm leading-relaxed text-anthracite-600">
           {p.intro}
         </p>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
           {cardMeta.map((meta, i) => {
             const card = p[meta.key];
             const Icon = meta.icon;
             return (
               <article
                 key={meta.key}
-                className={`animate-fade-up card-lift overflow-hidden rounded-2xl border border-border bg-surface shadow-sm ${
+                className={`animate-fade-up card-lift overflow-hidden rounded-xl border border-border bg-surface shadow-sm ${
                   i === 1 ? "animate-delay-1" : i === 2 ? "animate-delay-2" : ""
                 }`}
               >
-                <div className="img-zoom relative aspect-[16/11] bg-anthracite-50">
+                <div className="img-zoom relative aspect-[16/10] bg-anthracite-50">
                   <Image
                     src={images[meta.image]}
                     alt={card.title}
@@ -70,16 +70,16 @@ export function GForcePage({ content, images }: Props) {
                     quality={78}
                   />
                 </div>
-                <div className="border-t border-border p-4 sm:p-5">
-                  <div className="mb-2 flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                      <Icon className="h-4 w-4" strokeWidth={2} />
+                <div className="border-t border-border p-3.5 sm:p-4">
+                  <div className="mb-1.5 flex items-center gap-2">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                      <Icon className="h-3.5 w-3.5" strokeWidth={2} />
                     </span>
-                    <h2 className="text-sm font-semibold tracking-tight text-anthracite-900 sm:text-base">
+                    <h2 className="text-sm font-semibold tracking-tight text-anthracite-900">
                       {card.title}
                     </h2>
                   </div>
-                  <p className="text-sm leading-relaxed text-anthracite-500">
+                  <p className="text-sm leading-snug text-anthracite-500">
                     {card.body}
                   </p>
                 </div>
@@ -88,32 +88,32 @@ export function GForcePage({ content, images }: Props) {
           })}
         </div>
 
-        <div className="animate-fade-up animate-delay-2 mt-10 overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
+        <div className="animate-fade-up animate-delay-2 mt-6 overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="p-5 sm:p-7 lg:p-8">
-              <h2 className="text-lg font-semibold tracking-tight text-anthracite-900 sm:text-xl">
+            <div className="p-4 sm:p-5 lg:p-6">
+              <h2 className="text-base font-semibold tracking-tight text-anthracite-900 sm:text-lg">
                 {p.heroTitle}
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-anthracite-600 sm:text-[0.9375rem]">
+              <p className="mt-2 text-sm leading-relaxed text-anthracite-600">
                 {p.body}
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-4 flex flex-wrap gap-2.5">
                 <Link
                   href="/konfigurator"
-                  className="inline-flex h-10 items-center gap-2 rounded-full bg-anthracite-900 px-4 text-sm font-semibold text-white transition-colors hover:bg-anthracite-800"
+                  className="inline-flex h-9 items-center gap-2 rounded-full bg-anthracite-900 px-3.5 text-sm font-semibold text-white transition-colors hover:bg-anthracite-800"
                 >
                   {p.configuratorCta}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/service"
-                  className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-surface px-4 text-sm font-semibold text-anthracite-800 transition-colors hover:bg-anthracite-50"
+                  className="inline-flex h-9 items-center gap-2 rounded-full border border-border bg-surface px-3.5 text-sm font-semibold text-anthracite-800 transition-colors hover:bg-anthracite-50"
                 >
                   {content.nav.service}
                 </Link>
               </div>
             </div>
-            <div className="relative min-h-[220px] border-t border-border bg-anthracite-50 lg:border-l lg:border-t-0">
+            <div className="relative min-h-[180px] border-t border-border bg-anthracite-50 lg:border-l lg:border-t-0">
               <Image
                 src={images.lifts}
                 alt={p.heroTitle}
@@ -126,16 +126,16 @@ export function GForcePage({ content, images }: Props) {
           </div>
         </div>
 
-        <div className="animate-fade-up animate-delay-3 mt-10">
-          <h2 className="text-lg font-semibold tracking-tight text-anthracite-900 sm:text-xl">
+        <div className="animate-fade-up animate-delay-3 mt-6">
+          <h2 className="text-base font-semibold tracking-tight text-anthracite-900 sm:text-lg">
             {p.specsTitle}
           </h2>
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-border bg-surface shadow-sm">
+          <div className="mt-3 overflow-x-auto rounded-xl border border-border bg-surface shadow-sm">
             <table className="w-full min-w-[520px] border-collapse text-left text-sm">
               <thead>
                 <tr className="border-b border-border bg-anthracite-900 text-white">
                   {p.specsHeaders.map((h) => (
-                    <th key={h} className="px-4 py-3 font-semibold first:rounded-tl-2xl last:rounded-tr-2xl">
+                    <th key={h} className="px-3 py-2 font-semibold first:rounded-tl-xl last:rounded-tr-xl">
                       {h}
                     </th>
                   ))}
@@ -147,13 +147,13 @@ export function GForcePage({ content, images }: Props) {
                     key={row.label}
                     className={i % 2 === 0 ? "bg-surface" : "bg-anthracite-50/70"}
                   >
-                    <th className="px-4 py-2.5 font-medium text-anthracite-800">
+                    <th className="px-3 py-2 font-medium text-anthracite-800">
                       {row.label}
                     </th>
                     {row.values.map((v) => (
                       <td
                         key={`${row.label}-${v}`}
-                        className="px-4 py-2.5 tabular-nums text-anthracite-600"
+                        className="px-3 py-2 tabular-nums text-anthracite-600"
                       >
                         {v}
                       </td>

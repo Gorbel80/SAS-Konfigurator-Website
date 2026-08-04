@@ -14,7 +14,7 @@ export function Footer({ content, companies }: Props) {
       id="site-footer"
       className="border-t border-white/10 bg-anthracite-950 text-anthracite-300"
     >
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:gap-10 lg:px-8 lg:py-9">
+      <div className="mx-auto grid max-w-7xl gap-4 px-4 py-5 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:gap-8 lg:px-8 lg:py-6">
         <div className="min-w-0">
           <div className="flex items-center gap-2.5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-[10px] font-bold text-white">
@@ -29,16 +29,16 @@ export function Footer({ content, companies }: Props) {
               </p>
             </div>
           </div>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-anthracite-400">
+          <p className="mt-2 max-w-md text-xs leading-relaxed text-anthracite-400 sm:text-sm">
             {content.footer.tagline}
           </p>
-          <p className="mt-3 text-xs text-anthracite-500">
+          <p className="mt-1.5 text-xs text-anthracite-500">
             {content.home.sloganPrimary}
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-between lg:justify-end lg:gap-12">
-          <nav className="flex flex-col gap-2 text-sm" aria-label="Footer">
+        <div className="flex flex-col gap-3 sm:flex-row sm:justify-between lg:justify-end lg:gap-10">
+          <nav className="flex flex-col gap-1.5 text-sm" aria-label="Footer">
             <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-anthracite-500">
               Navigation
             </p>

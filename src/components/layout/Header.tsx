@@ -63,18 +63,18 @@ export function Header({
     <header
       className={cn(
         "sticky top-0 z-50 transition-[box-shadow,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        scrolled ? "shadow-[0_10px_40px_-16px_rgba(10,12,15,0.45)]" : "",
+        scrolled ? "shadow-[0_10px_40px_-16px_rgba(6,16,28,0.4)]" : "",
       )}
     >
       {/* Top brand bar — slogans + languages */}
       <div className="border-b border-white/10 bg-anthracite-950 text-white">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-2 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-1.5 sm:px-6 lg:px-8">
           <Link
             href="/"
             className="group flex min-w-0 shrink-0 items-center gap-2.5"
             onClick={() => setOpen(false)}
           >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent text-xs font-bold tracking-tight text-white shadow-sm transition-transform duration-300 group-hover:scale-[1.03]">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent text-[11px] font-bold tracking-tight text-white shadow-sm transition-transform duration-300 group-hover:scale-[1.03]">
               S×W
             </span>
             <span className="hidden min-w-0 sm:block">
@@ -128,7 +128,7 @@ export function Header({
             : "border-border/70 bg-surface/92",
         )}
       >
-        <div className="mx-auto hidden max-w-7xl items-center justify-between gap-3 px-4 py-1.5 sm:px-6 md:flex lg:px-8">
+        <div className="mx-auto hidden max-w-7xl items-center justify-between gap-3 px-4 py-1 sm:px-6 md:flex lg:px-8">
           <nav
             className="flex flex-wrap items-center gap-0.5"
             aria-label="Hauptnavigation"
@@ -143,7 +143,7 @@ export function Header({
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200",
+                    "rounded-full px-3 py-1 text-sm font-medium transition-all duration-200",
                     active
                       ? "bg-anthracite-900 text-white shadow-sm"
                       : "text-anthracite-600 hover:bg-anthracite-50 hover:text-anthracite-900",
@@ -157,7 +157,7 @@ export function Header({
           <Link
             href="/contact"
             className={cn(
-              "inline-flex h-9 items-center rounded-full px-4 text-xs font-semibold transition-colors",
+              "inline-flex h-8 items-center rounded-full px-3.5 text-xs font-semibold transition-colors",
               contactActive
                 ? "bg-accent text-white"
                 : "bg-anthracite-900 text-white hover:bg-anthracite-800",

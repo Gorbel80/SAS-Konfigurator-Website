@@ -54,11 +54,11 @@ export function ContactPage({ content, images, companies }: Props) {
         compact
       />
 
-      <div className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
         {/* Type-plate CTA strip */}
-        <div className="animate-fade-up mb-6 flex flex-col gap-3 rounded-2xl border border-accent/20 bg-accent-muted/50 px-4 py-4 sm:flex-row sm:items-center sm:gap-4 sm:px-5">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
-            <Camera className="h-5 w-5" />
+        <div className="animate-fade-up mb-4 flex flex-col gap-2.5 rounded-xl border border-accent/20 bg-accent-muted/50 px-3.5 py-3 sm:flex-row sm:items-center sm:gap-3.5 sm:px-4">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-accent">
+            <Camera className="h-4.5 w-4.5" />
           </span>
           <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold text-anthracite-900">
@@ -70,13 +70,13 @@ export function ContactPage({ content, images, companies }: Props) {
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
           <div>
-            <div className="animate-fade-up mb-3">
-              <h2 className="text-lg font-semibold tracking-tight text-anthracite-900">
+            <div className="animate-fade-up mb-2.5">
+              <h2 className="text-base font-semibold tracking-tight text-anthracite-900 sm:text-lg">
                 {content.contact.title}
               </h2>
-              <p className="mt-1 text-sm text-anthracite-500">
+              <p className="mt-0.5 text-sm text-anthracite-500">
                 {content.contact.intro}
               </p>
             </div>

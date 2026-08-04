@@ -1,33 +1,36 @@
 @import "tailwindcss";
 
-/* Industrial B2B design tokens — anthracite + white + amber accent */
+/* Industrial B2B design tokens — Gorbel-style blue industrial + cool surfaces */
 
 :root {
-  --background: #f5f6f8;
-  --foreground: #15191f;
-  --surface: #ffffff;
-  --surface-muted: #eef0f3;
-  --border: #d9dee6;
-  --border-strong: #b7c0cc;
+  /* Cool blue-gray page ground */
+  --background: #e8eef5;
+  --foreground: #0c1520;
+  --surface: #f7f9fc;
+  --surface-muted: #e0e8f1;
+  --border: #c5d2e2;
+  --border-strong: #96aabe;
 
-  --anthracite-950: #0a0c0f;
-  --anthracite-900: #12161b;
-  --anthracite-800: #1a2028;
-  --anthracite-700: #2a333f;
-  --anthracite-600: #3e4856;
-  --anthracite-500: #5b6574;
-  --anthracite-400: #8b94a3;
-  --anthracite-300: #b5bcc7;
-  --anthracite-200: #d6dae2;
-  --anthracite-100: #eceef2;
-  --anthracite-50: #f6f7f9;
+  /* Blue-navy scale (used as anthracite-* utilities site-wide) */
+  --anthracite-950: #06101c;
+  --anthracite-900: #0b1a2c;
+  --anthracite-800: #12263d;
+  --anthracite-700: #1c3550;
+  --anthracite-600: #2a4866;
+  --anthracite-500: #4a6580;
+  --anthracite-400: #7a93ab;
+  --anthracite-300: #a8b9cb;
+  --anthracite-200: #cdd8e6;
+  --anthracite-100: #e4ebf3;
+  --anthracite-50: #f0f4f9;
 
-  --accent: #d97706;
-  --accent-hover: #b45309;
-  --accent-muted: #fff7ed;
+  /* Gorbel industrial blue accent */
+  --accent: #0b6bcb;
+  --accent-hover: #0858a8;
+  --accent-muted: #e8f2fc;
   --accent-foreground: #ffffff;
 
-  --sky: #0b6bcb;
+  --sky: #1a8cff;
   --success: #0f7a4a;
   --danger: #c23131;
 
@@ -36,9 +39,9 @@
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
 
-  --shadow-sm: 0 1px 2px rgb(18 22 27 / 0.05);
-  --shadow: 0 8px 24px rgb(18 22 27 / 0.08);
-  --shadow-lg: 0 18px 48px rgb(18 22 27 / 0.12);
+  --shadow-sm: 0 1px 2px rgb(6 16 28 / 0.06);
+  --shadow: 0 8px 24px rgb(6 16 28 / 0.08);
+  --shadow-lg: 0 18px 48px rgb(6 16 28 / 0.12);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -90,7 +93,7 @@ html {
 
 @media (prefers-reduced-motion: no-preference) {
   html {
-    scroll-padding-top: 4.5rem;
+    scroll-padding-top: 4.25rem;
   }
 }
 
@@ -172,8 +175,8 @@ button {
 .bg-surface-grid {
   background-color: var(--surface);
   background-image:
-    linear-gradient(rgb(18 22 27 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(18 22 27 / 0.03) 1px, transparent 1px);
+    linear-gradient(rgb(11 26 44 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(11 26 44 / 0.03) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -186,14 +189,14 @@ button {
 
 .card-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px -16px rgb(18 22 27 / 0.18);
+  box-shadow: 0 16px 40px -16px rgb(6 16 28 / 0.16);
   border-color: var(--anthracite-300);
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -211,24 +214,24 @@ button {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.7s var(--ease-out-expo) both;
+  animation: fade-up 0.55s var(--ease-out-expo) both;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.55s var(--ease-out-soft) both;
+  animation: fade-in 0.45s var(--ease-out-soft) both;
 }
 
 .animate-delay-1 {
-  animation-delay: 0.06s;
+  animation-delay: 0.04s;
 }
 .animate-delay-2 {
-  animation-delay: 0.12s;
+  animation-delay: 0.08s;
 }
 .animate-delay-3 {
-  animation-delay: 0.18s;
+  animation-delay: 0.12s;
 }
 .animate-delay-4 {
-  animation-delay: 0.24s;
+  animation-delay: 0.16s;
 }
 
 /* Soft image hover polish */

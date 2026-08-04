@@ -26,16 +26,16 @@ export function AboutCompanyPage({ content, images, companies }: Props) {
         compact
       />
 
-      <div className="mx-auto w-full max-w-7xl px-4 py-9 sm:px-6 sm:py-11 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
+      <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
+        <div className="grid gap-5 lg:grid-cols-2 lg:items-start lg:gap-8">
           <div className="animate-fade-up">
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
               SAS × WiMa
             </p>
-            <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-anthracite-900">
+            <h2 className="mt-1 text-lg font-semibold tracking-tight text-anthracite-900">
               {h.whoTitle}
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-anthracite-500 sm:text-[0.9375rem]">
+            <p className="mt-2 text-sm leading-relaxed text-anthracite-500">
               {h.whoBody}
             </p>
 

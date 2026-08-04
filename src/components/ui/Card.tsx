@@ -10,7 +10,7 @@ export function Card({ className, children, hover = false, ...props }: Props) {
   return (
     <div
       className={cn(
-        "rounded-2xl border border-border bg-surface p-6 shadow-sm",
+        "rounded-xl border border-border bg-surface p-4 shadow-sm",
         hover && "card-lift",
         className,
       )}

@@ -13,7 +13,7 @@ export function Section({
   ...props
 }: Props) {
   return (
-    <section className={cn("py-10 md:py-14", className)} {...props}>
+    <section className={cn("py-6 md:py-8", className)} {...props}>
       <div
         className={cn(
           "mx-auto w-full px-4 sm:px-6 lg:px-8",
@@ -38,11 +38,11 @@ export function SectionHeading({
   light?: boolean;
 }) {
   return (
-    <div className="mb-6 md:mb-8 max-w-3xl">
+    <div className="mb-4 md:mb-5 max-w-3xl">
       {eyebrow ? (
         <p
           className={cn(
-            "mb-2 text-xs font-semibold uppercase tracking-[0.16em]",
+            "mb-1.5 text-xs font-semibold uppercase tracking-[0.16em]",
             "text-accent",
           )}
         >
@@ -51,7 +51,7 @@ export function SectionHeading({
       ) : null}
       <h2
         className={cn(
-          "text-2xl md:text-3xl font-semibold tracking-tight text-balance",
+          "text-xl md:text-2xl font-semibold tracking-tight text-balance",
           light ? "text-white" : "text-anthracite-900",
         )}
       >
@@ -60,7 +60,7 @@ export function SectionHeading({
       {subtitle ? (
         <p
           className={cn(
-            "mt-2.5 text-sm md:text-base leading-relaxed",
+            "mt-1.5 text-sm leading-relaxed",
             light ? "text-anthracite-300" : "text-anthracite-500",
           )}
         >

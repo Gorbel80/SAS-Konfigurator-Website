@@ -41,8 +41,8 @@ export function PageHeroBanner({
           sizes="100vw"
           quality={80}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-anthracite-950 via-anthracite-950/90 to-anthracite-900/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/70 via-transparent to-anthracite-950/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-anthracite-950 via-anthracite-950/92 to-anthracite-800/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/75 via-transparent to-anthracite-950/30" />
         {/* subtle industrial grid */}
         <div
           className="absolute inset-0 opacity-[0.12]"
@@ -58,19 +58,19 @@ export function PageHeroBanner({
       <div
         className={
           compact
-            ? "relative mx-auto max-w-7xl px-4 py-11 sm:px-6 sm:py-14 lg:px-8 lg:py-16"
-            : "relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
+            ? "relative mx-auto max-w-7xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8 lg:py-10"
+            : "relative mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-12"
         }
       >
         <div className="flex flex-wrap items-center gap-2">
-          <div className="inline-flex animate-fade-up items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_0_3px_rgba(217,119,6,0.25)]" />
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+          <div className="inline-flex animate-fade-up items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-0.5 backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_0_3px_rgba(11,107,203,0.3)]" />
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky">
               {eyebrow}
             </p>
           </div>
           {badge ? (
-            <span className="animate-fade-up animate-delay-1 rounded-md border border-amber-400/40 bg-amber-400/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200">
+            <span className="animate-fade-up animate-delay-1 rounded-md border border-sky/40 bg-sky/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-sky">
               {badge}
             </span>
           ) : null}
@@ -79,19 +79,19 @@ export function PageHeroBanner({
         <h1
           className={
             compact
-              ? "animate-fade-up animate-delay-1 mt-4 max-w-3xl text-[1.65rem] font-semibold tracking-tight text-white text-balance sm:text-3xl lg:text-[2.15rem] lg:leading-[1.15]"
-              : "animate-fade-up animate-delay-1 mt-5 max-w-3xl text-[1.85rem] font-semibold tracking-tight text-white text-balance sm:text-4xl lg:text-[2.65rem] lg:leading-[1.12]"
+              ? "animate-fade-up animate-delay-1 mt-3 max-w-3xl text-[1.5rem] font-semibold tracking-tight text-white text-balance sm:text-[1.85rem] lg:text-[2rem] lg:leading-[1.15]"
+              : "animate-fade-up animate-delay-1 mt-3.5 max-w-3xl text-[1.65rem] font-semibold tracking-tight text-white text-balance sm:text-3xl lg:text-[2.25rem] lg:leading-[1.12]"
           }
         >
           {title}
         </h1>
 
-        <p className="animate-fade-up animate-delay-2 mt-4 max-w-xl text-[0.95rem] leading-relaxed text-anthracite-200/95 sm:text-base">
+        <p className="animate-fade-up animate-delay-2 mt-2.5 max-w-xl text-sm leading-relaxed text-anthracite-200/95 sm:text-[0.9375rem]">
           {subtitle}
         </p>
 
         {children ? (
-          <div className="animate-fade-up animate-delay-3 mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="animate-fade-up animate-delay-3 mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
             {children}
           </div>
         ) : null}

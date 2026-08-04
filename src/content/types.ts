@@ -119,6 +119,7 @@ export type LocaleContent = {
     hintDrag: string;
     resetView: string;
     hintSelect: string;
+    lengthLabel: string;
   };
   footer: {
     tagline: string;

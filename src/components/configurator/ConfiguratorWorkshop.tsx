@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import {
   ConfiguratorStage3D,
   type PartPositions,
 } from "@/components/configurator/ConfiguratorStage3D";
+import { ConfiguratorHeader } from "@/components/configurator/ConfiguratorHeader";
 import {
   catalogProducts,
   createProfileInstance,
@@ -24,7 +23,6 @@ import type { Locale, LocaleContent } from "@/content/types";
 import { cn } from "@/lib/utils";
 import { FolderItem, FolderRow } from "@/components/configurator/FolderTree";
 import {
-  ArrowLeft,
   Box,
   ChevronDown,
   ChevronUp,
@@ -230,37 +228,10 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
 
   return (
     <div className="flex h-[100dvh] flex-col overflow-hidden bg-anthracite-950 text-anthracite-100">
-      <header className="z-30 shrink-0 border-b border-white/10 bg-anthracite-900">
-        <div className="flex h-14 items-center justify-between gap-3 px-3 sm:px-4 lg:px-5">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-            <Link
-              href="/"
-              className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 text-xs font-semibold text-anthracite-200 transition-colors hover:bg-white/10 hover:text-white"
-              title={labels.backLabel}
-            >
-              <ArrowLeft className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">{labels.backLabel}</span>
-            </Link>
-            <div className="hidden h-6 w-px bg-white/10 sm:block" />
-            <h1 className="truncate text-sm font-semibold tracking-tight sm:text-base">
-              <span className="text-white">G-Force</span>{" "}
-              <span className="text-accent">{labels.titleWord}</span>
-            </h1>
-          </div>
-
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            <Image
-              src="/images/brand/sas-logo.png"
-              alt="SAS Sauer Automation Sachsen"
-              width={200}
-              height={32}
-              className="h-7 w-auto sm:h-8"
-              priority
-            />
-            <LanguageSwitcher className="[&_button]:border-white/15 [&_button]:bg-white/5 [&_button]:text-anthracite-100" />
-          </div>
-        </div>
-      </header>
+      <ConfiguratorHeader
+        titleWord={labels.titleWord}
+        backLabel={labels.backLabel}
+      />
 
       <div className="relative grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_320px]">
         {/* Center */}

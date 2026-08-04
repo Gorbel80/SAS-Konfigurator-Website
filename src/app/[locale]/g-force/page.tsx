@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { ServicePage } from "@/components/sections/ServicePage";
+import { GForcePage } from "@/components/sections/GForcePage";
 import { readContent } from "@/lib/content-store";
 import { buildPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/content/types";
@@ -16,15 +16,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return buildPageMetadata({
     locale,
-    title: t.servicePage.heroTitle,
-    description: t.servicePage.heroSubtitle,
-    path: "/service",
+    title: t.gforcePage.heroTitle,
+    description: t.gforcePage.heroSubtitle,
+    path: "/g-force",
     keywords: [
-      "G-Force Service",
-      "Gorbel Wartung",
-      "Easy Arm Reparatur",
-      "Ersatzteile Europa",
-      "WiMa SAS Service",
+      "Gorbel G-Force",
+      "Easy Arm",
+      "Seilbalancer",
+      "Intelligente Hebetechnik",
+      "G-Force Q iQ",
     ],
   });
 }
@@ -35,5 +35,5 @@ export default async function Page({ params }: Props) {
   const content = await readContent();
   const localeContent = content.locales[locale as Locale];
 
-  return <ServicePage content={localeContent} images={content.images} />;
+  return <GForcePage content={localeContent} images={content.images} />;
 }

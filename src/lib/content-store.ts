@@ -71,6 +71,31 @@ function deepLocale(
       parts: { ...base.offerings.parts, ...override.offerings?.parts },
       lifts: { ...base.offerings.lifts, ...override.offerings?.lifts },
     },
+    gforcePage: {
+      ...base.gforcePage,
+      ...override.gforcePage,
+      balancers: {
+        ...base.gforcePage.balancers,
+        ...override.gforcePage?.balancers,
+      },
+      controls: {
+        ...base.gforcePage.controls,
+        ...override.gforcePage?.controls,
+      },
+      easyArm: {
+        ...base.gforcePage.easyArm,
+        ...override.gforcePage?.easyArm,
+      },
+      specsHeaders:
+        override.gforcePage?.specsHeaders ?? base.gforcePage.specsHeaders,
+      specs: override.gforcePage?.specs ?? base.gforcePage.specs,
+    },
+    servicePage: {
+      ...base.servicePage,
+      ...override.servicePage,
+      highlights:
+        override.servicePage?.highlights ?? base.servicePage.highlights,
+    },
     about: { ...base.about, ...override.about },
     contact: { ...base.contact, ...override.contact },
     configuratorPage: {

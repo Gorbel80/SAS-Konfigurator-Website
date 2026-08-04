@@ -28,18 +28,13 @@ export function Header({
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isHome = pathname === "/";
 
-  const pageItems = [
+  /** Primary nav – no Über uns; Kontakt is far right */
+  const items = [
     { href: "/", label: nav.home, match: "exact" as const },
-    { href: "/ueber-uns", label: nav.about, match: "prefix" as const },
-    { href: "/contact", label: nav.contact, match: "prefix" as const },
-  ];
-
-  const sectionItems = [
-    { href: "/#g-force", label: nav.gforce },
-    { href: "/#service", label: nav.service },
-    { href: "/#ersatzteile", label: nav.parts },
+    { href: "/g-force", label: nav.gforce, match: "prefix" as const },
+    { href: "/service", label: nav.service, match: "prefix" as const },
+    { href: "/konfigurator", label: nav.parts, match: "prefix" as const },
   ];
 
   useEffect(() => {
@@ -62,13 +57,13 @@ export function Header({
     };
   }, [open]);
 
+  const contactActive = pathname.startsWith("/contact");
+
   return (
     <header
       className={cn(
         "sticky top-0 z-50 transition-[box-shadow,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        scrolled
-          ? "shadow-[0_10px_40px_-16px_rgba(10,12,15,0.45)]"
-          : "",
+        scrolled ? "shadow-[0_10px_40px_-16px_rgba(10,12,15,0.45)]" : "",
       )}
     >
       {/* Top brand bar — slogans + languages */}
@@ -138,7 +133,7 @@ export function Header({
             className="flex flex-wrap items-center gap-0.5"
             aria-label="Hauptnavigation"
           >
-            {pageItems.map((item) => {
+            {items.map((item) => {
               const active =
                 item.match === "exact"
                   ? pathname === item.href
@@ -158,30 +153,17 @@ export function Header({
                 </Link>
               );
             })}
-            <span
-              className="mx-1 hidden h-4 w-px bg-border sm:block"
-              aria-hidden
-            />
-            {sectionItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200",
-                  isHome
-                    ? "text-anthracite-600 hover:bg-anthracite-50 hover:text-anthracite-900"
-                    : "text-anthracite-500 hover:bg-anthracite-50 hover:text-anthracite-800",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
           </nav>
           <Link
             href="/contact"
-            className="inline-flex h-9 items-center rounded-full bg-anthracite-900 px-4 text-xs font-semibold text-white transition-colors hover:bg-anthracite-800"
+            className={cn(
+              "inline-flex h-9 items-center rounded-full px-4 text-xs font-semibold transition-colors",
+              contactActive
+                ? "bg-accent text-white"
+                : "bg-anthracite-900 text-white hover:bg-anthracite-800",
+            )}
           >
-            {nav.cta}
+            {nav.contact}
           </Link>
         </div>
       </div>
@@ -197,16 +179,39 @@ export function Header({
           <p className="mb-3 rounded-lg border border-border bg-anthracite-50 px-3 py-2 text-xs leading-relaxed text-anthracite-600">
             {sloganPrimary}
           </p>
-          {[...pageItems, ...sectionItems].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="block rounded-xl px-4 py-3 text-base font-medium text-anthracite-800 transition-colors hover:bg-anthracite-50"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {items.map((item) => {
+            const active =
+              item.match === "exact"
+                ? pathname === item.href
+                : pathname.startsWith(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "block rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                  active
+                    ? "bg-anthracite-900 text-white"
+                    : "text-anthracite-800 hover:bg-anthracite-50",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className={cn(
+              "block rounded-xl px-4 py-3 text-base font-semibold transition-colors",
+              contactActive
+                ? "bg-accent text-white"
+                : "bg-anthracite-900 text-white hover:bg-anthracite-800",
+            )}
+          >
+            {nav.contact}
+          </Link>
           <ConfiguratorButton
             label={configuratorLabel}
             hint={configuratorHint}

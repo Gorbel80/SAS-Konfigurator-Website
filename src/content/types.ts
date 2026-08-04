@@ -30,6 +30,16 @@ export type OfferBlock = {
   body: string;
 };
 
+export type ContentCard = {
+  title: string;
+  body: string;
+};
+
+export type SpecRow = {
+  label: string;
+  values: string[];
+};
+
 export type LocaleContent = {
   meta: {
     title: string;
@@ -37,11 +47,10 @@ export type LocaleContent = {
   };
   nav: {
     home: string;
-    /** Über uns / Was WiMa & SAS machen */
+    /** Über uns / Was WiMa & SAS machen (legacy / footer) */
     about: string;
     contact: string;
     cta: string;
-    /** In-page section labels (home anchors) */
     gforce: string;
     service: string;
     parts: string;
@@ -80,6 +89,33 @@ export type LocaleContent = {
     service: OfferBlock;
     parts: OfferBlock;
     ctaLabel: string;
+  };
+  gforcePage: {
+    heroEyebrow: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    intro: string;
+    balancers: ContentCard;
+    controls: ContentCard;
+    easyArm: ContentCard;
+    body: string;
+    specsTitle: string;
+    specsHeaders: string[];
+    specs: SpecRow[];
+    ctaLabel: string;
+    configuratorCta: string;
+  };
+  servicePage: {
+    heroEyebrow: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    headline: string;
+    intro: string;
+    highlights: ContentCard[];
+    ctaTitle: string;
+    ctaBody: string;
+    ctaLabel: string;
+    contactCta: string;
   };
   about: {
     heroEyebrow: string;

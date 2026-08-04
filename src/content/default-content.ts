@@ -51,11 +51,11 @@ const de: LocaleContent = {
   home: {
     sloganPrimary: "Stillstand bei Ihrem Gorbel G-Force®? Wir haben die Lösung!",
     sloganSecondary:
-      "Ihr Partner für Service, Wartung und Ersatzteile in Europa",
+      "Ihr exklusiver Partner für Service, Wartung und Ersatzteile in Europa!",
     eyebrow: "G-Force® · Easy Arm® · Europa",
-    heroTitle: "Intelligente Hebetechnik – Service und Teile, wenn es zählt",
+    heroTitle: "Stillstand bei Ihrem Gorbel G-Force®? Wir haben die Lösung!",
     heroSubtitle:
-      "Qualifizierter Service und schnelle Ersatzteile für Gorbel G-Force® und Easy Arm® – wenn europäische Werke nicht mehr rechtzeitig beliefert werden.",
+      "Ihr exklusiver Partner für Service, Wartung und Ersatzteile in Europa!",
     whoTitle: "WiMa & SAS – Ihr Service-Partner",
     whoBody:
       "WiMa Industrie-Automation und SAS Sauer-Automation Sachsen betreuen Gorbel G-Force® und Easy Arm® in der Praxis: Diagnose, Reparatur, Ersatzteile und Know-how aus dem übernommenen e-motion-Bestand – plus eigene Hebezeuge mit innovativer Elektronik.",
@@ -94,6 +94,90 @@ const de: LocaleContent = {
       body: "Großes deutsches Ersatzteillager für Gorbel G-Force® und Easy Arm®. Identifikation, Lieferung und Unterstützung – inklusive 3D-Konfigurator zur Teileauswahl.",
     },
     ctaLabel: "Beratung anfragen",
+  },
+  gforcePage: {
+    heroEyebrow: "Gorbel® · G-Force® · Easy Arm®",
+    heroTitle: "G-Force® & Easy Arm®",
+    heroSubtitle:
+      "Intelligente Hebevorrichtungen mit patentierter Servotechnik – Präzision, Geschwindigkeit und Sicherheit.",
+    intro:
+      "Wenn Geschwindigkeit, Präzision und Programmierbarkeit entscheidend sind, sind Gorbel® G-Force® und Easy Arm® die richtige Wahl.",
+    balancers: {
+      title: "G-Force® Balancers",
+      body: "Servo-gesteuerte Seilbalancer für ergonomisches, präzises Heben – ideal an Brückenkranen und in der Fertigungslinie.",
+    },
+    controls: {
+      title: "G-Force® Bedienung",
+      body: "Ergonomische Handgriffe und Bedienelemente für intuitive Führung – der Mensch steuert, die Technik liefert Kraft und Präzision.",
+    },
+    easyArm: {
+      title: "Easy Arm®",
+      body: "Dieselbe intelligente Hebetechnologie in einem Gelenkausleger – flexibel positionierbar für Montage und Materialhandling.",
+    },
+    body: "Benötigt Ihre Hebeanwendung etwas mehr als herkömmliche Hebegeräte bieten können? Wenn Geschwindigkeit, Präzision und Programmierbarkeit wichtig sind, wählen Sie Gorbel® G-Force® und Easy Arm®. Die intelligenten Hebevorrichtungen von Gorbel, G-Force® und Easy Arm® verwenden eine exklusive, patentierte Technik und ein von einem Industrieprozessor gesteuertes Servo-Antriebssystem, um eine einmalige Präzision und Geschwindigkeit zu erzielen. Durch die Fusion modernster Technik mit der Führung und Lenkung durch den Menschen wird nicht nur die Produktivität maximiert, sondern auch die Verletzungsgefahr für den Bediener minimiert. Wählen Sie eine G-Force®-Einheit zur Montage an einem Brückenkran oder mit unserem Easy Arm®, der die gleiche Hebetechnologie in ein Gelenkauslegerdesign integriert. Beide Konfigurationen sind in zwei Modellen verfügbar, sodass Sie die für Ihre Anwendungen sinnvollen Funktionen und Anpassungen auswählen können.",
+    specsTitle: "Easy Arm® – technische Daten (Auszug)",
+    specsHeaders: [
+      "Parameter",
+      "165 lb / 75 kg",
+      "330 lb / 150 kg",
+      "660 lb / 300 kg",
+    ],
+    specs: [
+      {
+        label: "Max. Kapazität (Last & Tool)",
+        values: ["165 lb / 75 kg", "330 lb / 150 kg", "660 lb / 300 kg"],
+      },
+      {
+        label: "Max. Hubgeschwindigkeit unbelastet",
+        values: ["175 fpm / 53 mpm", "80 fpm / 24 mpm", "40 fpm / 12 mpm"],
+      },
+      {
+        label: "Max. Hubgeschwindigkeit voll beladen",
+        values: ["125 fpm / 38 mpm", "50 fpm / 15 mpm", "30 fpm / 9 mpm"],
+      },
+      {
+        label: "Max. Float-Mode Hubgeschwindigkeit",
+        values: ["90 fpm / 27 mpm", "40 fpm / 12 mpm", "36 fpm / 11 mpm"],
+      },
+      {
+        label: "Max. Hubweg",
+        values: ["11 ft / 3,4 m", "11 ft / 3,4 m", "11 ft / 3,4 m"],
+      },
+      {
+        label: "Max. Auslegerreichweite",
+        values: ["14 ft / 4,3 m", "14 ft / 4,3 m", "14 ft / 4,3 m"],
+      },
+    ],
+    ctaLabel: "Anfrage senden",
+    configuratorCta: "3D Konfigurator öffnen",
+  },
+  servicePage: {
+    heroEyebrow: "Service · Wartung · Reparatur",
+    heroTitle: "Service für Gorbel G-Force® & Easy Arm®",
+    heroSubtitle:
+      "Stillstand vermeiden – mit erfahrenen Technikern, schneller Diagnose und europäischem Ersatzteil-Support.",
+    headline: "Guter Service … ein Stück vom Produkt",
+    intro:
+      "Service ist bei uns kein Nachgedanke. WiMa und SAS begleiten Ihre G-Force®- und Easy Arm®-Systeme mit Wartung, Fehlerdiagnose und Reparatur – in der Werkstatt und vor Ort.",
+    highlights: [
+      {
+        title: "Wartung & Diagnose",
+        body: "Planmäßige Wartung und systematische Fehlersuche, damit Ihre Anlagen zuverlässig laufen und Ausfallzeiten kurz bleiben.",
+      },
+      {
+        title: "Elektronik & Antrieb",
+        body: "Kompetenz an Mainboards, Sensorik und Servotechnik – vom Typenschild bis zur Baugruppe.",
+      },
+      {
+        title: "Europa-Support",
+        body: "Ihr Partner, wenn früherer Europa-Support fehlt: Teile, Know-how und persönliche Betreuung aus einer Hand.",
+      },
+    ],
+    ctaTitle: "Schnelles Ersatzteil-Angebot",
+    ctaBody:
+      "Senden Sie uns ein Foto Ihres Typenschilds – per Kontaktformular oder Nachricht – und erhalten Sie ein zügiges Ersatzteil-Angebot.",
+    ctaLabel: "Typenschild senden",
+    contactCta: "Service anfragen",
   },
   about: {
     heroEyebrow: "WiMa · SAS · Europa",
@@ -242,11 +326,11 @@ const en: LocaleContent = {
   home: {
     sloganPrimary: "Downtime on your Gorbel G-Force®? We have the solution!",
     sloganSecondary:
-      "Your partner for service, maintenance and spare parts in Europe",
+      "Your exclusive partner for service, maintenance and spare parts in Europe!",
     eyebrow: "G-Force® · Easy Arm® · Europe",
-    heroTitle: "Intelligent lifting – service and parts when it matters",
+    heroTitle: "Downtime on your Gorbel G-Force®? We have the solution!",
     heroSubtitle:
-      "Qualified service and fast spare parts for Gorbel G-Force® and Easy Arm® – when European plants can no longer get timely support.",
+      "Your exclusive partner for service, maintenance and spare parts in Europe!",
     whoTitle: "WiMa & SAS – your service partner",
     whoBody:
       "WiMa Industrie-Automation and SAS Sauer-Automation Sachsen support Gorbel G-Force® and Easy Arm® in the field: diagnostics, repair, spare parts and expertise from the acquired e-motion portfolio – plus our own lifting devices with innovative electronics.",
@@ -285,6 +369,90 @@ const en: LocaleContent = {
       body: "Large German spare-parts stock for Gorbel G-Force® and Easy Arm®. Identification, supply and support – including a 3D configurator for part selection.",
     },
     ctaLabel: "Request advice",
+  },
+  gforcePage: {
+    heroEyebrow: "Gorbel® · G-Force® · Easy Arm®",
+    heroTitle: "G-Force® & Easy Arm®",
+    heroSubtitle:
+      "Intelligent lifting devices with patented servo technology – precision, speed and safety.",
+    intro:
+      "When speed, precision and programmability matter, choose Gorbel® G-Force® and Easy Arm®.",
+    balancers: {
+      title: "G-Force® balancers",
+      body: "Servo-controlled rope balancers for ergonomic, precise lifting – ideal on bridge cranes and production lines.",
+    },
+    controls: {
+      title: "G-Force® controls",
+      body: "Ergonomic handles and controls for intuitive guidance – people steer, technology delivers power and precision.",
+    },
+    easyArm: {
+      title: "Easy Arm®",
+      body: "The same intelligent lifting technology in an articulating-arm design – flexible positioning for assembly and material handling.",
+    },
+    body: "Does your lifting application need more than conventional devices can offer? When speed, precision and programmability are important, choose Gorbel® G-Force® and Easy Arm®. These intelligent lifting devices use exclusive patented technology and an industrial-processor-controlled servo drive system for unique precision and speed. Combining modern technology with human guidance maximises productivity and minimises operator injury risk. Choose a G-Force® unit for bridge-crane mounting or our Easy Arm®, which integrates the same lifting technology into an articulating-arm design. Both configurations are available in two models so you can select the functions that fit your applications.",
+    specsTitle: "Easy Arm® – technical data (excerpt)",
+    specsHeaders: [
+      "Parameter",
+      "165 lb / 75 kg",
+      "330 lb / 150 kg",
+      "660 lb / 300 kg",
+    ],
+    specs: [
+      {
+        label: "Max capacity (load & tool)",
+        values: ["165 lb / 75 kg", "330 lb / 150 kg", "660 lb / 300 kg"],
+      },
+      {
+        label: "Max lifting speed unloaded",
+        values: ["175 fpm / 53 mpm", "80 fpm / 24 mpm", "40 fpm / 12 mpm"],
+      },
+      {
+        label: "Max lifting speed fully loaded",
+        values: ["125 fpm / 38 mpm", "50 fpm / 15 mpm", "30 fpm / 9 mpm"],
+      },
+      {
+        label: "Max float-mode lifting speed",
+        values: ["90 fpm / 27 mpm", "40 fpm / 12 mpm", "36 fpm / 11 mpm"],
+      },
+      {
+        label: "Max lift range",
+        values: ["11 ft / 3.4 m", "11 ft / 3.4 m", "11 ft / 3.4 m"],
+      },
+      {
+        label: "Max arm span",
+        values: ["14 ft / 4.3 m", "14 ft / 4.3 m", "14 ft / 4.3 m"],
+      },
+    ],
+    ctaLabel: "Send enquiry",
+    configuratorCta: "Open 3D configurator",
+  },
+  servicePage: {
+    heroEyebrow: "Service · maintenance · repair",
+    heroTitle: "Service for Gorbel G-Force® & Easy Arm®",
+    heroSubtitle:
+      "Avoid downtime – with experienced technicians, fast diagnostics and European spare-parts support.",
+    headline: "Good service … part of the product",
+    intro:
+      "Service is not an afterthought. WiMa and SAS support your G-Force® and Easy Arm® systems with maintenance, fault diagnosis and repair – in the workshop and on site.",
+    highlights: [
+      {
+        title: "Maintenance & diagnostics",
+        body: "Scheduled maintenance and systematic troubleshooting so your systems run reliably and downtime stays short.",
+      },
+      {
+        title: "Electronics & drives",
+        body: "Expertise on mainboards, sensors and servo technology – from the nameplate to the assembly.",
+      },
+      {
+        title: "European support",
+        body: "Your partner when former European manufacturer support is gone: parts, know-how and personal care from one source.",
+      },
+    ],
+    ctaTitle: "Fast spare-part quote",
+    ctaBody:
+      "Send us a photo of your nameplate via the contact form or message – and receive a prompt spare-part offer.",
+    ctaLabel: "Send nameplate photo",
+    contactCta: "Request service",
   },
   about: {
     heroEyebrow: "WiMa · SAS · Europe",
@@ -432,11 +600,10 @@ const zh: LocaleContent = {
   },
   home: {
     sloganPrimary: "Gorbel G-Force® 停机？我们有解决方案！",
-    sloganSecondary: "欧洲服务、维护与备件的合作伙伴",
+    sloganSecondary: "您在欧洲的专属服务、维护与备件合作伙伴！",
     eyebrow: "G-Force® · Easy Arm® · 欧洲",
-    heroTitle: "智能起重——关键时刻的服务与备件",
-    heroSubtitle:
-      "Gorbel G-Force® 与 Easy Arm® 的专业服务与快速备件——当欧洲工厂无法再及时获得支持时。",
+    heroTitle: "Gorbel G-Force® 停机？我们有解决方案！",
+    heroSubtitle: "您在欧洲的专属服务、维护与备件合作伙伴！",
     whoTitle: "WiMa 与 SAS——您的服务伙伴",
     whoBody:
       "WiMa Industrie-Automation 与 SAS Sauer-Automation Sachsen 在现场支持 Gorbel G-Force® 与 Easy Arm®：诊断、维修、备件以及来自 e-motion 整合的专长——并提供配备创新电子技术的自有提升设备。",
@@ -474,6 +641,86 @@ const zh: LocaleContent = {
       body: "德国大型 Gorbel G-Force® 与 Easy Arm® 备件库存。识别、供应与支持——含 3D 配置器辅助选件。",
     },
     ctaLabel: "咨询方案",
+  },
+  gforcePage: {
+    heroEyebrow: "Gorbel® · G-Force® · Easy Arm®",
+    heroTitle: "G-Force® 与 Easy Arm®",
+    heroSubtitle: "采用专利伺服技术的智能提升设备——更高精度、速度与安全性。",
+    intro: "当速度、精度与可编程性至关重要时，请选择 Gorbel® G-Force® 与 Easy Arm®。",
+    balancers: {
+      title: "G-Force® 平衡器",
+      body: "伺服控制钢丝绳平衡器，实现符合人体工学的精准提升——适用于桥式起重机与产线。",
+    },
+    controls: {
+      title: "G-Force® 操作",
+      body: "符合人体工学的手柄与操控，引导直观——人主导，技术提供力量与精度。",
+    },
+    easyArm: {
+      title: "Easy Arm®",
+      body: "同样的智能提升技术集成于关节臂设计——装配与物料搬运定位更灵活。",
+    },
+    body: "您的提升应用是否需要超越传统设备的能力？当速度、精度与可编程性重要时，请选择 Gorbel® G-Force® 与 Easy Arm®。这些智能提升装置采用独家专利技术与工业处理器控制的伺服驱动系统，实现独特精度与速度。现代技术与人工引导相结合，最大化生产力并降低操作者受伤风险。可选择安装于桥式起重机的 G-Force® 单元，或将相同技术集成于关节臂的 Easy Arm®。两种配置均有两个型号，便于按应用选择功能。",
+    specsTitle: "Easy Arm® – 技术参数（节选）",
+    specsHeaders: [
+      "参数",
+      "165 lb / 75 kg",
+      "330 lb / 150 kg",
+      "660 lb / 300 kg",
+    ],
+    specs: [
+      {
+        label: "最大容量（负载与工具）",
+        values: ["165 lb / 75 kg", "330 lb / 150 kg", "660 lb / 300 kg"],
+      },
+      {
+        label: "最大空载提升速度",
+        values: ["175 fpm / 53 mpm", "80 fpm / 24 mpm", "40 fpm / 12 mpm"],
+      },
+      {
+        label: "最大满载提升速度",
+        values: ["125 fpm / 38 mpm", "50 fpm / 15 mpm", "30 fpm / 9 mpm"],
+      },
+      {
+        label: "最大浮动模式提升速度",
+        values: ["90 fpm / 27 mpm", "40 fpm / 12 mpm", "36 fpm / 11 mpm"],
+      },
+      {
+        label: "最大提升行程",
+        values: ["11 ft / 3.4 m", "11 ft / 3.4 m", "11 ft / 3.4 m"],
+      },
+      {
+        label: "最大臂展",
+        values: ["14 ft / 4.3 m", "14 ft / 4.3 m", "14 ft / 4.3 m"],
+      },
+    ],
+    ctaLabel: "发送询价",
+    configuratorCta: "打开 3D 配置器",
+  },
+  servicePage: {
+    heroEyebrow: "服务 · 维护 · 维修",
+    heroTitle: "Gorbel G-Force® 与 Easy Arm® 服务",
+    heroSubtitle: "避免停机——经验丰富的技术员、快速诊断与欧洲备件支持。",
+    headline: "优质服务……产品的一部分",
+    intro:
+      "服务不是事后补救。WiMa 与 SAS 以维护、故障诊断与维修支持您的 G-Force® 与 Easy Arm® 系统——车间与现场均可。",
+    highlights: [
+      {
+        title: "维护与诊断",
+        body: "计划性维护与系统化排障，让设备可靠运行、停机时间更短。",
+      },
+      {
+        title: "电子与驱动",
+        body: "主板、传感器与伺服技术专长——从铭牌到总成。",
+      },
+      {
+        title: "欧洲支持",
+        body: "当原欧洲原厂支持缺失时的合作伙伴：备件、专长与一站式对接。",
+      },
+    ],
+    ctaTitle: "快速备件报价",
+    ctaBody: "通过联系表单或消息发送铭牌照片——即可获得迅速的备件报价。",
+    ctaLabel: "发送铭牌照片",
+    contactCta: "预约服务",
   },
   about: {
     heroEyebrow: "WiMa · SAS · 欧洲",
@@ -605,7 +852,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 30,
+  version: 31,
   images: {
     hero:
       "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/hero-sm.webp",

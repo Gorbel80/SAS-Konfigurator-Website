@@ -4,9 +4,11 @@ import { routing } from "@/i18n/routing";
 
 const paths = [
   "",
-  "/ueber-uns",
+  "/g-force",
+  "/service",
   "/contact",
   "/konfigurator",
+  "/ueber-uns",
   "/impressum",
   "/datenschutz",
 ];
@@ -23,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority:
         path === ""
           ? 1
-          : path === "/contact" || path === "/ueber-uns"
+          : path === "/contact" || path === "/g-force" || path === "/service"
             ? 0.8
             : path === "/konfigurator"
               ? 0.6

@@ -49,28 +49,22 @@ export function Footer({ content, companies }: Props) {
               {content.nav.home}
             </Link>
             <Link
-              href="/#g-force"
+              href="/g-force"
               className="text-anthracite-300 transition-colors hover:text-white"
             >
               {content.nav.gforce}
             </Link>
             <Link
-              href="/#service"
+              href="/service"
               className="text-anthracite-300 transition-colors hover:text-white"
             >
               {content.nav.service}
             </Link>
             <Link
-              href="/#ersatzteile"
+              href="/konfigurator"
               className="text-anthracite-300 transition-colors hover:text-white"
             >
               {content.nav.parts}
-            </Link>
-            <Link
-              href="/ueber-uns"
-              className="text-anthracite-300 transition-colors hover:text-white"
-            >
-              {content.nav.about}
             </Link>
             <Link
               href="/contact"

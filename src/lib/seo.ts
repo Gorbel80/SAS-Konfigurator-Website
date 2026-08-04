@@ -42,8 +42,13 @@ export function buildPageMetadata({
     "Hebetechnik",
   ];
 
+  // absolute avoids double branding from root layout title.template
+  const fullTitle = title.includes("SAS × WiMa")
+    ? title
+    : `${title} | SAS × WiMa`;
+
   return {
-    title,
+    title: { absolute: fullTitle },
     description,
     keywords: [...defaultKeywords, ...keywords],
     alternates: {
@@ -60,7 +65,7 @@ export function buildPageMetadata({
       locale: locale === "de" ? "de_DE" : locale === "en" ? "en_US" : "zh_CN",
       url,
       siteName: "SAS × WiMa – Gorbel Service",
-      title,
+      title: fullTitle,
       description,
       images: [
         {
@@ -73,7 +78,7 @@ export function buildPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: [`${base}/images/site/hero.jpg`],
     },

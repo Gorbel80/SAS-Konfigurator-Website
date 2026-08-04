@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return buildPageMetadata({
     locale,
-    title: `${t.about.heroTitle} | SAS × WiMa`,
+    title: t.about.heroTitle,
     description: t.about.heroSubtitle,
     path: "/ueber-uns",
     keywords: [

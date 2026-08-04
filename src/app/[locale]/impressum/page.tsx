@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return buildPageMetadata({
     locale,
-    title: `${t.impressum.title} | SAS × WiMa`,
+    title: t.impressum.title,
     description: t.impressum.intro.slice(0, 160),
     path: "/impressum",
   });

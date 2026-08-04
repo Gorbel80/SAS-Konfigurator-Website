@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return buildPageMetadata({
     locale,
-    title: `${c.title} – ${c.message} | SAS × WiMa`,
+    title: `${c.title} – ${c.message}`,
     description:
       locale === "de"
         ? "3D Konfigurator für Gorbel G-Force® und Easy Arm® Ersatzteile – bald verfügbar bei SAS × WiMa. Seilbalancer Service und Identifikation."

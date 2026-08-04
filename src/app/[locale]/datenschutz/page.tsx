@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return buildPageMetadata({
     locale,
-    title: `${t.privacy.title} | SAS × WiMa`,
+    title: t.privacy.title,
     description: t.privacy.intro.slice(0, 160),
     path: "/datenschutz",
   });

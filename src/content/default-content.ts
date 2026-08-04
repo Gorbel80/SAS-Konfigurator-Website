@@ -607,13 +607,20 @@ const zh: LocaleContent = {
 export const defaultContent: SiteContent = {
   version: 30,
   images: {
-    hero: "/images/site/hero-sm.webp",
-    side: "/images/site/about-sm.webp",
-    contact: "/images/site/contact-sm.webp",
-    service: "/images/site/service-sm.webp",
-    parts: "/images/site/parts-sm.webp",
-    lifts: "/images/site/gforce-sm.webp",
-    configurator: "/images/site/konfigurator-sm.webp",
+    hero:
+      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/hero-sm.webp",
+    side:
+      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/about-sm.webp",
+    contact:
+      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/contact-sm.webp",
+    service:
+      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/service-sm.webp",
+    parts:
+      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/parts-sm.webp",
+    lifts:
+      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/gforce-sm.webp",
+    configurator:
+      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/konfigurator-sm.webp",
   },
   companies: {
     wima: wimaBase,

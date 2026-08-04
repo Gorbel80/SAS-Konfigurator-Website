@@ -1,6 +1,7 @@
 /**
  * G-Force Configurator catalog (MVP).
  * Left library = product families; right Partlist = BOM for the selected product.
+ * No 2D product/part photos in this version — 3D stage only.
  */
 
 export type Localized = { de: string; en: string; zh: string };
@@ -9,18 +10,13 @@ export type BomPart = {
   id: string;
   partNumber: string;
   name: Localized;
-  /** Optional thumbnail */
-  image?: string;
 };
 
 export type CatalogProduct = {
   id: string;
-  /** Shown in Parts Library */
   name: Localized;
   series: string;
   capacity: string;
-  image: string;
-  /** Default bill of materials when product is opened */
   parts: BomPart[];
 };
 
@@ -30,13 +26,11 @@ function part(
   de: string,
   en: string,
   zh: string,
-  image?: string,
 ): BomPart {
   return {
     id,
     partNumber,
     name: { de, en, zh },
-    image,
   };
 }
 
@@ -49,7 +43,6 @@ function defaultBom(prefix: string): BomPart[] {
       "Gehäuse / Housing",
       "Housing assembly",
       "壳体总成",
-      "/images/configurator/machine.png",
     ),
     part(
       `${prefix}-wra`,
@@ -92,7 +85,6 @@ function defaultBom(prefix: string): BomPart[] {
       "Steuerplatine / Mainboard",
       "Control board / mainboard",
       "控制主板",
-      "/images/configurator/part-mainboard.jpg",
     ),
     part(
       `${prefix}-sensor`,
@@ -114,7 +106,6 @@ export const catalogProducts: CatalogProduct[] = [
       en: "G-Force Q/iQ 75–150 kg",
       zh: "G-Force Q/iQ 75–150 kg",
     },
-    image: "/images/configurator/machine.png",
     parts: defaultBom("Q-IQ-150"),
   },
   {
@@ -126,7 +117,6 @@ export const catalogProducts: CatalogProduct[] = [
       en: "G-Force Q/iQ 300–600 kg",
       zh: "G-Force Q/iQ 300–600 kg",
     },
-    image: "/images/configurator/g-force.jpg",
     parts: defaultBom("Q-IQ-600"),
   },
   {
@@ -138,7 +128,6 @@ export const catalogProducts: CatalogProduct[] = [
       en: "G-Force Q2/iQ2 75–150 kg",
       zh: "G-Force Q2/iQ2 75–150 kg",
     },
-    image: "/images/configurator/machine.png",
     parts: defaultBom("Q2-IQ2-150"),
   },
   {
@@ -150,7 +139,6 @@ export const catalogProducts: CatalogProduct[] = [
       en: "G-Force Q2/iQ2 300–600 kg",
       zh: "G-Force Q2/iQ2 300–600 kg",
     },
-    image: "/images/configurator/g-force-dvs.jpg",
     parts: defaultBom("Q2-IQ2-600"),
   },
 ];

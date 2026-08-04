@@ -20,17 +20,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: c.title,
     description:
       locale === "de"
-        ? "3D Konfigurator für Gorbel G-Force® und Easy Arm® Ersatzteile – Teilebibliothek und Geräteansicht von SAS × WiMa."
+        ? "G-Force Konfigurator – Parts Library, Geräteansicht und Partlist für G-Force Q/iQ und Q2/iQ2 von SAS × WiMa."
         : locale === "en"
-          ? "3D configurator for Gorbel G-Force® and Easy Arm® spare parts – parts library and unit view by SAS × WiMa."
-          : "Gorbel G-Force® 与 Easy Arm® 备件 3D 配置器——SAS × WiMa 零件库与设备视图。",
+          ? "G-Force Configurator – parts library, unit view and partlist for G-Force Q/iQ and Q2/iQ2 by SAS × WiMa."
+          : "G-Force 配置器——Q/iQ 与 Q2/iQ2 零件库、设备视图与零件列表（SAS × WiMa）。",
     path: "/konfigurator",
     keywords: [
+      "G-Force Konfigurator",
       "3D Konfigurator",
-      "Produktkonfigurator",
       "G-Force Ersatzteile",
-      "Easy Arm Ersatzteile",
-      "Teilebibliothek",
+      "Parts Library",
+      "Partlist",
     ],
   });
 }

@@ -88,6 +88,8 @@ export type LocaleContent = {
   };
   configuratorPage: {
     title: string;
+    /** Word after "G-Force" in the configurator header (e.g. Konfigurator) */
+    titleWord: string;
     message: string;
     badge: string;
     hint: string;
@@ -107,6 +109,11 @@ export type LocaleContent = {
     requestLabel: string;
     emptyLibrary: string;
     noImage: string;
+    partlistTitle: string;
+    emptyPartlist: string;
+    deletePart: string;
+    selectedPart: string;
+    viewImage: string;
   };
   footer: {
     tagline: string;

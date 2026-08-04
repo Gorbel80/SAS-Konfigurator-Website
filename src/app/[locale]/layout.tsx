@@ -5,6 +5,7 @@ import { DM_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { CookieBanner } from "@/components/legal/CookieBanner";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { readContent } from "@/lib/content-store";
@@ -51,17 +52,24 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
-          <Header
-            nav={localeContent.nav}
-            brand="SAS × WiMa"
-            configuratorLabel={localeContent.home.configuratorLabel}
-            configuratorHint={localeContent.home.configuratorHint}
-          />
-          <main id="site-main">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer content={localeContent} companies={content.companies} />
-          <CookieBanner cookies={localeContent.cookies} />
+          <SiteChrome
+            header={
+              <Header
+                nav={localeContent.nav}
+                brand="SAS × WiMa"
+                configuratorLabel={localeContent.home.configuratorLabel}
+                configuratorHint={localeContent.home.configuratorHint}
+              />
+            }
+            footer={
+              <Footer content={localeContent} companies={content.companies} />
+            }
+            banner={<CookieBanner cookies={localeContent.cookies} />}
+          >
+            <main id="site-main">
+              <PageTransition>{children}</PageTransition>
+            </main>
+          </SiteChrome>
         </NextIntlClientProvider>
       </body>
     </html>

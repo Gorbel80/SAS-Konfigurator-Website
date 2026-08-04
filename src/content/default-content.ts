@@ -607,13 +607,13 @@ const zh: LocaleContent = {
 export const defaultContent: SiteContent = {
   version: 30,
   images: {
-    hero: "/images/site/hero.webp",
-    side: "/images/site/about.webp",
-    contact: "/images/site/contact.webp",
-    service: "/images/site/service.webp",
-    parts: "/images/site/parts.webp",
-    lifts: "/images/site/gforce.webp",
-    configurator: "/images/site/konfigurator.webp",
+    hero: "/images/site/hero-sm.webp",
+    side: "/images/site/about-sm.webp",
+    contact: "/images/site/contact-sm.webp",
+    service: "/images/site/service-sm.webp",
+    parts: "/images/site/parts-sm.webp",
+    lifts: "/images/site/gforce-sm.webp",
+    configurator: "/images/site/konfigurator-sm.webp",
   },
   companies: {
     wima: wimaBase,

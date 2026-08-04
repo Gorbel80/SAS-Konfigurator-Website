@@ -4,9 +4,13 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
-import { ConfiguratorStage3D } from "@/components/configurator/ConfiguratorStage3D";
+import {
+  ConfiguratorStage3D,
+  type PartPositions,
+} from "@/components/configurator/ConfiguratorStage3D";
 import {
   catalogProducts,
+  defaultRolePositions,
   type BomPart,
   type CatalogProduct,
 } from "@/data/configurator-catalog";
@@ -20,13 +24,24 @@ import {
   Eye,
   Layers,
   Mail,
+  Move,
+  RotateCcw,
   Trash2,
+  ZoomIn,
 } from "lucide-react";
 
 type Props = {
   locale: Locale;
   labels: LocaleContent["configuratorPage"];
 };
+
+function buildInitialPositions(parts: BomPart[]): PartPositions {
+  const map: PartPositions = {};
+  for (const p of parts) {
+    map[p.id] = [...defaultRolePositions[p.role]] as [number, number, number];
+  }
+  return map;
+}
 
 export function ConfiguratorWorkshop({ locale, labels }: Props) {
   const [productId, setProductId] = useState(catalogProducts[0]?.id ?? "");
@@ -41,13 +56,19 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
   const [selectedPartId, setSelectedPartId] = useState<string | null>(
     product?.parts[0]?.id ?? null,
   );
-  /** Collapsible Parts Library (popup-style panel, like the reference UI) */
+  const [positions, setPositions] = useState<PartPositions>(() =>
+    buildInitialPositions(product?.parts ?? []),
+  );
   const [libraryOpen, setLibraryOpen] = useState(true);
+  const [sceneKey, setSceneKey] = useState(0);
 
   useEffect(() => {
     if (!product) return;
-    setPartlist(product.parts.map((p) => ({ ...p })));
-    setSelectedPartId(product.parts[0]?.id ?? null);
+    const next = product.parts.map((p) => ({ ...p }));
+    setPartlist(next);
+    setSelectedPartId(next[0]?.id ?? null);
+    setPositions(buildInitialPositions(next));
+    setSceneKey((k) => k + 1);
   }, [product]);
 
   const selectedPart = useMemo(
@@ -63,10 +84,27 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
       }
       return next;
     });
+    setPositions((prev) => {
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
   }
 
   function selectProduct(p: CatalogProduct) {
     setProductId(p.id);
+  }
+
+  function handlePositionChange(
+    id: string,
+    position: [number, number, number],
+  ) {
+    setPositions((prev) => ({ ...prev, [id]: position }));
+  }
+
+  function resetTransforms() {
+    setPositions(buildInitialPositions(partlist));
+    setSceneKey((k) => k + 1);
   }
 
   const requestHref = `/contact?subject=${encodeURIComponent(
@@ -110,37 +148,45 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
         </div>
       </header>
 
-      {/* Main: center stage + right partlist; library is floating collapsible */}
       <div className="relative grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[1fr_280px] xl:grid-cols-[1fr_300px]">
-        {/* Center – 3D stage only */}
+        {/* Center – interactive 3D */}
         <section className="relative flex min-h-[240px] flex-col bg-[radial-gradient(ellipse_at_center,_#252b34_0%,_#12161b_55%,_#0a0c0f_100%)] lg:min-h-0">
-          <div className="flex items-center justify-between gap-2 border-b border-white/5 px-3 py-2">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 px-3 py-2">
             <p className="truncate text-xs font-medium text-anthracite-300">
               {product?.name[locale]}
             </p>
-            <p className="text-[10px] font-medium uppercase tracking-wider text-anthracite-500">
-              {labels.stageLabel}
-            </p>
+            <div className="flex flex-wrap items-center gap-2 text-[10px] text-anthracite-500">
+              <span className="inline-flex items-center gap-1">
+                <RotateCcw className="h-3 w-3" /> {labels.hintRotate}
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <ZoomIn className="h-3 w-3" /> {labels.hintZoom}
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <Move className="h-3 w-3" /> {labels.hintDrag}
+              </span>
+              <button
+                type="button"
+                onClick={resetTransforms}
+                className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 font-semibold text-anthracite-300 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                {labels.resetView}
+              </button>
+            </div>
           </div>
 
           <div className="relative min-h-0 flex-1">
-            <ConfiguratorStage3D className="absolute inset-0 h-full w-full" />
+            <ConfiguratorStage3D
+              key={sceneKey}
+              className="absolute inset-0 h-full w-full"
+              parts={partlist}
+              selectedPartId={selectedPartId}
+              positions={positions}
+              onSelectPart={setSelectedPartId}
+              onPositionChange={handlePositionChange}
+            />
 
-            {selectedPart ? (
-              <div className="absolute bottom-3 left-3 right-3 z-10 mx-auto max-w-md rounded-xl border border-white/10 bg-anthracite-950/85 px-3 py-2 backdrop-blur-sm sm:left-auto sm:right-3 sm:max-w-xs">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-anthracite-500">
-                  {labels.selectedPart}
-                </p>
-                <p className="mt-0.5 text-sm font-semibold text-white">
-                  {selectedPart.name[locale]}
-                </p>
-                <p className="font-mono text-xs text-accent">
-                  {selectedPart.partNumber}
-                </p>
-              </div>
-            ) : null}
-
-            {/* Collapsible Parts Library – popup style (bottom-left) */}
+            {/* Collapsible Parts Library */}
             <div className="absolute bottom-3 left-3 z-20 w-[min(18rem,calc(100%-1.5rem))] sm:w-72">
               <div className="overflow-hidden rounded-xl border border-white/15 bg-anthracite-900/95 shadow-2xl backdrop-blur-md">
                 <button
@@ -201,7 +247,10 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
             </div>
           </div>
 
-          <div className="flex items-center justify-end gap-2 border-t border-white/10 px-3 py-2">
+          <div className="flex items-center justify-between gap-2 border-t border-white/10 px-3 py-2">
+            <p className="text-[10px] font-medium uppercase tracking-wider text-anthracite-500">
+              {labels.stageLabel}
+            </p>
             <Link
               href={requestHref}
               className="inline-flex h-8 items-center gap-1.5 rounded-full bg-accent px-3 text-[11px] font-semibold text-white hover:bg-accent-hover"
@@ -250,6 +299,25 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
                           onClick={() => setSelectedPartId(part.id)}
                           className="flex min-w-0 flex-1 items-center gap-2.5 px-2.5 py-2 text-left"
                         >
+                          <span
+                            className="h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-white/20"
+                            style={{
+                              backgroundColor:
+                                part.role === "housing"
+                                  ? "#1e4d9c"
+                                  : part.role === "rear"
+                                    ? "#1a1d22"
+                                    : part.role === "hdl"
+                                      ? "#f59e0b"
+                                      : part.role === "coil"
+                                        ? "#38bdf8"
+                                        : part.role === "pcb"
+                                          ? "#22c55e"
+                                          : part.role === "sensor"
+                                            ? "#ef4444"
+                                            : "#6b7280",
+                            }}
+                          />
                           <span className="min-w-0">
                             <span className="block truncate text-xs font-semibold text-anthracite-100">
                               {part.name[locale]}
@@ -289,6 +357,9 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
               </p>
               <p className="mt-0.5 font-mono text-xs text-accent">
                 {selectedPart.partNumber}
+              </p>
+              <p className="mt-2 text-[11px] leading-relaxed text-anthracite-500">
+                {labels.hintSelect}
               </p>
               <button
                 type="button"

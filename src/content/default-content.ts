@@ -132,6 +132,11 @@ const de: LocaleContent = {
     deletePart: "Teil entfernen",
     selectedPart: "Ausgewählt",
     viewImage: "Bild",
+    hintRotate: "Drehen",
+    hintZoom: "Zoom",
+    hintDrag: "Teil ziehen",
+    resetView: "Reset",
+    hintSelect: "Im 3D-Modell anklicken und mit den Pfeilen verschieben.",
   },
   footer: {
     tagline:
@@ -306,6 +311,11 @@ const en: LocaleContent = {
     deletePart: "Remove part",
     selectedPart: "Selected",
     viewImage: "Image",
+    hintRotate: "Rotate",
+    hintZoom: "Zoom",
+    hintDrag: "Drag part",
+    resetView: "Reset",
+    hintSelect: "Click the part in 3D and drag with the handles.",
   },
   footer: {
     tagline:
@@ -479,6 +489,11 @@ const zh: LocaleContent = {
     deletePart: "删除零件",
     selectedPart: "已选",
     viewImage: "图片",
+    hintRotate: "旋转",
+    hintZoom: "缩放",
+    hintDrag: "拖动零件",
+    resetView: "重置",
+    hintSelect: "在 3D 中点击零件并用手柄拖动。",
   },
   footer: {
     tagline: "德国最大 Gorbel G-Force® 与 Easy Arm® 备件库 · 服务与维修",
@@ -553,7 +568,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 20,
+  version: 21,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",

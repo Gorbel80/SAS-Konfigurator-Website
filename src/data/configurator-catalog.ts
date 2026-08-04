@@ -1,15 +1,28 @@
 /**
  * G-Force Configurator catalog (MVP).
  * Left library = product families; right Partlist = BOM for the selected product.
- * No 2D product/part photos in this version — 3D stage only.
+ * Each part has a `role` that maps to a 3D mesh in the workshop.
  */
 
 export type Localized = { de: string; en: string; zh: string };
+
+/** Stable mesh role — used to build the procedural 3D assembly */
+export type PartRole =
+  | "housing"
+  | "rear"
+  | "wra"
+  | "hdl"
+  | "coil"
+  | "swivel"
+  | "hw"
+  | "pcb"
+  | "sensor";
 
 export type BomPart = {
   id: string;
   partNumber: string;
   name: Localized;
+  role: PartRole;
 };
 
 export type CatalogProduct = {
@@ -23,6 +36,7 @@ export type CatalogProduct = {
 function part(
   id: string,
   partNumber: string,
+  role: PartRole,
   de: string,
   en: string,
   zh: string,
@@ -30,6 +44,7 @@ function part(
   return {
     id,
     partNumber,
+    role,
     name: { de, en, zh },
   };
 }
@@ -40,13 +55,23 @@ function defaultBom(prefix: string): BomPart[] {
     part(
       `${prefix}-housing`,
       `${prefix}-HSG`,
-      "Gehäuse / Housing",
-      "Housing assembly",
-      "壳体总成",
+      "housing",
+      "Gehäuse (blau)",
+      "Housing (blue)",
+      "壳体（蓝）",
+    ),
+    part(
+      `${prefix}-rear`,
+      `${prefix}-REAR`,
+      "rear",
+      "Gehäuse hinten (schwarz)",
+      "Rear housing (black)",
+      "后壳体（黑）",
     ),
     part(
       `${prefix}-wra`,
       `${prefix}-WRA`,
+      "wra",
       "Drahtseil-Baugruppe",
       "Wire rope assembly",
       "钢丝绳总成",
@@ -54,6 +79,7 @@ function defaultBom(prefix: string): BomPart[] {
     part(
       `${prefix}-hdl`,
       `${prefix}-HDL`,
+      "hdl",
       "Bediengriff",
       "Control handle",
       "操作手柄",
@@ -61,6 +87,7 @@ function defaultBom(prefix: string): BomPart[] {
     part(
       `${prefix}-coil`,
       `${prefix}-CC`,
+      "coil",
       "Spiralkabel",
       "Coil cord",
       "螺旋电缆",
@@ -68,6 +95,7 @@ function defaultBom(prefix: string): BomPart[] {
     part(
       `${prefix}-swivel`,
       `${prefix}-SWK`,
+      "swivel",
       "Drehgelenk-Kit",
       "Swivel kit",
       "旋转接头套件",
@@ -75,6 +103,7 @@ function defaultBom(prefix: string): BomPart[] {
     part(
       `${prefix}-hw`,
       `${prefix}-HWK`,
+      "hw",
       "Hardware-Kit",
       "Hardware kit",
       "五金件套件",
@@ -82,6 +111,7 @@ function defaultBom(prefix: string): BomPart[] {
     part(
       `${prefix}-pcb`,
       `${prefix}-PCB`,
+      "pcb",
       "Steuerplatine / Mainboard",
       "Control board / mainboard",
       "控制主板",
@@ -89,6 +119,7 @@ function defaultBom(prefix: string): BomPart[] {
     part(
       `${prefix}-sensor`,
       `${prefix}-SEN`,
+      "sensor",
       "Lastsensor",
       "Load sensor",
       "载荷传感器",
@@ -146,3 +177,17 @@ export const catalogProducts: CatalogProduct[] = [
 export function getProductById(id: string): CatalogProduct | undefined {
   return catalogProducts.find((p) => p.id === id);
 }
+
+/** Default local positions for each mesh role (G-Force-inspired assembly). */
+export const defaultRolePositions: Record<PartRole, [number, number, number]> =
+  {
+    housing: [0.2, 0.25, 0],
+    rear: [-0.85, 0.2, 0],
+    wra: [-0.55, -0.55, 0],
+    hdl: [0.35, -0.85, 0.55],
+    coil: [0.15, -0.35, 0.55],
+    swivel: [-0.55, -0.15, 0],
+    hw: [0.75, 0.15, 0.45],
+    pcb: [0.15, 0.55, 0.35],
+    sensor: [-0.35, 0.55, 0.4],
+  };

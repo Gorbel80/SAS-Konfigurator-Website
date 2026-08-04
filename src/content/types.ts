@@ -114,6 +114,11 @@ export type LocaleContent = {
     deletePart: string;
     selectedPart: string;
     viewImage: string;
+    hintRotate: string;
+    hintZoom: string;
+    hintDrag: string;
+    resetView: string;
+    hintSelect: string;
   };
   footer: {
     tagline: string;

@@ -100,10 +100,12 @@ export function AboutCompanyPage({ content, images, companies }: Props) {
             <div className="img-zoom relative h-full min-h-[11rem] overflow-hidden rounded-2xl border border-border shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)] lg:min-h-full">
               <Image
                 src={images.lifts}
-                alt=""
+                alt={content.home.whoTitle}
                 fill
+                loading="lazy"
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={70}
               />
             </div>
           </div>

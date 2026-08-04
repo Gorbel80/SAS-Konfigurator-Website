@@ -22,7 +22,8 @@ export type ImageKey =
   | "contact"
   | "service"
   | "parts"
-  | "lifts";
+  | "lifts"
+  | "configurator";
 
 export type OfferBlock = {
   title: string;
@@ -84,6 +85,13 @@ export type LocaleContent = {
     formSubmit: string;
     formHint: string;
     formSuccess: string;
+  };
+  configuratorPage: {
+    title: string;
+    message: string;
+    badge: string;
+    hint: string;
+    backLabel: string;
   };
   footer: {
     tagline: string;

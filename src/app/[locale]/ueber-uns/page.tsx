@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { AboutCompanyPage } from "@/components/sections/AboutCompanyPage";
 import { readContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/content/types";
 
 type Props = {
@@ -12,10 +13,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const content = await readContent();
   const t = content.locales[locale as Locale];
-  return {
-    title: t.nav.about,
-    description: t.home.whoBody,
-  };
+
+  return buildPageMetadata({
+    locale,
+    title: `${t.about.heroTitle} | SAS × WiMa`,
+    description: t.about.heroSubtitle,
+    path: "/ueber-uns",
+    keywords: [
+      "WiMa Industrie-Automation",
+      "SAS Sauer-Automation",
+      "Gorbel Service",
+      "G-Force Service Europa",
+    ],
+  });
 }
 
 export default async function Page({ params }: Props) {

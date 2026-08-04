@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { CookieBanner } from "@/components/legal/CookieBanner";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { readContent } from "@/lib/content-store";
+import { organizationJsonLd } from "@/lib/seo";
 import type { Locale } from "@/content/types";
 
 export const dynamic = "force-dynamic";
@@ -38,9 +39,16 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
   const content = await readContent();
   const localeContent = content.locales[locale as Locale];
+  const jsonLd = organizationJsonLd(localeContent);
 
   return (
     <html lang={locale} className={dmSans.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
           <Header

@@ -105,6 +105,13 @@ const de: LocaleContent = {
     formHint: "Öffnet Ihre E-Mail-App mit vorausgefüllter Nachricht.",
     formSuccess: "E-Mail-App sollte geöffnet sein.",
   },
+  configuratorPage: {
+    title: "3D Konfigurator",
+    message: "Bald verfügbar",
+    badge: "3D · G-Force® · Easy Arm®",
+    hint: "Der interaktive 3D-Konfigurator für Gorbel G-Force® und Easy Arm® Ersatzteile folgt in Kürze.",
+    backLabel: "Zur Startseite",
+  },
   footer: {
     tagline:
       "Größtes Ersatzteillager Deutschlands für Gorbel G-Force® & Easy Arm® · Service & Reparatur",
@@ -251,6 +258,13 @@ const en: LocaleContent = {
     formHint: "Opens your email app with a pre-filled message.",
     formSuccess: "Your email app should have opened.",
   },
+  configuratorPage: {
+    title: "3D Configurator",
+    message: "Coming soon",
+    badge: "3D · G-Force® · Easy Arm®",
+    hint: "The interactive 3D configurator for Gorbel G-Force® and Easy Arm® spare parts will be available soon.",
+    backLabel: "Back to home",
+  },
   footer: {
     tagline:
       "Germany’s largest spare-parts warehouse for Gorbel G-Force® & Easy Arm® · Service & repair",
@@ -396,6 +410,13 @@ const zh: LocaleContent = {
     formHint: "将打开邮件应用并预填内容。",
     formSuccess: "应已打开邮件应用。",
   },
+  configuratorPage: {
+    title: "3D 配置器",
+    message: "即将推出",
+    badge: "3D · G-Force® · Easy Arm®",
+    hint: "面向 Gorbel G-Force® 与 Easy Arm® 备件的交互式 3D 配置器即将上线。",
+    backLabel: "返回首页",
+  },
   footer: {
     tagline: "德国最大 Gorbel G-Force® 与 Easy Arm® 备件库 · 服务与维修",
     rights: "版权所有。",
@@ -469,7 +490,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 17,
+  version: 18,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",
@@ -477,6 +498,7 @@ export const defaultContent: SiteContent = {
     service: "/images/site/service.jpg",
     parts: "/images/site/workshop.jpg",
     lifts: "/images/site/story.jpg",
+    configurator: "/images/site/konfigurator.jpg",
   },
   companies: {
     wima: wimaBase,

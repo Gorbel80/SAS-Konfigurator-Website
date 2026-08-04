@@ -10,6 +10,8 @@ type Props = {
   children?: ReactNode;
   /** Slightly shorter banner on inner pages */
   compact?: boolean;
+  /** Descriptive alt for SEO; decorative heroes can keep a short label */
+  imageAlt?: string;
 };
 
 /**
@@ -22,17 +24,19 @@ export function PageHeroBanner({
   subtitle,
   children,
   compact = false,
+  imageAlt,
 }: Props) {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="absolute inset-0">
         <Image
           src={imageSrc}
-          alt=""
+          alt={imageAlt ?? title}
           fill
           priority
           className="object-cover scale-[1.01]"
           sizes="100vw"
+          quality={75}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-anthracite-950 via-anthracite-950/92 to-anthracite-900/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/40 via-transparent to-anthracite-950/20" />

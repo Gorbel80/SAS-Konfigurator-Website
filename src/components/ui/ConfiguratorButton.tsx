@@ -1,12 +1,12 @@
+"use client";
+
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { Box } from "lucide-react";
 
 type Size = "hero" | "header" | "mobile";
 
-const sizes: Record<
-  Size,
-  { btn: string; icon: string; badge: string }
-> = {
+const sizes: Record<Size, { btn: string; icon: string; badge: string }> = {
   hero: {
     btn: "h-11 gap-2 rounded-full px-4 pl-3.5 text-sm sm:h-12 sm:px-5 sm:text-[0.9375rem]",
     icon: "h-4 w-4",
@@ -25,27 +25,28 @@ const sizes: Record<
 };
 
 /**
- * Placeholder for the future 3D configurator — elegant, visible, professional.
+ * Links to the 3D configurator placeholder page.
  */
 export function ConfiguratorButton({
   label,
   hint,
   size = "hero",
   className,
+  onNavigate,
 }: {
   label: string;
   hint: string;
   size?: Size;
   className?: string;
+  onNavigate?: () => void;
 }) {
   const s = sizes[size];
 
   return (
-    <button
-      type="button"
-      disabled
+    <Link
+      href="/konfigurator"
       title={hint}
-      aria-disabled="true"
+      onClick={onNavigate}
       className={cn(
         "group relative inline-flex items-center justify-center",
         "font-semibold text-white",
@@ -54,7 +55,6 @@ export function ConfiguratorButton({
         "ring-1 ring-accent/30",
         "transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
         "hover:bg-accent-hover hover:shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_6px_18px_-4px_rgba(180,83,9,0.5)]",
-        "disabled:cursor-not-allowed",
         s.btn,
         className,
       )}
@@ -76,6 +76,6 @@ export function ConfiguratorButton({
       >
         {hint}
       </span>
-    </button>
+    </Link>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { HomePage } from "@/components/home/HomePage";
 import { readContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/content/types";
 import { routing } from "@/i18n/routing";
 
@@ -17,10 +18,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const content = await readContent();
   const meta = content.locales[locale as Locale]?.meta;
-  return {
-    title: meta?.title,
-    description: meta?.description,
-  };
+
+  return buildPageMetadata({
+    locale,
+    title:
+      meta?.title ??
+      "Gorbel G-Force® – Größtes Ersatzteillager Deutschlands | SAS × WiMa",
+    description:
+      meta?.description ??
+      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force® und Easy Arm®. Service und eigene Seil-/Kettenzüge von WiMa und SAS.",
+    path: "",
+    keywords: [
+      "Gorbel G-Force®",
+      "Easy Arm®",
+      "Ersatzteile Deutschland",
+      "Seilbalancer",
+      "Service Hebetechnik",
+    ],
+  });
 }
 
 export default async function Page({ params }: Props) {

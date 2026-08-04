@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { LegalPageShell, LegalSection } from "@/components/legal/LegalPageShell";
 import { readContent } from "@/lib/content-store";
+import { buildPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/content/types";
 
 type Props = {
@@ -12,11 +13,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const content = await readContent();
   const t = content.locales[locale as Locale];
-  return {
-    title: t.impressum.title,
-    description: t.impressum.intro,
-    robots: { index: true, follow: true },
-  };
+
+  return buildPageMetadata({
+    locale,
+    title: `${t.impressum.title} | SAS × WiMa`,
+    description: t.impressum.intro.slice(0, 160),
+    path: "/impressum",
+  });
 }
 
 export default async function ImpressumPage({ params }: Props) {

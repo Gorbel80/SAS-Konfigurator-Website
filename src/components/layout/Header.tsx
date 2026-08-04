@@ -155,6 +155,7 @@ export function Header({
             label={configuratorLabel}
             hint={configuratorHint}
             size="mobile"
+            onNavigate={() => setOpen(false)}
           />
         </div>
       </div>

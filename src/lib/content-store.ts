@@ -73,6 +73,10 @@ function deepLocale(
     },
     about: { ...base.about, ...override.about },
     contact: { ...base.contact, ...override.contact },
+    configuratorPage: {
+      ...base.configuratorPage,
+      ...override.configuratorPage,
+    },
     footer: { ...base.footer, ...override.footer },
     cookies: { ...base.cookies, ...override.cookies },
     impressum: { ...base.impressum, ...override.impressum },

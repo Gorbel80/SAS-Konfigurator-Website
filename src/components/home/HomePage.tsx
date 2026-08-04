@@ -74,10 +74,12 @@ export function HomePage({ content, images }: Props) {
                 <div className="img-zoom relative aspect-[16/10]">
                   <Image
                     src={images[b.image]}
-                    alt=""
+                    alt={block.title}
                     fill
+                    loading="lazy"
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 33vw"
+                    quality={70}
                   />
                 </div>
                 <div className="p-3.5">

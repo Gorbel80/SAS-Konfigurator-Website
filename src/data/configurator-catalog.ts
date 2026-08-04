@@ -213,3 +213,76 @@ export const defaultRolePositions: Record<PartRole, [number, number, number]> =
     sensor: [-0.35, 0.55, 0.4],
     profile: [0, 0.05, 0],
   };
+
+/** Partlist folder groups (mecabricks-style) */
+export type PartlistFolderId =
+  | "profiles"
+  | "housing"
+  | "drive"
+  | "controls"
+  | "electronics";
+
+export type PartlistFolder = {
+  id: PartlistFolderId;
+  name: Localized;
+  roles: PartRole[];
+};
+
+export const partlistFolders: PartlistFolder[] = [
+  {
+    id: "profiles",
+    name: { de: "Profile", en: "Profiles", zh: "型材" },
+    roles: ["profile"],
+  },
+  {
+    id: "housing",
+    name: { de: "Gehäuse", en: "Housing", zh: "壳体" },
+    roles: ["housing", "rear"],
+  },
+  {
+    id: "drive",
+    name: { de: "Antrieb / Seil", en: "Drive / rope", zh: "驱动 / 绳" },
+    roles: ["wra", "swivel"],
+  },
+  {
+    id: "controls",
+    name: { de: "Bedienung", en: "Controls", zh: "操作" },
+    roles: ["hdl", "coil"],
+  },
+  {
+    id: "electronics",
+    name: { de: "Elektronik & Hardware", en: "Electronics & hardware", zh: "电子与五金" },
+    roles: ["pcb", "sensor", "hw"],
+  },
+];
+
+/** Nested G-Force series folders for the library tree */
+export type GForceSeriesFolder = {
+  id: string;
+  series: string;
+  name: Localized;
+  productIds: string[];
+};
+
+export const gforceSeriesFolders: GForceSeriesFolder[] = [
+  {
+    id: "series-q-iq",
+    series: "Q / iQ",
+    name: {
+      de: "G-Force Q / iQ",
+      en: "G-Force Q / iQ",
+      zh: "G-Force Q / iQ",
+    },
+    productIds: ["gf-q-iq-75-150", "gf-q-iq-300-600"],
+  },
+  {
+    id: "series-q2-iq2",
+    series: "Q2 / iQ2",
+    name: {
+      de: "G-Force Q2 / iQ2",
+      en: "G-Force Q2 / iQ2",
+      zh: "G-Force Q2 / iQ2",
+    },
+    productIds: ["gf-q2-iq2-75-150", "gf-q2-iq2-300-600"],
+  },
+];

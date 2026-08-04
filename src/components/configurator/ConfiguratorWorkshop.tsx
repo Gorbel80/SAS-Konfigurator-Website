@@ -12,22 +12,22 @@ import {
   catalogProducts,
   createProfileInstance,
   defaultRolePositions,
-  libraryCategories,
+  gforceSeriesFolders,
   libraryProfiles,
+  partlistFolders,
   type BomPart,
   type CatalogProduct,
-  type LibraryCategoryId,
   type LibraryProfileItem,
+  type PartlistFolderId,
 } from "@/data/configurator-catalog";
 import type { Locale, LocaleContent } from "@/content/types";
 import { cn } from "@/lib/utils";
+import { FolderItem, FolderRow } from "@/components/configurator/FolderTree";
 import {
   ArrowLeft,
   Box,
   ChevronDown,
-  ChevronRight,
   ChevronUp,
-  Eye,
   Layers,
   Mail,
   Minus,
@@ -63,14 +63,44 @@ function clampLength(
 
 export function ConfiguratorWorkshop({ locale, labels }: Props) {
   const [libraryOpen, setLibraryOpen] = useState(true);
-  const [expandedCategory, setExpandedCategory] =
-    useState<LibraryCategoryId | null>("profile");
+  /** Library folder tree open state (mecabricks-style) */
+  const [libFolders, setLibFolders] = useState<Record<string, boolean>>({
+    profile: true,
+    "g-force": true,
+    "series-q-iq": false,
+    "series-q2-iq2": false,
+  });
+  /** Partlist folder tree open state */
+  const [listFolders, setListFolders] = useState<Record<PartlistFolderId, boolean>>(
+    () =>
+      Object.fromEntries(
+        partlistFolders.map((f) => [f.id, true]),
+      ) as Record<PartlistFolderId, boolean>,
+  );
 
   const [partlist, setPartlist] = useState<BomPart[]>([]);
   const [selectedPartId, setSelectedPartId] = useState<string | null>(null);
   const [positions, setPositions] = useState<PartPositions>({});
   const [activeProductId, setActiveProductId] = useState<string | null>(null);
   const [sceneKey, setSceneKey] = useState(0);
+
+  function toggleLibFolder(id: string) {
+    setLibFolders((prev) => ({ ...prev, [id]: !prev[id] }));
+  }
+
+  function toggleListFolder(id: PartlistFolderId) {
+    setListFolders((prev) => ({ ...prev, [id]: !prev[id] }));
+  }
+
+  /** Group partlist into folders; only non-empty folders are shown */
+  const partlistByFolder = useMemo(() => {
+    return partlistFolders
+      .map((folder) => ({
+        folder,
+        parts: partlist.filter((p) => folder.roles.includes(p.role)),
+      }))
+      .filter((g) => g.parts.length > 0);
+  }, [partlist]);
 
   const selectedPart = useMemo(
     () => partlist.find((p) => p.id === selectedPartId) ?? null,
@@ -272,18 +302,18 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
               onPositionChange={handlePositionChange}
             />
 
-            {/* Collapsible Parts Library */}
-            <div className="absolute bottom-3 left-3 z-20 w-[min(19rem,calc(100%-1.5rem))] sm:w-80">
-              <div className="overflow-hidden rounded-xl border border-white/15 bg-anthracite-900/95 shadow-2xl backdrop-blur-md">
+            {/* Collapsible Parts Library — folder tree (mecabricks-style) */}
+            <div className="absolute bottom-3 left-3 z-20 w-[min(20rem,calc(100%-1.5rem))] sm:w-[21rem]">
+              <div className="overflow-hidden rounded-xl border border-white/15 bg-[#14181e]/95 shadow-2xl backdrop-blur-md">
                 <button
                   type="button"
                   onClick={() => setLibraryOpen((v) => !v)}
-                  className="flex w-full items-center justify-between gap-2 px-3 py-2.5 text-left transition-colors hover:bg-white/5"
+                  className="flex w-full items-center justify-between gap-2 border-b border-white/10 px-3 py-2.5 text-left transition-colors hover:bg-white/[0.04]"
                   aria-expanded={libraryOpen}
                 >
                   <span className="flex items-center gap-2">
                     <Layers className="h-4 w-4 text-accent" />
-                    <span className="text-xs font-semibold uppercase tracking-wider text-anthracite-200">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-anthracite-200">
                       {labels.libraryTitle}
                     </span>
                   </span>
@@ -296,89 +326,76 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
 
                 <div
                   className={cn(
-                    "overflow-hidden border-t border-white/10 transition-all duration-300 ease-out",
-                    libraryOpen
-                      ? "max-h-[22rem] opacity-100"
-                      : "max-h-0 border-t-0 opacity-0",
+                    "overflow-hidden transition-all duration-300 ease-out",
+                    libraryOpen ? "max-h-[24rem] opacity-100" : "max-h-0 opacity-0",
                   )}
                 >
-                  <div className="custom-scroll max-h-[22rem] space-y-1 overflow-y-auto p-1.5">
-                    {libraryCategories.map((cat) => {
-                      const open = expandedCategory === cat.id;
-                      return (
-                        <div key={cat.id} className="rounded-lg bg-black/20">
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setExpandedCategory((cur) =>
-                                cur === cat.id ? null : cat.id,
-                              )
-                            }
-                            className="flex w-full items-center gap-2 px-2.5 py-2 text-left text-xs font-semibold text-white hover:bg-white/5"
-                          >
-                            {open ? (
-                              <ChevronDown className="h-3.5 w-3.5 text-accent" />
-                            ) : (
-                              <ChevronRight className="h-3.5 w-3.5 text-anthracite-400" />
-                            )}
-                            {cat.name[locale]}
-                          </button>
+                  <div className="custom-scroll max-h-[24rem] space-y-0.5 overflow-y-auto px-1 py-1.5">
+                    {/* Folder: Profile */}
+                    <FolderRow
+                      label={locale === "de" ? "Profile" : locale === "zh" ? "型材" : "Profiles"}
+                      open={!!libFolders.profile}
+                      onToggle={() => toggleLibFolder("profile")}
+                      count={libraryProfiles.length}
+                      depth={0}
+                    />
+                    {libFolders.profile
+                      ? libraryProfiles.map((item) => (
+                          <FolderItem
+                            key={item.id}
+                            depth={1}
+                            label={item.name[locale]}
+                            meta={`${item.partNumber} · ${item.baseLengthMm} mm`}
+                            onClick={() => addProfile(item)}
+                          />
+                        ))
+                      : null}
 
-                          {open && cat.id === "profile" ? (
-                            <ul className="space-y-0.5 border-t border-white/5 px-1.5 py-1.5">
-                              {libraryProfiles.map((item) => (
-                                <li key={item.id}>
-                                  <button
-                                    type="button"
-                                    onClick={() => addProfile(item)}
-                                    className="w-full rounded-md px-2.5 py-2 text-left transition-colors hover:bg-accent/15"
-                                  >
-                                    <span className="block text-xs font-semibold text-anthracite-100">
-                                      {item.name[locale]}
-                                    </span>
-                                    <span className="mt-0.5 block font-mono text-[10px] text-accent">
-                                      {item.partNumber}
-                                    </span>
-                                    <span className="mt-0.5 block text-[10px] leading-snug text-anthracite-500">
-                                      {item.description[locale]}
-                                    </span>
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : null}
-
-                          {open && cat.id === "g-force" ? (
-                            <ul className="space-y-0.5 border-t border-white/5 px-1.5 py-1.5">
-                              {catalogProducts.map((p) => {
-                                const active = p.id === activeProductId;
-                                return (
-                                  <li key={p.id}>
-                                    <button
-                                      type="button"
+                    {/* Folder: G-Force */}
+                    <FolderRow
+                      label={
+                        locale === "de"
+                          ? "G-Force Geräte"
+                          : locale === "zh"
+                            ? "G-Force 设备"
+                            : "G-Force units"
+                      }
+                      open={!!libFolders["g-force"]}
+                      onToggle={() => toggleLibFolder("g-force")}
+                      count={catalogProducts.length}
+                      depth={0}
+                    />
+                    {libFolders["g-force"]
+                      ? gforceSeriesFolders.map((series) => (
+                          <div key={series.id}>
+                            <FolderRow
+                              label={series.name[locale]}
+                              open={!!libFolders[series.id]}
+                              onToggle={() => toggleLibFolder(series.id)}
+                              count={series.productIds.length}
+                              depth={1}
+                            />
+                            {libFolders[series.id]
+                              ? series.productIds.map((pid) => {
+                                  const p = catalogProducts.find(
+                                    (x) => x.id === pid,
+                                  );
+                                  if (!p) return null;
+                                  return (
+                                    <FolderItem
+                                      key={p.id}
+                                      depth={2}
+                                      label={p.name[locale]}
+                                      meta={`${p.series} · ${p.capacity}`}
+                                      active={p.id === activeProductId}
                                       onClick={() => loadGForceProduct(p)}
-                                      className={cn(
-                                        "w-full rounded-md px-2.5 py-2 text-left transition-colors",
-                                        active
-                                          ? "bg-accent/20 ring-1 ring-accent/40"
-                                          : "hover:bg-white/5",
-                                      )}
-                                    >
-                                      <span className="block text-xs font-semibold text-white">
-                                        {p.name[locale]}
-                                      </span>
-                                      <span className="mt-0.5 block text-[10px] text-anthracite-400">
-                                        {p.series} · {p.capacity}
-                                      </span>
-                                    </button>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          ) : null}
-                        </div>
-                      );
-                    })}
+                                    />
+                                  );
+                                })
+                              : null}
+                          </div>
+                        ))
+                      : null}
                   </div>
                 </div>
               </div>
@@ -396,8 +413,8 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
           </div>
         </section>
 
-        {/* Right – Partlist + length controls */}
-        <aside className="flex min-h-0 flex-col border-t border-white/10 bg-anthracite-900 lg:border-l lg:border-t-0">
+        {/* Right – Partlist (folder tree) + length controls */}
+        <aside className="flex min-h-0 flex-col border-t border-white/10 bg-[#14181e] lg:border-l lg:border-t-0">
           <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2.5">
             <div className="flex items-center gap-2">
               <Box className="h-4 w-4 text-accent" />
@@ -405,64 +422,66 @@ export function ConfiguratorWorkshop({ locale, labels }: Props) {
                 {labels.partlistTitle}
               </p>
             </div>
-            <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-anthracite-300">
+            <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold tabular-nums text-anthracite-300">
               {partlist.length}
             </span>
           </div>
 
-          <div className="custom-scroll min-h-0 flex-1 overflow-y-auto p-2">
+          <div className="custom-scroll min-h-0 flex-1 overflow-y-auto py-1.5">
             {partlist.length === 0 ? (
-              <p className="px-2 py-8 text-center text-xs text-anthracite-500">
+              <p className="px-3 py-8 text-center text-xs text-anthracite-500">
                 {labels.emptyPartlist}
               </p>
             ) : (
-              <ul className="space-y-1">
-                {partlist.map((part) => {
-                  const active = part.id === selectedPartId;
+              <div className="space-y-0.5">
+                {partlistByFolder.map(({ folder, parts }) => {
+                  const open = listFolders[folder.id] !== false;
                   return (
-                    <li key={part.id}>
-                      <div
-                        className={cn(
-                          "group flex items-stretch gap-1 rounded-lg border transition-colors",
-                          active
-                            ? "border-accent/50 bg-accent/10"
-                            : "border-transparent bg-black/20 hover:border-white/10 hover:bg-black/35",
-                        )}
-                      >
-                        <button
-                          type="button"
-                          onClick={() => setSelectedPartId(part.id)}
-                          className="flex min-w-0 flex-1 items-center gap-2.5 px-2.5 py-2 text-left"
-                        >
-                          <span className="min-w-0">
-                            <span className="block truncate text-xs font-semibold text-anthracite-100">
-                              {part.name[locale]}
-                            </span>
-                            <span className="block truncate font-mono text-[10px] text-anthracite-500">
-                              {part.partNumber}
-                              {part.role === "profile"
-                                ? ` · ${part.lengthMm ?? part.baseLengthMm} mm`
-                                : ""}
-                            </span>
-                          </span>
-                          {active ? (
-                            <Eye className="ml-auto h-3.5 w-3.5 shrink-0 text-accent" />
-                          ) : null}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => removePart(part.id)}
-                          className="shrink-0 px-2.5 text-anthracite-500 transition-colors hover:text-red-400"
-                          title={labels.deletePart}
-                          aria-label={labels.deletePart}
-                        >
-                          <Trash2 className="h-3.5 w-3.5" />
-                        </button>
-                      </div>
-                    </li>
+                    <div key={folder.id}>
+                      <FolderRow
+                        label={folder.name[locale]}
+                        open={open}
+                        onToggle={() => toggleListFolder(folder.id)}
+                        count={parts.length}
+                        depth={0}
+                      />
+                      {open
+                        ? parts.map((part) => {
+                            const active = part.id === selectedPartId;
+                            return (
+                              <FolderItem
+                                key={part.id}
+                                depth={1}
+                                label={part.name[locale]}
+                                meta={
+                                  part.role === "profile"
+                                    ? `${part.partNumber} · ${part.lengthMm ?? part.baseLengthMm} mm`
+                                    : part.partNumber
+                                }
+                                active={active}
+                                onClick={() => setSelectedPartId(part.id)}
+                                trailing={
+                                  <button
+                                    type="button"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      removePart(part.id);
+                                    }}
+                                    className="shrink-0 self-center px-2 py-1.5 text-anthracite-500 opacity-70 transition-opacity hover:text-red-400 group-hover:opacity-100"
+                                    title={labels.deletePart}
+                                    aria-label={labels.deletePart}
+                                  >
+                                    <Trash2 className="h-3.5 w-3.5" />
+                                  </button>
+                                }
+                              />
+                            );
+                          })
+                        : null}
+                    </div>
                   );
                 })}
-              </ul>
+              </div>
             )}
           </div>
 

@@ -1,112 +1,47 @@
-# SAS × WiMa – European Service Website
+# SAS × WiMa – Website & Konfigurator
 
-Professional presentation website for European service expertise around **Gorbel G-Force** and **Easy Arm** intelligent lifting devices (Seilbalancer).
+This repository contains **two independent Next.js applications**:
 
-**Partners**
+| Folder | Purpose |
+|--------|---------|
+| [`website/`](./website) | Public multilingual marketing site (Home, Über uns, Kontakt, legal pages, CMS) |
+| [`konfigurator/`](./konfigurator) | Standalone 3D G-Force configurator |
 
-- **WiMa Industrie-Automation GmbH** — Wetter (58300)
-- **SAS Sauer-Automation Sachsen** — Hohndorf (09394)
+They do **not** share runtime code. You can deploy or upload each folder separately.
 
-## Stack
+## Why two folders?
 
-- Next.js 16 (App Router) + TypeScript
-- Tailwind CSS v4
-- next-intl (German default, English, Chinese)
-- File-based CMS content (`data/content.json`) + hidden `/admin`
+- Upload **only `website/`** to All-Inkl (or any host) without 3D dependencies
+- Deploy **konfigurator/** as its own app when needed
+- Clear ownership of code and dependencies
 
-## Pages
+## Local development
 
-| Route | Description |
-|-------|-------------|
-| `/de` (default) | Home – hero & value proposition |
-| `/de/about` | About the partners & story |
-| `/de/service` | How we help when a unit fails |
-| `/de/contact` | Locations & contact form |
-| `/admin` | Hidden CMS (not in public nav) |
-
-Language prefixes: `/de`, `/en`, `/zh`.
-
-## Getting started
+### Website (port 3000)
 
 ```bash
+cd website
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) (redirects to `/de`).
+### Configurator (port 3001)
 
 ```bash
-npm run build
-npm start
+cd konfigurator
+npm install
+npm run dev
 ```
 
-## Admin CMS (`/admin`)
+## Vercel
 
-1. Open **http://localhost:3000/admin**
-2. Log in with the password from `ADMIN_PASSWORD` (default in development: `admin`)
-3. Edit:
-   - **Texte** – all page copy in DE / EN / ZH
-   - **Bilder** – replace images (upload or paste URL)
-   - **Firmen & Kontakt** – company details
-4. Click **Speichern**
+Create two Vercel projects (or one for website only):
 
-### Environment variables
+1. **Website** – Root Directory: `website`
+2. **Konfigurator** – Root Directory: `konfigurator`  
+   Set `NEXT_PUBLIC_WEBSITE_URL` to the live website URL.
 
-Create `.env.local` (not committed):
+## Partners
 
-```env
-ADMIN_PASSWORD=choose-a-strong-password
-ADMIN_SECRET=random-long-string-for-session-signing
-```
-
-### Persistence notes
-
-- Content is stored in `data/content.json`
-- Uploaded images go to `public/uploads/`
-- On **local** machines this works fully
-- On **Vercel serverless**, filesystem writes may not persist across deploys. Recommended workflow:
-  1. Edit content via `/admin` locally (or edit `data/content.json`)
-  2. Commit and push
-  3. Vercel redeploys with the new content
-
-## Design
-
-- Industrial B2B look: anthracite, white, amber accent
-- Subtle fade-in animations (`Reveal`)
-- Fully responsive header, language switcher, sections
-
-## Deploy (GitHub + Vercel)
-
-Repository: `https://github.com/Gorbel80/SAS-Konfigurator-Website`
-
-```bash
-git add -A
-git commit -m "Describe your change"
-git push origin main
-```
-
-Connect the GitHub repo to Vercel (Gorbel80 / project account). Each push to `main` triggers a production deploy.
-
-Set `ADMIN_PASSWORD` and `ADMIN_SECRET` in the Vercel project environment variables.
-
-## Project structure
-
-```
-src/
-  app/
-    [locale]/          # Public pages (de|en|zh)
-    admin/              # Hidden CMS
-    api/                # content, upload, admin auth
-  components/           # UI, layout, pages, admin
-  content/              # Default content + types
-  i18n/                 # next-intl routing
-  lib/                  # auth, content-store, utils
-  messages/             # Minimal UI message files
-data/
-  content.json          # Editable site content (created on first save)
-public/uploads/         # User-uploaded images
-```
-
-## Background (product story)
-
-Gorbel (USA) stopped technical support in Europe. The former company e-Motion Handlingsysteme no longer exists. The European spare-parts warehouse was acquired two years ago. WiMa and SAS provide qualified service for G-Force / Easy Arm systems – this site makes that competence visible.
+- **WiMa Industrie-Automation GmbH** — Wetter (58300)
+- **SAS Sauer-Automation Sachsen** — Hohndorf (09394)

@@ -35,9 +35,12 @@ npm run dev
 
 ## Vercel
 
-Create two Vercel projects (or one for website only):
+The existing Git-connected project deploys the **website** via root `vercel.json` / `package.json` (install/build run inside `website/`).
 
-1. **Website** – Root Directory: `website`
+Optional second project for the configurator:
+
+1. **Website (production)** – uses monorepo root with install/build pointing at `website/`  
+   (or set Root Directory to `website` in the Vercel dashboard)
 2. **Konfigurator** – Root Directory: `konfigurator`  
    Set `NEXT_PUBLIC_WEBSITE_URL` to the live website URL.
 

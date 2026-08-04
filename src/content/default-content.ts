@@ -83,9 +83,19 @@ const de: LocaleContent = {
     },
     ctaLabel: "Beratung anfragen",
   },
+  about: {
+    heroEyebrow: "WiMa · SAS · Europa",
+    heroTitle: "WiMa & SAS – Ihr Partner für G-Force® und Easy Arm®",
+    heroSubtitle:
+      "Industrie-Automation und Service aus Wetter und Hohndorf: Technik, Ersatzteile und persönliche Betreuung für Ihre Hebeanlagen.",
+  },
   contact: {
-    title: "Kontakt",
-    intro: "Ersatzteil, Störung oder Service? Kurz melden – wir antworten.",
+    heroEyebrow: "Service-Anfrage",
+    heroTitle: "Kontakt aufnehmen – wir helfen weiter",
+    heroSubtitle:
+      "Ersatzteil, Störung oder Beratung zu G-Force® und Easy Arm®? Schreiben Sie uns – wir melden uns zeitnah.",
+    title: "Nachricht senden",
+    intro: "Kurz Ihr Anliegen schildern – Formular oder E-Mail.",
     formName: "Name",
     formCompany: "Unternehmen",
     formEmail: "E-Mail",
@@ -219,9 +229,19 @@ const en: LocaleContent = {
     },
     ctaLabel: "Request advice",
   },
+  about: {
+    heroEyebrow: "WiMa · SAS · Europe",
+    heroTitle: "WiMa & SAS – your partner for G-Force® and Easy Arm®",
+    heroSubtitle:
+      "Industrial automation and service from Wetter and Hohndorf: technology, spare parts and hands-on support for your lifting systems.",
+  },
   contact: {
-    title: "Contact",
-    intro: "Spare part, fault or service? Send a short note – we will reply.",
+    heroEyebrow: "Service request",
+    heroTitle: "Get in touch – we are here to help",
+    heroSubtitle:
+      "Spare part, fault or advice on G-Force® and Easy Arm®? Write to us – we will respond promptly.",
+    title: "Send a message",
+    intro: "Briefly describe your request – form or email.",
     formName: "Name",
     formCompany: "Company",
     formEmail: "Email",
@@ -354,9 +374,19 @@ const zh: LocaleContent = {
     },
     ctaLabel: "咨询方案",
   },
+  about: {
+    heroEyebrow: "WiMa · SAS · 欧洲",
+    heroTitle: "WiMa 与 SAS——G-Force® 与 Easy Arm® 的服务伙伴",
+    heroSubtitle:
+      "来自 Wetter 与 Hohndorf 的工业自动化与服务：技术、备件与现场支持，保障您的提升设备。",
+  },
   contact: {
-    title: "联系",
-    intro: "备件、故障或服务？简短留言——我们会回复。",
+    heroEyebrow: "服务咨询",
+    heroTitle: "联系我们——我们随时协助",
+    heroSubtitle:
+      "G-Force® / Easy Arm® 备件、故障或咨询？留言给我们——我们会尽快回复。",
+    title: "发送消息",
+    intro: "简要说明需求——表单或邮件。",
     formName: "姓名",
     formCompany: "公司",
     formEmail: "邮箱",
@@ -439,7 +469,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 16,
+  version: 17,
   images: {
     hero: "/images/site/hero.jpg",
     side: "/images/site/about.jpg",

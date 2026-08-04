@@ -65,7 +65,15 @@ export type LocaleContent = {
     lifts: OfferBlock;
     ctaLabel: string;
   };
+  about: {
+    heroEyebrow: string;
+    heroTitle: string;
+    heroSubtitle: string;
+  };
   contact: {
+    heroEyebrow: string;
+    heroTitle: string;
+    heroSubtitle: string;
     title: string;
     intro: string;
     formName: string;

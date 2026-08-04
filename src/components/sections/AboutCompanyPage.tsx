@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { PageHeroBanner } from "@/components/layout/PageHeroBanner";
 import type { LocaleContent, SiteContent } from "@/content/types";
 import { AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -9,26 +10,31 @@ type Props = {
   companies: SiteContent["companies"];
 };
 
-/** „Leistungen“ nav target – what WiMa & SAS do */
+/** Über uns – who WiMa & SAS are */
 export function AboutCompanyPage({ content, images, companies }: Props) {
+  const about = content.about;
+
   return (
     <div className="flex flex-1 flex-col bg-background">
-      <div className="mx-auto w-full max-w-5xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
-        <header className="animate-fade-up mb-6 max-w-2xl">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-            SAS × WiMa
-          </p>
-          <h1 className="mt-1.5 text-2xl font-semibold tracking-tight text-anthracite-900 sm:text-[1.75rem]">
-            {content.home.whoTitle}
-          </h1>
-          <p className="mt-2 text-sm leading-relaxed text-anthracite-500">
-            {content.home.whoBody}
-          </p>
-        </header>
+      <PageHeroBanner
+        imageSrc={images.side}
+        eyebrow={about.heroEyebrow}
+        title={about.heroTitle}
+        subtitle={about.heroSubtitle}
+        compact
+      />
 
+      <div className="mx-auto w-full max-w-5xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
         <div className="grid gap-7 lg:grid-cols-2 lg:items-stretch lg:gap-9">
           <div className="animate-fade-up order-2 lg:order-1">
-            <div className="grid gap-2.5 sm:grid-cols-2">
+            <h2 className="text-lg font-semibold tracking-tight text-anthracite-900">
+              {content.home.whoTitle}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-anthracite-500">
+              {content.home.whoBody}
+            </p>
+
+            <div className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {[companies.wima, companies.sas].map((c) => (
                 <div
                   key={c.name}
@@ -40,12 +46,13 @@ export function AboutCompanyPage({ content, images, companies }: Props) {
                   <p className="mt-1 text-sm text-anthracite-500">
                     {c.postal} {c.city}
                   </p>
-                  <p className="mt-1 text-xs text-anthracite-400">{c.legalName}</p>
+                  <p className="mt-1 text-xs text-anthracite-400">
+                    {c.legalName}
+                  </p>
                 </div>
               ))}
             </div>
 
-            {/* Problem → Solution */}
             <div className="mt-6">
               <h2 className="text-lg font-semibold tracking-tight text-anthracite-900">
                 {content.home.offerTitle}
@@ -89,13 +96,12 @@ export function AboutCompanyPage({ content, images, companies }: Props) {
             </div>
           </div>
 
-          <div className="animate-fade-up animate-delay-1 order-1 min-h-[12rem] lg:order-2 lg:min-h-0">
-            <div className="img-zoom relative h-full min-h-[12rem] overflow-hidden rounded-2xl border border-border shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)] lg:min-h-full">
+          <div className="animate-fade-up animate-delay-1 order-1 min-h-[11rem] lg:order-2 lg:min-h-0">
+            <div className="img-zoom relative h-full min-h-[11rem] overflow-hidden rounded-2xl border border-border shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)] lg:min-h-full">
               <Image
-                src={images.side}
+                src={images.lifts}
                 alt=""
                 fill
-                priority
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />

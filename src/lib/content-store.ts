@@ -71,6 +71,7 @@ function deepLocale(
       parts: { ...base.offerings.parts, ...override.offerings?.parts },
       lifts: { ...base.offerings.lifts, ...override.offerings?.lifts },
     },
+    about: { ...base.about, ...override.about },
     contact: { ...base.contact, ...override.contact },
     footer: { ...base.footer, ...override.footer },
     cookies: { ...base.cookies, ...override.cookies },

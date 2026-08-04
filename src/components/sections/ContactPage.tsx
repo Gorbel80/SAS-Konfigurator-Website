@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHeroBanner } from "@/components/layout/PageHeroBanner";
 import type { LocaleContent, SiteContent } from "@/content/types";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
@@ -10,7 +11,7 @@ type Props = {
   companies: SiteContent["companies"];
 };
 
-export function ContactPage({ content, companies }: Props) {
+export function ContactPage({ content, images, companies }: Props) {
   const [sent, setSent] = useState(false);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -24,7 +25,7 @@ export function ContactPage({ content, companies }: Props) {
 
     const to = companies.sas.email;
     const subject = encodeURIComponent(
-      `G-Force Anfrage – ${company || name}`,
+      `G-Force® Anfrage – ${company || name}`,
     );
     const body = encodeURIComponent(
       [
@@ -44,22 +45,25 @@ export function ContactPage({ content, companies }: Props) {
     "h-9 w-full rounded-lg border border-border bg-background px-2.5 text-sm outline-none transition-[border-color,box-shadow] duration-200 focus:border-accent focus:ring-2 focus:ring-accent/15";
 
   return (
-    <div className="flex flex-1 flex-col justify-center bg-background py-4 sm:py-5">
-      <div className="mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8">
-        {/* Title */}
+    <div className="flex flex-1 flex-col bg-background">
+      <PageHeroBanner
+        imageSrc={images.contact}
+        eyebrow={content.contact.heroEyebrow}
+        title={content.contact.heroTitle}
+        subtitle={content.contact.heroSubtitle}
+        compact
+      />
+
+      <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
         <div className="animate-fade-up mb-3 text-center sm:mb-4">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
-            SAS × WiMa
-          </p>
-          <h1 className="mt-1 text-xl font-semibold tracking-tight text-anthracite-900 sm:text-2xl">
+          <h2 className="text-lg font-semibold tracking-tight text-anthracite-900">
             {content.contact.title}
-          </h1>
+          </h2>
           <p className="mx-auto mt-1 max-w-md text-sm text-anthracite-500">
             {content.contact.intro}
           </p>
         </div>
 
-        {/* 1. Form first */}
         <form
           onSubmit={onSubmit}
           className="animate-fade-up animate-delay-1 rounded-xl border border-border bg-surface p-3.5 shadow-sm sm:p-4"
@@ -119,7 +123,6 @@ export function ContactPage({ content, companies }: Props) {
           ) : null}
         </form>
 
-        {/* 2. Company cards below — side by side to save height */}
         <div className="animate-fade-up animate-delay-2 mt-3 grid gap-2.5 sm:grid-cols-2 sm:mt-3.5">
           {([companies.wima, companies.sas] as const).map((c) => (
             <div

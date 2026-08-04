@@ -34,52 +34,64 @@ const sasBase: CompanyInfo = {
 
 const de: LocaleContent = {
   meta: {
-    title: "Gorbel G-Force® – Größtes Ersatzteillager Deutschlands | SAS × WiMa",
+    title:
+      "Gorbel G-Force® Service & Ersatzteile Europa | SAS × WiMa",
     description:
-      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force® und Easy Arm®. Service und eigene Seil-/Kettenzüge von WiMa und SAS.",
+      "Stillstand bei Ihrem Gorbel G-Force®? Service, Wartung und größtes Ersatzteillager Deutschlands für G-Force® und Easy Arm® – SAS × WiMa.",
   },
   nav: {
     home: "Start",
     about: "Über uns",
     contact: "Kontakt",
-    cta: "Kontakt",
+    cta: "Anfrage",
+    gforce: "G-Force®",
+    service: "Service",
+    parts: "Ersatzteile",
   },
   home: {
-    eyebrow: "G-Force® · Easy Arm® · Service & Ersatzteile",
-    heroTitle: "Größtes Ersatzteillager Deutschlands für Gorbel G-Force®",
+    sloganPrimary: "Stillstand bei Ihrem Gorbel G-Force®? Wir haben die Lösung!",
+    sloganSecondary:
+      "Ihr Partner für Service, Wartung und Ersatzteile in Europa",
+    eyebrow: "G-Force® · Easy Arm® · Europa",
+    heroTitle: "Intelligente Hebetechnik – Service und Teile, wenn es zählt",
     heroSubtitle:
-      "Schnelle Ersatzteile und qualifizierter Service für G-Force® und Easy Arm® – wenn europäische Werke nicht mehr rechtzeitig beliefert werden.",
-    whoTitle: "Was WiMa macht",
+      "Qualifizierter Service und schnelle Ersatzteile für Gorbel G-Force® und Easy Arm® – wenn europäische Werke nicht mehr rechtzeitig beliefert werden.",
+    whoTitle: "WiMa & SAS – Ihr Service-Partner",
     whoBody:
-      "WiMa Industrie-Automation GmbH entwickelt und baut Systeme für die Hebetechnik und rüstet Seil- und Kettenzüge mit innovativer Elektronik aus. Gemeinsam mit SAS betreuen wir Gorbel G-Force® und Easy Arm® in der Praxis.",
+      "WiMa Industrie-Automation und SAS Sauer-Automation Sachsen betreuen Gorbel G-Force® und Easy Arm® in der Praxis: Diagnose, Reparatur, Ersatzteile und Know-how aus dem übernommenen e-motion-Bestand – plus eigene Hebezeuge mit innovativer Elektronik.",
     offerTitle: "Das Problem – und unsere Lösung",
     problemLabel: "Problem",
     solutionLabel: "Lösung",
     offerParts:
-      "Viele europäische Produktionsstandorte erhalten für Gorbel G-Force® und Easy Arm® keine zeitnahen Ersatzteile und keinen qualifizierten Service mehr.",
+      "Viele europäische Produktionsstandorte stehen aktuell vor der Herausforderung, zeitnah Ersatzteile oder qualifizierten Service für ihre Gorbel G-Force®-Hubgeräte zu erhalten.",
     offerService:
-      "Wir schließen diese Lücke: komplettes Ersatzteillager von e-motion Handlingsysteme übernommen, Know-how integriert – Service und Teile aus einer Hand.",
+      "Wir haben diese Lücke geschlossen: Durch die Übernahme der gesamten Aktivitäten der e-motion Handlingsysteme GmbH und die Integration deren Kern-Expertise bieten wir Service und Teile aus einer Hand.",
     configuratorLabel: "3D Konfigurator",
     configuratorHint: "Öffnen",
     contactCta: "Jetzt anfragen",
+    serviceBandTitle: "Guter Service … ein Stück vom Produkt",
+    serviceCtaTitle: "Schnelles Ersatzteil-Angebot",
+    serviceCtaBody:
+      "Senden Sie uns ein Foto Ihres Typenschilds – wir identifizieren das Teil und melden uns mit einem konkreten Angebot.",
+    serviceCtaButton: "Foto senden / Kontakt",
   },
   offerings: {
-    title: "Leistungen & Angebot",
+    title: "Leistungen im Überblick",
     intro:
-      "Service, Gorbel-Ersatzteile und eigene Hebezeuge – klar und praxisnah.",
+      "G-Force® & Easy Arm®, qualifizierter Service und das Ersatzteillager – klar und praxisnah.",
     journeyNote:
-      "Viele Kunden kommen zuerst wegen G-Force®- oder Easy Arm®-Ersatzteilen – und entdecken danach unsere eigenen Seil- und Kettenzüge.",
+      "Viele Kunden kommen zuerst wegen Ersatzteilen – und entdecken danach unseren Service und unsere eigenen Hebezeuge.",
+    lifts: {
+      title: "G-Force® & Easy Arm®",
+      body: "Intelligente Seilbalancer und Easy Arm®-Systeme: Präzision, Geschwindigkeit und Programmierbarkeit für anspruchsvolle Hebeanwendungen – mit Support, wenn der frühere Europa-Herstellersupport fehlt.",
+    },
     service: {
       title: "Service",
       body: "Wartung, Diagnose und Reparatur für intelligente Hebesysteme. Erfahrene Techniker von WiMa und SAS – werkstattseitig und vor Ort.",
     },
     parts: {
-      title: "G-Force® & Easy Arm® Ersatzteile",
-      body: "Großes deutsches Ersatzteillager für Gorbel G-Force® und Easy Arm®. Identifikation, Lieferung und Unterstützung, wenn der frühere Europa-Support fehlt.",
-    },
-    lifts: {
-      title: "Eigene Seil- und Kettenzüge",
-      body: "WiMa/SAS-Hebezeuge mit innovativer Elektronik – Seilzüge und Kettenzüge zu etwa der Hälfte des Preises vergleichbarer Gorbel-Systeme.",
+      title: "Ersatzteile",
+      body: "Großes deutsches Ersatzteillager für Gorbel G-Force® und Easy Arm®. Identifikation, Lieferung und Unterstützung – inklusive 3D-Konfigurator zur Teileauswahl.",
     },
     ctaLabel: "Beratung anfragen",
   },
@@ -93,9 +105,9 @@ const de: LocaleContent = {
     heroEyebrow: "Service-Anfrage",
     heroTitle: "Kontakt aufnehmen – wir helfen weiter",
     heroSubtitle:
-      "Ersatzteil, Störung oder Beratung zu G-Force® und Easy Arm®? Schreiben Sie uns – wir melden uns zeitnah.",
+      "Ersatzteil, Störung oder Beratung zu G-Force® und Easy Arm®? Schreiben Sie uns – am besten mit Typenschild-Foto.",
     title: "Nachricht senden",
-    intro: "Kurz Ihr Anliegen schildern – Formular oder E-Mail.",
+    intro: "Kurz Ihr Anliegen schildern – Formular öffnet Ihre E-Mail-App.",
     formName: "Name",
     formCompany: "Unternehmen",
     formEmail: "E-Mail",
@@ -141,7 +153,7 @@ const de: LocaleContent = {
   },
   footer: {
     tagline:
-      "Größtes Ersatzteillager Deutschlands für Gorbel G-Force® & Easy Arm® · Service & Reparatur",
+      "Service, Wartung und Ersatzteile für Gorbel G-Force® & Easy Arm® in Europa · SAS × WiMa",
     rights: "Alle Rechte vorbehalten.",
     impressum: "Impressum",
     privacy: "Datenschutz",
@@ -174,7 +186,7 @@ const de: LocaleContent = {
     title: "Datenschutzerklärung",
     intro:
       "Wir informieren Sie über die Verarbeitung personenbezogener Daten beim Besuch dieser Website (DSGVO / BDSG). Angaben sind auf den aktuellen Stand dieser Website abgestimmt.",
-    lastUpdated: "Stand: März 2026",
+    lastUpdated: "Stand: August 2026",
     sections: [
       {
         heading: "1. Verantwortliche Stelle",
@@ -214,52 +226,63 @@ const de: LocaleContent = {
 
 const en: LocaleContent = {
   meta: {
-    title: "Gorbel G-Force® – Germany’s largest spare-parts stock | SAS × WiMa",
+    title: "Gorbel G-Force® service & spare parts Europe | SAS × WiMa",
     description:
-      "Germany’s largest spare-parts warehouse for Gorbel G-Force® and Easy Arm®. Service and own rope/chain hoists from WiMa and SAS.",
+      "Downtime on your Gorbel G-Force®? Service, maintenance and Germany’s largest spare-parts stock for G-Force® and Easy Arm® – SAS × WiMa.",
   },
   nav: {
     home: "Home",
     about: "About us",
     contact: "Contact",
-    cta: "Contact",
+    cta: "Request",
+    gforce: "G-Force®",
+    service: "Service",
+    parts: "Spare parts",
   },
   home: {
-    eyebrow: "G-Force® · Easy Arm® · Service & spare parts",
-    heroTitle: "Germany’s largest spare-parts warehouse for Gorbel G-Force®",
+    sloganPrimary: "Downtime on your Gorbel G-Force®? We have the solution!",
+    sloganSecondary:
+      "Your partner for service, maintenance and spare parts in Europe",
+    eyebrow: "G-Force® · Easy Arm® · Europe",
+    heroTitle: "Intelligent lifting – service and parts when it matters",
     heroSubtitle:
-      "Fast spare parts and qualified service for G-Force® and Easy Arm® – when European plants can no longer get timely support.",
-    whoTitle: "What WiMa does",
+      "Qualified service and fast spare parts for Gorbel G-Force® and Easy Arm® – when European plants can no longer get timely support.",
+    whoTitle: "WiMa & SAS – your service partner",
     whoBody:
-      "WiMa Industrie-Automation GmbH develops and builds systems for lifting technology and equips rope and chain hoists with innovative electronics. Together with SAS, we support Gorbel G-Force® and Easy Arm® in the field.",
+      "WiMa Industrie-Automation and SAS Sauer-Automation Sachsen support Gorbel G-Force® and Easy Arm® in the field: diagnostics, repair, spare parts and expertise from the acquired e-motion portfolio – plus our own lifting devices with innovative electronics.",
     offerTitle: "The problem – and our answer",
     problemLabel: "Problem",
     solutionLabel: "Solution",
     offerParts:
-      "Many European production sites can no longer get timely spare parts or qualified service for Gorbel G-Force® and Easy Arm®.",
+      "Many European production sites currently struggle to obtain timely spare parts or qualified service for their Gorbel G-Force® lifting units.",
     offerService:
-      "We closed this gap: full spare-parts warehouse from e-motion Handlingsysteme, expertise integrated – service and parts from one partner.",
+      "We closed this gap: by taking over the full activities of e-motion Handlingsysteme GmbH and integrating their core expertise, we deliver service and parts from one partner.",
     configuratorLabel: "3D Configurator",
     configuratorHint: "Open",
     contactCta: "Contact us",
+    serviceBandTitle: "Good service … part of the product",
+    serviceCtaTitle: "Fast spare-part quote",
+    serviceCtaBody:
+      "Send us a photo of your type plate – we identify the part and respond with a concrete offer.",
+    serviceCtaButton: "Send photo / contact",
   },
   offerings: {
-    title: "Solutions & offer",
+    title: "What we offer",
     intro:
-      "Service, Gorbel spare parts and our own lifting systems – clear and practical.",
+      "G-Force® & Easy Arm®, qualified service and spare-parts stock – clear and practical.",
     journeyNote:
-      "Most customers first come for G-Force® or Easy Arm® spare parts – then discover our own rope and chain hoists.",
+      "Most customers first come for spare parts – then discover our service and own lifting systems.",
+    lifts: {
+      title: "G-Force® & Easy Arm®",
+      body: "Intelligent rope balancers and Easy Arm® systems: precision, speed and programmability for demanding lift applications – with support when former European manufacturer support is gone.",
+    },
     service: {
       title: "Service",
       body: "Maintenance, diagnostics and repair for intelligent lifting systems. Experienced WiMa and SAS technicians – workshop and on site.",
     },
     parts: {
-      title: "G-Force® & Easy Arm® spare parts",
-      body: "Large German spare-parts stock for Gorbel G-Force® and Easy Arm®. Identification, supply and support when former European manufacturer support is gone.",
-    },
-    lifts: {
-      title: "Our own rope and chain hoists",
-      body: "WiMa/SAS lifting devices with innovative electronics – rope and chain hoists at roughly half the price of comparable Gorbel systems.",
+      title: "Spare parts",
+      body: "Large German spare-parts stock for Gorbel G-Force® and Easy Arm®. Identification, supply and support – including a 3D configurator for part selection.",
     },
     ctaLabel: "Request advice",
   },
@@ -273,9 +296,9 @@ const en: LocaleContent = {
     heroEyebrow: "Service request",
     heroTitle: "Get in touch – we are here to help",
     heroSubtitle:
-      "Spare part, fault or advice on G-Force® and Easy Arm®? Write to us – we will respond promptly.",
+      "Spare part, fault or advice on G-Force® and Easy Arm®? Write to us – ideally with a type-plate photo.",
     title: "Send a message",
-    intro: "Briefly describe your request – form or email.",
+    intro: "Briefly describe your request – the form opens your email app.",
     formName: "Name",
     formCompany: "Company",
     formEmail: "Email",
@@ -321,7 +344,7 @@ const en: LocaleContent = {
   },
   footer: {
     tagline:
-      "Germany’s largest spare-parts warehouse for Gorbel G-Force® & Easy Arm® · Service & repair",
+      "Service, maintenance and spare parts for Gorbel G-Force® & Easy Arm® in Europe · SAS × WiMa",
     rights: "All rights reserved.",
     impressum: "Legal notice",
     privacy: "Privacy",
@@ -354,7 +377,7 @@ const en: LocaleContent = {
     title: "Privacy policy",
     intro:
       "We inform you about the processing of personal data when using this website (GDPR). The information matches the current functionality of the site.",
-    lastUpdated: "Last updated: March 2026",
+    lastUpdated: "Last updated: August 2026",
     sections: [
       {
         heading: "1. Controller",
@@ -394,51 +417,61 @@ const en: LocaleContent = {
 
 const zh: LocaleContent = {
   meta: {
-    title: "Gorbel G-Force® – 德国最大备件库 | SAS × WiMa",
+    title: "Gorbel G-Force® 服务与备件 · 欧洲 | SAS × WiMa",
     description:
-      "德国最大的 Gorbel G-Force® 与 Easy Arm® 备件库。WiMa/SAS 服务与自有钢丝绳/环链葫芦。",
+      "Gorbel G-Force® 停机？G-Force® 与 Easy Arm® 的服务、维护与德国大型备件库——SAS × WiMa。",
   },
   nav: {
     home: "首页",
     about: "关于我们",
     contact: "联系",
-    cta: "联系",
+    cta: "询价",
+    gforce: "G-Force®",
+    service: "服务",
+    parts: "备件",
   },
   home: {
-    eyebrow: "G-Force® · Easy Arm® · 服务与备件",
-    heroTitle: "德国最大的 Gorbel G-Force® 备件库",
+    sloganPrimary: "Gorbel G-Force® 停机？我们有解决方案！",
+    sloganSecondary: "欧洲服务、维护与备件的合作伙伴",
+    eyebrow: "G-Force® · Easy Arm® · 欧洲",
+    heroTitle: "智能起重——关键时刻的服务与备件",
     heroSubtitle:
-      "G-Force® 与 Easy Arm® 的快速备件与专业服务——当欧洲工厂再也无法及时获得支持时。",
-    whoTitle: "WiMa 做什么",
+      "Gorbel G-Force® 与 Easy Arm® 的专业服务与快速备件——当欧洲工厂无法再及时获得支持时。",
+    whoTitle: "WiMa 与 SAS——您的服务伙伴",
     whoBody:
-      "WiMa Industrie-Automation GmbH 开发并建造起重技术系统，为钢丝绳与环链葫芦配备创新电子技术。与 SAS 一起，我们在现场服务 Gorbel G-Force® 与 Easy Arm®。",
-    offerTitle: "问题——以及我们的答案",
+      "WiMa Industrie-Automation 与 SAS Sauer-Automation Sachsen 在现场支持 Gorbel G-Force® 与 Easy Arm®：诊断、维修、备件以及来自 e-motion 整合的专长——并提供配备创新电子技术的自有提升设备。",
+    offerTitle: "问题——以及我们的方案",
     problemLabel: "问题",
     solutionLabel: "方案",
     offerParts:
-      "许多欧洲生产现场已无法为 Gorbel G-Force® 与 Easy Arm® 及时获得备件或合格服务。",
+      "许多欧洲生产现场目前难以为 Gorbel G-Force® 提升设备及时获得备件或合格服务。",
     offerService:
-      "我们填补了这一空白：接管 e-motion Handlingsysteme 的完整备件库并整合其专长——服务与备件统一对接。",
+      "我们填补了这一空白：接管 e-motion Handlingsysteme GmbH 的全部业务并整合其核心专长，提供一站式服务与备件。",
     configuratorLabel: "3D 配置器",
     configuratorHint: "打开",
     contactCta: "立即咨询",
+    serviceBandTitle: "优质服务……产品的一部分",
+    serviceCtaTitle: "快速备件报价",
+    serviceCtaBody:
+      "请发送铭牌照片——我们识别零件并给出具体报价。",
+    serviceCtaButton: "发送照片 / 联系",
   },
   offerings: {
-    title: "服务与方案",
-    intro: "服务、Gorbel 备件与自有提升设备——清晰务实。",
+    title: "我们提供什么",
+    intro: "G-Force® 与 Easy Arm®、专业服务与备件库——清晰务实。",
     journeyNote:
-      "多数客户先因 G-Force® 或 Easy Arm® 备件而来——随后发现我们的自有钢丝绳与环链葫芦。",
+      "多数客户先因备件而来——随后发现我们的服务与自有提升设备。",
+    lifts: {
+      title: "G-Force® 与 Easy Arm®",
+      body: "智能平衡器与 Easy Arm® 系统：为苛刻起重应用提供精度、速度与可编程性——在原欧洲原厂支持缺失时仍有支持。",
+    },
     service: {
       title: "服务",
       body: "智能提升系统的维护、诊断与维修。WiMa 与 SAS 经验丰富的技术员——车间与现场。",
     },
     parts: {
-      title: "G-Force® 与 Easy Arm® 备件",
-      body: "德国大型 Gorbel G-Force® 与 Easy Arm® 备件库存。在原欧洲原厂支持缺失时提供识别、供应与支持。",
-    },
-    lifts: {
-      title: "自有钢丝绳与环链葫芦",
-      body: "WiMa/SAS 提升设备配备创新电子技术——钢丝绳与环链葫芦价格约为同类 Gorbel 系统的一半。",
+      title: "备件",
+      body: "德国大型 Gorbel G-Force® 与 Easy Arm® 备件库存。识别、供应与支持——含 3D 配置器辅助选件。",
     },
     ctaLabel: "咨询方案",
   },
@@ -452,9 +485,9 @@ const zh: LocaleContent = {
     heroEyebrow: "服务咨询",
     heroTitle: "联系我们——我们随时协助",
     heroSubtitle:
-      "G-Force® / Easy Arm® 备件、故障或咨询？留言给我们——我们会尽快回复。",
+      "G-Force® / Easy Arm® 备件、故障或咨询？留言给我们——最好附上铭牌照片。",
     title: "发送消息",
-    intro: "简要说明需求——表单或邮件。",
+    intro: "简要说明需求——表单将打开邮件应用。",
     formName: "姓名",
     formCompany: "公司",
     formEmail: "邮箱",
@@ -499,7 +532,8 @@ const zh: LocaleContent = {
     lengthLabel: "长度",
   },
   footer: {
-    tagline: "德国最大 Gorbel G-Force® 与 Easy Arm® 备件库 · 服务与维修",
+    tagline:
+      "欧洲 Gorbel G-Force® 与 Easy Arm® 的服务、维护与备件 · SAS × WiMa",
     rights: "版权所有。",
     impressum: "法律信息",
     privacy: "隐私政策",
@@ -532,7 +566,7 @@ const zh: LocaleContent = {
     title: "隐私政策",
     intro:
       "我们说明您访问本网站时个人数据的处理方式（GDPR）。内容与当前网站功能一致。",
-    lastUpdated: "更新日期：2026 年 3 月",
+    lastUpdated: "更新日期：2026 年 8 月",
     sections: [
       {
         heading: "1. 控制者",
@@ -571,15 +605,15 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 22,
+  version: 30,
   images: {
-    hero: "/images/site/hero.jpg",
-    side: "/images/site/about.jpg",
-    contact: "/images/site/contact.jpg",
-    service: "/images/site/service.jpg",
-    parts: "/images/site/workshop.jpg",
-    lifts: "/images/site/story.jpg",
-    configurator: "/images/site/konfigurator.jpg",
+    hero: "/images/site/hero.png",
+    side: "/images/site/about.png",
+    contact: "/images/site/contact.png",
+    service: "/images/site/service.png",
+    parts: "/images/site/parts.png",
+    lifts: "/images/site/gforce.png",
+    configurator: "/images/site/konfigurator.png",
   },
   companies: {
     wima: wimaBase,

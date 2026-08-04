@@ -68,9 +68,12 @@ function Flag({ locale, className }: { locale: AppLocale; className?: string }) 
 export function LanguageSwitcher({
   className,
   align = "right",
+  variant = "light",
 }: {
   className?: string;
   align?: "left" | "right";
+  /** Dark top bar vs light content */
+  variant?: "light" | "dark";
 }) {
   const locale = useLocale() as AppLocale;
   const pathname = usePathname();
@@ -109,11 +112,20 @@ export function LanguageSwitcher({
         type="button"
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          "inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-surface/95 px-2.5 text-xs font-semibold text-anthracite-800 shadow-sm backdrop-blur",
+          "inline-flex h-9 items-center gap-1.5 rounded-full px-2.5 text-xs font-semibold shadow-sm backdrop-blur",
           "transition-all duration-200 ease-out",
-          "hover:border-anthracite-300 hover:bg-white hover:shadow",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30",
-          open && "border-anthracite-300 bg-white shadow",
+          variant === "dark"
+            ? cn(
+                "border border-white/15 bg-white/5 text-white",
+                "hover:border-white/25 hover:bg-white/10",
+                open && "border-white/30 bg-white/15",
+              )
+            : cn(
+                "border border-border bg-surface/95 text-anthracite-800",
+                "hover:border-anthracite-300 hover:bg-white hover:shadow",
+                open && "border-anthracite-300 bg-white shadow",
+              ),
         )}
         aria-haspopup="listbox"
         aria-expanded={open}

@@ -41,8 +41,16 @@ export type LocaleContent = {
     about: string;
     contact: string;
     cta: string;
+    /** In-page section labels (home anchors) */
+    gforce: string;
+    service: string;
+    parts: string;
   };
   home: {
+    /** Top-bar primary slogan */
+    sloganPrimary: string;
+    /** Top-bar secondary slogan */
+    sloganSecondary: string;
     eyebrow: string;
     heroTitle: string;
     heroSubtitle: string;
@@ -56,14 +64,21 @@ export type LocaleContent = {
     configuratorLabel: string;
     configuratorHint: string;
     contactCta: string;
+    /** Service band headline */
+    serviceBandTitle: string;
+    /** Type-plate / photo CTA */
+    serviceCtaTitle: string;
+    serviceCtaBody: string;
+    serviceCtaButton: string;
   };
   offerings: {
     title: string;
     intro: string;
     journeyNote: string;
+    /** G-Force & Easy Arm product pillar */
+    lifts: OfferBlock;
     service: OfferBlock;
     parts: OfferBlock;
-    lifts: OfferBlock;
     ctaLabel: string;
   };
   about: {

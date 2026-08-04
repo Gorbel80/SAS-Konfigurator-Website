@@ -13,11 +13,14 @@ type Props = {
 /** Über uns – who WiMa & SAS are */
 export function AboutCompanyPage({ content, images, companies }: Props) {
   const about = content.about;
+  /** Trade-fair booth: yellow / blue / red units (WiMa, SAS, e-Motion) */
+  const boothImage = images.side;
 
   return (
     <div className="flex flex-1 flex-col bg-background">
       <PageHeroBanner
-        imageSrc={images.side}
+        imageSrc={images.hero}
+        imageAlt={about.heroTitle}
         eyebrow={about.heroEyebrow}
         title={about.heroTitle}
         subtitle={about.heroSubtitle}
@@ -96,16 +99,16 @@ export function AboutCompanyPage({ content, images, companies }: Props) {
             </div>
           </div>
 
-          <div className="animate-fade-up animate-delay-1 order-1 min-h-[11rem] lg:order-2 lg:min-h-0">
-            <div className="img-zoom relative h-full min-h-[11rem] overflow-hidden rounded-2xl border border-border shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)] lg:min-h-full">
+          <div className="animate-fade-up animate-delay-1 order-1 min-h-[14rem] sm:min-h-[16rem] lg:order-2 lg:min-h-0">
+            <div className="img-zoom relative h-full min-h-[14rem] overflow-hidden rounded-2xl border border-border bg-anthracite-100 shadow-[0_12px_40px_-16px_rgba(18,22,27,0.35)] sm:min-h-[16rem] lg:min-h-full">
               <Image
-                src={images.lifts}
-                alt={content.home.whoTitle}
+                src={boothImage}
+                alt="Messestand WiMa, SAS und e-Motion – intelligente Hebezeuge (gelb, blau, rot)"
                 fill
-                loading="lazy"
-                className="object-cover"
+                priority
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={70}
+                quality={80}
               />
             </div>
           </div>

@@ -2,11 +2,15 @@ import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
+export const dynamic = "force-static";
+
 const paths = [
   "",
   "/g-force",
   "/service",
   "/contact",
+  "/anwendungen",
+  "/downloads",
   "/konfigurator",
   "/ueber-uns",
   "/impressum",

@@ -54,9 +54,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             header={
               <Header
                 nav={localeContent.nav}
-                brand="SAS × WiMa"
-                sloganPrimary={localeContent.home.sloganPrimary}
-                sloganSecondary={localeContent.home.sloganSecondary}
+                brand="WiMa Industrie-Automation"
               />
             }
             footer={

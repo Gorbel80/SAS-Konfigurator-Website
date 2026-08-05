@@ -48,18 +48,20 @@ export type LocaleContent = {
   };
   nav: {
     home: string;
-    /** Über uns / Was WiMa & SAS machen (legacy / footer) */
+    /** Über uns */
     about: string;
     contact: string;
     cta: string;
     gforce: string;
     service: string;
     parts: string;
+    applications: string;
+    downloads: string;
   };
   home: {
-    /** Top-bar primary slogan */
+    /** Top-bar primary slogan (legacy / SEO) */
     sloganPrimary: string;
-    /** Top-bar secondary slogan */
+    /** Top-bar secondary slogan (legacy / SEO) */
     sloganSecondary: string;
     eyebrow: string;
     heroTitle: string;
@@ -71,10 +73,12 @@ export type LocaleContent = {
     solutionLabel: string;
     offerParts: string;
     offerService: string;
+    /** Yellow hero button */
     contactCta: string;
-    /** Service band headline */
+    /** Blue hero configurator button */
+    configuratorCta: string;
+    /** Service band headline (legacy) */
     serviceBandTitle: string;
-    /** Type-plate / photo CTA */
     serviceCtaTitle: string;
     serviceCtaBody: string;
     serviceCtaButton: string;
@@ -140,6 +144,8 @@ export type LocaleContent = {
     rights: string;
     impressum: string;
     privacy: string;
+    callLabel: string;
+    emailLabel: string;
   };
   cookies: {
     title: string;

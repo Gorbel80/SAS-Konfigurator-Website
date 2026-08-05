@@ -1,19 +1,97 @@
-# Apache (All-Inkl) – static Next.js export
+# ============================================================================
+# WiMa Industrie-Automation – Apache-Konfiguration für All-Inkl
+# ----------------------------------------------------------------------------
+# Diese Datei muss im Wurzelverzeichnis des Webspaces liegen (dort, wo auch
+# de/, en/ und zh/ liegen). Sie wird per FTP mit hochgeladen.
+#
+# Achtung: Dateien, die mit einem Punkt beginnen, blendet Ihr FTP-Programm
+# unter Umständen aus. In FileZilla: Server -> "Versteckte Dateien anzeigen".
+# ============================================================================
 
 RewriteEngine On
 
-# Site root → German default
+# ----------------------------------------------------------------------------
+# 1. Startseite -> deutsche Fassung
+# ----------------------------------------------------------------------------
 RewriteRule ^$ /de/ [R=302,L]
 
-# Configurator root → German default
-RewriteRule ^konfigurator/?$ /konfigurator/de/ [R=302,L]
+# ----------------------------------------------------------------------------
+# 2. Konfigurator ohne Sprachkürzel -> deutsche Fassung
+#    (Früher zeigte diese Regel auf /konfigurator/de/ – diesen Pfad gibt es
+#    nicht, der Aufruf endete im 404.)
+# ----------------------------------------------------------------------------
+RewriteRule ^konfigurator/?$ /de/konfigurator/ [R=301,L]
 
+# ----------------------------------------------------------------------------
+# 3. Alte Adressen dauerhaft umleiten
+#    Diese Seiten gab es in der früheren Fassung. Die 301-Weiterleitung sorgt
+#    dafür, dass Lesezeichen und Suchmaschinen-Treffer nicht ins Leere laufen.
+# ----------------------------------------------------------------------------
+RewriteRule ^(de|en|zh)/about/?$      /$1/ueber-uns/ [R=301,L]
+RewriteRule ^(de|en|zh)/leistungen/?$ /$1/service/   [R=301,L]
+RewriteRule ^(de|en|zh)/angebot/?$    /$1/service/   [R=301,L]
+
+# ----------------------------------------------------------------------------
+# 4. Verzeichnis-Standarddatei und Fehlerseite
+# ----------------------------------------------------------------------------
 DirectoryIndex index.html
-
 ErrorDocument 404 /404.html
 
+# Verzeichnisinhalte nicht auflisten
+Options -Indexes
+
+# ----------------------------------------------------------------------------
+# 5. Komprimierung – spürbar kürzere Ladezeiten bei HTML/CSS/JS
+# ----------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 6. Browser-Cache
+#    Bilder und Schriften ändern sich selten -> lange Speicherdauer.
+#    HTML bewusst kurz, damit Textänderungen schnell sichtbar werden.
+# ----------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 10 minutes"
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType image/webp                "access plus 6 months"
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType model/gltf-binary         "access plus 6 months"
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 7. MIME-Typen, die Apache nicht von Haus aus kennt
+#    .glb wird vom 3-D-Konfigurator geladen.
+# ----------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType model/gltf-binary .glb
+  AddType font/woff2        .woff2
+  AddType image/webp        .webp
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# 8. Sicherheit
+# ----------------------------------------------------------------------------
+
+# Versteckte Dateien (.htaccess, .git, …) nicht ausliefern
 <IfModule mod_authz_core.c>
   <FilesMatch "^\.">
     Require all denied
   </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Seite nicht in fremde Frames einbetten lassen
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Browser soll den Dateityp nicht selbst erraten
+  Header always set X-Content-Type-Options "nosniff"
+  # Beim Wechsel auf fremde Seiten nur die Domain als Herkunft senden
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>

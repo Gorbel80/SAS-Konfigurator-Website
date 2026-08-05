@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { PageHeroBanner } from "@/components/layout/PageHeroBanner";
+import { ConfiguratorButton } from "@/components/ui/ConfiguratorButton";
 import type { LocaleContent, SiteContent } from "@/content/types";
 import {
   AlertCircle,
@@ -52,6 +53,11 @@ export function HomePage({ content, images }: Props) {
         subtitle={h.heroSubtitle}
         badge="G-Force®"
       >
+        <ConfiguratorButton
+          label="3D Konfigurator"
+          hint="Öffnen"
+          size="hero"
+        />
         <Link
           href="/contact"
           className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.07] px-4 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/35 hover:bg-white/12 sm:h-11"

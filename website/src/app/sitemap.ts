@@ -7,6 +7,7 @@ const paths = [
   "/g-force",
   "/service",
   "/contact",
+  "/konfigurator",
   "/ueber-uns",
   "/impressum",
   "/datenschutz",
@@ -24,7 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority:
         path === ""
           ? 1
-          : path === "/contact" || path === "/g-force" || path === "/service"
+          : path === "/contact" ||
+              path === "/g-force" ||
+              path === "/service" ||
+              path === "/konfigurator"
             ? 0.8
             : 0.4,
     })),

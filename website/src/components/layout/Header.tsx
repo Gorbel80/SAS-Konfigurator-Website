@@ -2,6 +2,7 @@
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ConfiguratorButton } from "@/components/ui/ConfiguratorButton";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -94,6 +95,7 @@ export function Header({
           <div className="ml-auto flex items-center gap-2">
             <LanguageSwitcher align="right" variant="dark" />
             <div className="hidden md:block">
+              <ConfiguratorButton size="header" label="3D" hint="Konfigurator" />
             </div>
             <button
               type="button"
@@ -201,6 +203,12 @@ export function Header({
           >
             {nav.contact}
           </Link>
+          <ConfiguratorButton
+            size="mobile"
+            label="3D Konfigurator"
+            hint="Öffnen"
+            onNavigate={() => setOpen(false)}
+          />
         </div>
       </div>
     </header>

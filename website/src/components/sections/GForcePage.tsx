@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { PageHeroBanner } from "@/components/layout/PageHeroBanner";
+import { ConfiguratorButton } from "@/components/ui/ConfiguratorButton";
 import type { LocaleContent, SiteContent } from "@/content/types";
 import { ArrowRight, Gauge, Hand, Move3d } from "lucide-react";
 
@@ -30,18 +31,13 @@ export function GForcePage({ content, images }: Props) {
         compact
         dense
       >
-        <Link
-          href="/contact"
-          className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg bg-accent px-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
-        >
-          {p.ctaLabel}
-          <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
+        <ConfiguratorButton label="3D Konfigurator" hint="Öffnen" size="hero" />
         <Link
           href="/contact"
           className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/[0.07] px-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/35 hover:bg-white/12"
         >
           {p.ctaLabel}
+          <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </PageHeroBanner>
 

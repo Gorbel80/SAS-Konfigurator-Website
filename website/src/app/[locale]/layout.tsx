@@ -5,13 +5,12 @@ import { DM_Sans } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { CookieBanner } from "@/components/legal/CookieBanner";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { readContent } from "@/lib/content-store";
 import { organizationJsonLd } from "@/lib/seo";
 import type { Locale } from "@/content/types";
-
-export const dynamic = "force-dynamic";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -51,17 +50,22 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
-          <Header
-            nav={localeContent.nav}
-            brand="SAS × WiMa"
-            sloganPrimary={localeContent.home.sloganPrimary}
-            sloganSecondary={localeContent.home.sloganSecondary}
-          />
-          <main id="site-main">
+          <SiteShell
+            header={
+              <Header
+                nav={localeContent.nav}
+                brand="SAS × WiMa"
+                sloganPrimary={localeContent.home.sloganPrimary}
+                sloganSecondary={localeContent.home.sloganSecondary}
+              />
+            }
+            footer={
+              <Footer content={localeContent} companies={content.companies} />
+            }
+            banner={<CookieBanner cookies={localeContent.cookies} />}
+          >
             <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer content={localeContent} companies={content.companies} />
-          <CookieBanner cookies={localeContent.cookies} />
+          </SiteShell>
         </NextIntlClientProvider>
       </body>
     </html>

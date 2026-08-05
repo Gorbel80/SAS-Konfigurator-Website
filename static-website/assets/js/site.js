@@ -2,12 +2,13 @@
    WiMa Industrie-Automation – Website-Skript
    --------------------------------------------------------------------------
    Bewusst klein gehalten. Kein Framework, keine externen Abhängigkeiten.
-   Die Seite funktioniert auch ohne JavaScript – nur diese drei Komfort-
+   Die Seite funktioniert auch ohne JavaScript – nur diese Komfort-
    Funktionen fehlen dann:
 
-     1. Mobiles Menü auf-/zuklappen
-     2. Cookie-Hinweis (Einwilligung im localStorage merken)
-     3. Kontaktformular als vorausgefüllte E-Mail öffnen
+     1.  Mobiles Menü auf-/zuklappen
+     1b. Sprachumschalter aufklappen
+     2.  Cookie-Hinweis (Einwilligung im localStorage merken)
+     3.  Kontaktformular als vorausgefüllte E-Mail öffnen
 
    Texte stehen NICHT hier, sondern im HTML (data-Attribute bzw. Markup),
    damit Übersetzungen an einer Stelle gepflegt werden.
@@ -36,6 +37,41 @@
       if (window.innerWidth > 900) {
         nav.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     1b. Sprachumschalter (Pill-Menü)
+     Der Button <button class="lang-current"> klappt <ul class="lang-menu">
+     auf. Ohne JavaScript bleibt das Menü zu – die Sprachen sind dann über
+     die Links im Seitenkopf der jeweiligen Sprachfassung erreichbar.
+     ---------------------------------------------------------------------- */
+  function initLangSwitch() {
+    var button = document.querySelector(".lang-current");
+    var menu = document.querySelector(".lang-menu");
+    if (!button || !menu) return;
+
+    function close() {
+      menu.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+    }
+
+    button.addEventListener("click", function (event) {
+      event.stopPropagation();
+      var willOpen = menu.hidden;
+      menu.hidden = !willOpen;
+      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    });
+
+    // Klick daneben oder Escape schließt das Menü wieder
+    document.addEventListener("click", function (event) {
+      if (!menu.hidden && !menu.contains(event.target)) close();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !menu.hidden) {
+        close();
+        button.focus();
       }
     });
   }
@@ -128,6 +164,7 @@
      ---------------------------------------------------------------------- */
   function init() {
     initNavToggle();
+    initLangSwitch();
     initCookieBanner();
     initContactForm();
   }

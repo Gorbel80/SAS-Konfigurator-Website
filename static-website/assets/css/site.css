@@ -237,23 +237,73 @@ input:focus-visible, textarea:focus-visible {
   border-bottom-color: var(--gorbel-yellow);
 }
 
-/* Sprachumschalter */
-.lang-switch { display: flex; gap: 0.35rem; flex-shrink: 0; }
-.lang-switch a {
-  color: var(--text-on-navy);
-  font-size: 0.78rem;
+/* Sprachumschalter – kompaktes Pill-Menü.
+   Geschlossen zeigt es nur die aktuelle Sprache (Flagge + Kürzel);
+   ein Klick klappt die drei Sprachen auf. Gesteuert von site.js. */
+.lang-switch { position: relative; flex-shrink: 0; }
+
+/* Flaggen einheitlich, unabhängig vom Seitenverhältnis der SVG-Datei */
+.lang-switch img {
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Die Pille selbst */
+.lang-current {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.55rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.76rem;
   font-weight: 700;
-  white-space: nowrap;      /* „中文" nicht auf zwei Zeilen brechen */
-  padding: 0.25rem 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
 }
-.lang-switch a:hover { color: var(--white); border-color: var(--white); text-decoration: none; }
-.lang-switch a[aria-current="true"] {
-  background: var(--gorbel-yellow);
-  border-color: var(--gorbel-yellow);
-  color: var(--navy);
+.lang-current:hover { background: rgba(255, 255, 255, 0.16); border-color: rgba(255, 255, 255, 0.45); }
+
+/* Pfeil dreht sich beim Aufklappen */
+.lang-caret { transition: transform 0.15s ease; }
+.lang-current[aria-expanded="true"] .lang-caret { transform: rotate(180deg); }
+
+/* Aufgeklappte Liste */
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 120;
+  min-width: 100%;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  box-shadow: var(--shadow-lift);
 }
+.lang-menu[hidden] { display: none; }
+.lang-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.lang-menu a:hover { background: var(--bg-tint); text-decoration: none; }
+.lang-menu a[aria-current="true"] { background: var(--gorbel-yellow); color: var(--navy); }
 
 /* Burger-Button – nur auf schmalen Displays sichtbar (siehe Abschnitt 6) */
 .nav-toggle {
@@ -298,11 +348,18 @@ input:focus-visible, textarea:focus-visible {
 
 /* --- 4.3 Hero ------------------------------------------------------------ */
 
+/* Feste Höhe: alle Banner der Website sind exakt gleich hoch, unabhängig
+   davon wie lang die Überschrift ist. Der Inhalt wird vertikal zentriert.
+   Höhe ändern -> --hero-h (gilt sofort für alle Seiten und Sprachen). */
+:root { --hero-h: 400px; }
+
 .hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--hero-h);
   background: var(--navy);
   color: var(--white);
-  padding: var(--space-xl) 0;
   overflow: hidden;
 }
 /* Hintergrundbild wird im HTML per style="--hero-image:url(...)" gesetzt,
@@ -323,7 +380,8 @@ input:focus-visible, textarea:focus-visible {
   inset: 0;
   background: linear-gradient(100deg, var(--navy) 22%, rgba(6, 16, 28, 0.55) 100%);
 }
-.hero .container { position: relative; z-index: 1; }
+/* width:100% nötig, weil .hero jetzt ein Flex-Container ist */
+.hero .container { position: relative; z-index: 1; width: 100%; }
 .hero-inner { max-width: 720px; }
 .hero h1 { color: var(--white); margin-bottom: var(--space-sm); }
 .hero p { color: rgba(255, 255, 255, 0.86); font-size: 1.12rem; }
@@ -340,8 +398,8 @@ input:focus-visible, textarea:focus-visible {
   text-transform: uppercase;
 }
 
-/* Kompakte Variante für Unterseiten ohne großes Bild */
-.hero--compact { padding: var(--space-lg) 0; }
+/* Variante für Rechtstexte (Impressum, Datenschutz): kleinere Überschrift,
+   aber bewusst dieselbe Bannerhöhe wie überall sonst. */
 .hero--compact h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
 
 
@@ -359,7 +417,11 @@ input:focus-visible, textarea:focus-visible {
 }
 .card:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
 
-.card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+/* Feste Höhe statt aspect-ratio: erzwingt exakt gleich hohe Kartenbilder,
+   auch wenn eine Bilddatei hochformatig ist (z. B. parts.webp 1000x1332)
+   oder ein älterer Browser aspect-ratio nicht kennt.
+   Höhe hier ändern -> gilt für alle Karten der Website. */
+.card img { width: 100%; height: 210px; object-fit: cover; }
 .card-body { padding: var(--space-md); flex: 1; }
 .card-body h3 { margin-bottom: 0.6rem; }
 .card-body p { color: var(--text-muted); font-size: 0.98rem; }
@@ -586,12 +648,16 @@ a.card:hover { text-decoration: none; }
   .site-nav a[aria-current="page"] { border-bottom-color: var(--gorbel-yellow); }
 
   .site-header .container { flex-wrap: wrap; padding-top: 0.6rem; padding-bottom: 0.2rem; }
-  .lang-switch { order: 1; margin-left: auto; }
+  /* Sprachpille bleibt neben dem Burger-Button oben rechts stehen */
+  .lang-switch { order: 2; margin-left: auto; margin-right: 0.5rem; }
+  .nav-toggle { order: 3; margin-left: 0; }
 }
 
 @media (max-width: 600px) {
   body { font-size: 16px; }
-  :root { --space-xl: 3.25rem; --space-lg: 2.25rem; }
+  /* Auf schmalen Displays brauchen Überschrift und gestapelte Buttons mehr
+     Platz – daher ein größerer Wert, aber weiterhin für alle Banner gleich. */
+  :root { --space-xl: 3.25rem; --space-lg: 2.25rem; --hero-h: 470px; }
   .btn { width: 100%; }
   .btn-row { flex-direction: column; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }

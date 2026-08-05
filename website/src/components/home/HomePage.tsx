@@ -56,6 +56,21 @@ export function HomePage({ content, images }: Props) {
           <div className="absolute inset-0 bg-gradient-to-b from-anthracite-950/55 via-anthracite-950/45 to-anthracite-950/60" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgb(6_16_28_/_0.35)_100%)]" />
 
+          {/* Gorbel “A Class Above” badge – classic top-right placement */}
+          <div className="pointer-events-none absolute right-3 top-3 z-10 sm:right-5 sm:top-4 lg:right-7 lg:top-5">
+            <div className="animate-fade-up relative h-[3.25rem] w-[7.5rem] overflow-hidden rounded-sm shadow-[0_4px_18px_-4px_rgba(0,0,0,0.45)] ring-1 ring-black/10 sm:h-[3.75rem] sm:w-[8.75rem] lg:h-[4.25rem] lg:w-[10rem]">
+              <Image
+                src="/images/brand/gorbel-a-class-above.png"
+                alt="Gorbel – A Class Above"
+                fill
+                priority
+                className="object-contain object-center"
+                sizes="(max-width: 640px) 120px, 160px"
+                quality={95}
+              />
+            </div>
+          </div>
+
           <div className="absolute inset-0 flex items-center justify-center px-4 py-6 sm:px-6 sm:py-7 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="animate-fade-up text-[1.35rem] font-semibold tracking-[-0.02em] text-white text-balance drop-shadow-[0_1px_12px_rgba(0,0,0,0.35)] sm:text-[1.75rem] sm:leading-[1.2] lg:text-[2.05rem] lg:leading-[1.18]">

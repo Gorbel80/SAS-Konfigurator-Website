@@ -6,9 +6,7 @@ import type { LocaleContent, SiteContent } from "@/content/types";
 import {
   AlertCircle,
   ArrowRight,
-  Camera,
   CheckCircle2,
-  Wrench,
 } from "lucide-react";
 
 type Props = {
@@ -183,86 +181,6 @@ export function HomePage({ content, images }: Props) {
               <p className="text-sm font-medium leading-snug text-anthracite-800">
                 {h.offerService}
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service band + type-plate CTA */}
-      <section className="border-b border-border bg-anthracite-950 text-white">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-6 sm:px-6 sm:py-7 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-8">
-          <div className="animate-fade-up">
-            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5">
-              <Wrench className="h-3.5 w-3.5 text-sky" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky">
-                Service
-              </span>
-            </div>
-            <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-              {h.serviceBandTitle}
-            </h2>
-            <p className="mt-1.5 text-sm text-anthracite-300">
-              <Link
-                href="/service"
-                className="font-semibold text-sky underline-offset-2 hover:underline"
-              >
-                {content.nav.service}
-              </Link>
-            </p>
-            <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.04] p-4">
-              <div className="flex items-start gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/20 text-sky">
-                  <Camera className="h-4.5 w-4.5" />
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-white">
-                    {h.serviceCtaTitle}
-                  </p>
-                  <p className="mt-1 text-sm leading-snug text-anthracite-300">
-                    {h.serviceCtaBody}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <Link
-                      href="/contact"
-                      className="inline-flex h-9 items-center gap-2 rounded-full bg-accent px-3.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
-                    >
-                      {h.serviceCtaButton}
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <Link
-                      href="/service"
-                      className="inline-flex h-9 items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                    >
-                      {content.nav.service}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="animate-fade-up animate-delay-1 grid grid-cols-2 gap-2.5">
-            <div className="img-zoom relative aspect-[5/4] overflow-hidden rounded-xl border border-white/10">
-              <Image
-                src={images.service}
-                alt={o.service.title}
-                fill
-                loading="lazy"
-                className="object-cover"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                quality={72}
-              />
-            </div>
-            <div className="img-zoom relative aspect-[5/4] overflow-hidden rounded-xl border border-white/10">
-              <Image
-                src={images.parts}
-                alt={o.parts.title}
-                fill
-                loading="lazy"
-                className="object-cover"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                quality={72}
-              />
             </div>
           </div>
         </div>

@@ -778,20 +778,20 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 33,
+  version: 34,
   images: {
     hero:
-      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/hero-sm.webp",
+      "/images/site/hero.webp",
     side:
-      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/about-sm.webp",
+      "/images/site/about.webp",
     contact:
-      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/contact-sm.webp",
+      "/images/site/contact.webp",
     service:
-      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/service-sm.webp",
+      "/images/site/service.webp",
     parts:
-      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/parts-sm.webp",
+      "/images/site/parts.webp",
     lifts:
-      "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/gforce-sm.webp",
+      "/images/site/gforce.webp",
   },
   companies: {
     wima: wimaBase,

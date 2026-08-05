@@ -1,0 +1,19 @@
+# Apache (All-Inkl) – static Next.js export
+
+RewriteEngine On
+
+# Site root → German default
+RewriteRule ^$ /de/ [R=302,L]
+
+# Configurator root → German default
+RewriteRule ^konfigurator/?$ /konfigurator/de/ [R=302,L]
+
+DirectoryIndex index.html
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_authz_core.c>
+  <FilesMatch "^\.">
+    Require all denied
+  </FilesMatch>
+</IfModule>

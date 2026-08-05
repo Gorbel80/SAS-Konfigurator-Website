@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://gorbel.eu
+Sitemap: https://gorbel.eu/sitemap.xml

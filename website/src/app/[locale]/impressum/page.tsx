@@ -4,10 +4,15 @@ import { LegalPageShell, LegalSection } from "@/components/legal/LegalPageShell"
 import { readContent } from "@/lib/content-store";
 import { buildPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/content/types";
+import { routing } from "@/i18n/routing";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -22,56 +27,61 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
+/**
+ * Impressum is always Wima Industrie Automation GmbH only
+ * (no SAS company block – see wima-automation.com Impressum).
+ */
 export default async function ImpressumPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const content = await readContent();
   const t = content.locales[locale as Locale].impressum;
-  const operator =
-    content.siteOperator === "sas"
-      ? content.companies.sas
-      : content.companies.wima;
-  const { wima, sas } = content.companies;
+  const wima = content.companies.wima;
 
   return (
     <LegalPageShell title={t.title} intro={t.intro}>
-      <LegalSection title={`${t.sectionCompany} – Website`}>
-        <p className="font-medium text-anthracite-900">{operator.legalName}</p>
+      <LegalSection title={t.sectionCompany}>
+        <p className="font-medium text-anthracite-900">{wima.legalName}</p>
         <p>
-          {operator.street}
+          {wima.street}
           <br />
-          {operator.postal} {operator.city}
+          {wima.postal} {wima.city}
           <br />
-          {operator.country}
+          {wima.country}
         </p>
       </LegalSection>
 
       <LegalSection title={t.sectionContact}>
         <p>
-          Tel.: {operator.phone}
+          {t.phoneLabel}: {wima.phone}
+          {wima.fax ? (
+            <>
+              <br />
+              {t.faxLabel}: {wima.fax}
+            </>
+          ) : null}
           <br />
-          E-Mail:{" "}
+          {t.emailLabel}:{" "}
           <a
-            href={`mailto:${operator.email}`}
+            href={`mailto:${wima.email}`}
             className="text-accent hover:underline"
           >
-            {operator.email}
+            {wima.email}
           </a>
         </p>
       </LegalSection>
 
       <LegalSection title={t.sectionRegister}>
         <p>
-          {t.managingDirectorLabel}: {operator.managingDirector}
+          {t.managingDirectorLabel}: {wima.managingDirector}
           <br />
-          {t.registerLabel}: {operator.registerCourt},{" "}
-          {operator.registerNumber}
+          {t.registerLabel}: {wima.registerCourt}, {wima.registerNumber}
         </p>
       </LegalSection>
 
       <LegalSection title={t.sectionVat}>
         <p>
-          {t.vatLabel}: {operator.vatId}
+          {t.vatLabel}: {wima.vatId}
         </p>
       </LegalSection>
 
@@ -79,46 +89,30 @@ export default async function ImpressumPage({ params }: Props) {
         <p>
           {t.responsibleLabel}:
           <br />
-          {operator.managingDirector}
+          {wima.managingDirector}
           <br />
-          {operator.legalName}
+          {wima.legalName}
           <br />
-          {operator.postal} {operator.city}
+          {wima.street}
+          <br />
+          {wima.postal} {wima.city}
         </p>
       </LegalSection>
 
-      <LegalSection title="WiMa">
-        <p className="font-medium text-anthracite-900">{wima.legalName}</p>
-        <p>
-          {wima.street}, {wima.postal} {wima.city}
-          <br />
-          {t.managingDirectorLabel}: {wima.managingDirector}
-          <br />
-          {t.registerLabel}: {wima.registerCourt}, {wima.registerNumber}
-          <br />
-          {t.vatLabel}: {wima.vatId}
-          <br />
-          {wima.phone} · {wima.email}
-        </p>
+      <LegalSection title={t.sectionDispute}>
+        <p>{t.disputeBody}</p>
       </LegalSection>
 
-      <LegalSection title="SAS">
-        <p className="font-medium text-anthracite-900">{sas.legalName}</p>
-        <p>
-          {sas.street}, {sas.postal} {sas.city}
-          <br />
-          {t.managingDirectorLabel}: {sas.managingDirector}
-          <br />
-          {t.registerLabel}: {sas.registerCourt}, {sas.registerNumber}
-          <br />
-          {t.vatLabel}: {sas.vatId}
-          <br />
-          {sas.phone} · {sas.email}
-        </p>
+      <LegalSection title={t.sectionLiabilityContent}>
+        <p>{t.liabilityContentBody}</p>
       </LegalSection>
 
-      <LegalSection title={t.sectionNote}>
-        <p>{t.noteBody}</p>
+      <LegalSection title={t.sectionLiabilityLinks}>
+        <p>{t.liabilityLinksBody}</p>
+      </LegalSection>
+
+      <LegalSection title={t.sectionCopyright}>
+        <p>{t.copyrightBody}</p>
       </LegalSection>
     </LegalPageShell>
   );

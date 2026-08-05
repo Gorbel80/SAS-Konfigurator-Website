@@ -8,6 +8,8 @@ export type CompanyInfo = {
   city: string;
   country: string;
   phone: string;
+  /** Optional fax number (shown in Impressum when set) */
+  fax?: string;
   email: string;
   mapUrl: string;
   managingDirector: string;
@@ -154,12 +156,21 @@ export type LocaleContent = {
     sectionRegister: string;
     sectionVat: string;
     sectionResponsible: string;
-    sectionNote: string;
-    noteBody: string;
+    sectionDispute: string;
+    disputeBody: string;
+    sectionLiabilityContent: string;
+    liabilityContentBody: string;
+    sectionLiabilityLinks: string;
+    liabilityLinksBody: string;
+    sectionCopyright: string;
+    copyrightBody: string;
     managingDirectorLabel: string;
     registerLabel: string;
     vatLabel: string;
     responsibleLabel: string;
+    phoneLabel: string;
+    faxLabel: string;
+    emailLabel: string;
   };
   privacy: {
     title: string;

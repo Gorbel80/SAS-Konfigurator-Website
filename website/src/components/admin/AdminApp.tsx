@@ -561,7 +561,7 @@ export function AdminApp() {
                     <Field
                       key={field}
                       label={field}
-                      value={content.companies[ck][field]}
+                      value={content.companies[ck][field] ?? ""}
                       onChange={(v) =>
                         setContent((prev) =>
                           prev

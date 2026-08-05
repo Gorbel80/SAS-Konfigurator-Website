@@ -2,18 +2,19 @@ import type { CompanyInfo, LocaleContent, SiteContent } from "./types";
 
 const wimaBase: CompanyInfo = {
   name: "WiMa Industrie-Automation",
-  legalName: "WiMa Industrie-Automation GmbH",
-  street: "Musterstraße 12",
-  postal: "58300",
-  city: "Wetter",
+  legalName: "Wima Industrie Automation GmbH",
+  street: "Schöllinger Feld 46",
+  postal: "D-58300",
+  city: "Wetter/R",
   country: "Deutschland",
-  phone: "+49 (0) 2335 000000",
-  email: "info@wima-industrie.de",
-  mapUrl: "https://maps.google.com/?q=58300+Wetter+Germany",
-  managingDirector: "Max Mustermann",
+  phone: "+49 (0)2335 8499-155",
+  fax: "037204-50 55 03",
+  email: "info@wima-automation.de",
+  mapUrl: "https://maps.google.com/?q=Sch%C3%B6llinger+Feld+46+58300+Wetter",
+  managingDirector: "Klaus Marchewka",
   registerCourt: "Amtsgericht Hagen",
-  registerNumber: "HRB 00000",
-  vatId: "DE000000000",
+  registerNumber: "HRB 11782",
+  vatId: "DE 815 381 799",
 };
 
 const sasBase: CompanyInfo = {
@@ -215,19 +216,31 @@ const de: LocaleContent = {
   impressum: {
     title: "Impressum",
     intro:
-      "Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz). Die Website wird betrieben von den unten genannten Unternehmen (Platzhalterangaben – bitte final prüfen).",
+      "Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz). Anbieter dieser Website ist die Wima Industrie Automation GmbH.",
     sectionCompany: "Anbieter",
     sectionContact: "Kontakt",
     sectionRegister: "Registereintrag",
     sectionVat: "Umsatzsteuer-ID",
     sectionResponsible: "Verantwortlich für den Inhalt",
-    sectionNote: "Hinweis",
-    noteBody:
-      "Die auf dieser Website genannten Firmendaten sind Platzhalter und müssen vor dem produktiven Betrieb durch die tatsächlichen Register- und Kontaktdaten ersetzt werden.",
+    sectionDispute: "Streitschlichtung",
+    disputeBody:
+      "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+    sectionLiabilityContent: "Haftung für Inhalte",
+    liabilityContentBody:
+      "Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.",
+    sectionLiabilityLinks: "Haftung für Links",
+    liabilityLinksBody:
+      "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.",
+    sectionCopyright: "Urheberrecht",
+    copyrightBody:
+      "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.",
     managingDirectorLabel: "Geschäftsführung",
     registerLabel: "Handelsregister",
     vatLabel: "USt-IdNr.",
-    responsibleLabel: "Verantwortlich i. S. d. § 18 Abs. 2 MStV",
+    responsibleLabel: "Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV",
+    phoneLabel: "Telefon",
+    faxLabel: "Telefax",
+    emailLabel: "E-Mail",
   },
   privacy: {
     title: "Datenschutzerklärung",
@@ -237,7 +250,7 @@ const de: LocaleContent = {
     sections: [
       {
         heading: "1. Verantwortliche Stelle",
-        body: "Verantwortlich für die Datenverarbeitung im Zusammenhang mit dieser Website ist der im Impressum genannte Website-Betreiber (WiMa Industrie-Automation GmbH bzw. die dort genannte Gesellschaft). Kontaktmöglichkeiten entnehmen Sie dem Impressum.",
+        body: "Verantwortlich für die Datenverarbeitung im Zusammenhang mit dieser Website ist die Wima Industrie Automation GmbH (siehe Impressum). Kontaktmöglichkeiten entnehmen Sie dem Impressum.",
       },
       {
         heading: "2. Hosting und Server-Logfiles",
@@ -453,19 +466,31 @@ const en: LocaleContent = {
   impressum: {
     title: "Legal notice (Impressum)",
     intro:
-      "Information according to German Digital Services Act (DDG). This website is operated by the companies listed below (placeholder data – please verify before go-live).",
+      "Information pursuant to Section 5 of the German Digital Services Act (DDG). The provider of this website is Wima Industrie Automation GmbH.",
     sectionCompany: "Provider",
     sectionContact: "Contact",
     sectionRegister: "Commercial register",
     sectionVat: "VAT ID",
     sectionResponsible: "Responsible for content",
-    sectionNote: "Note",
-    noteBody:
-      "Company details on this website are placeholders and must be replaced with actual register and contact data before productive use.",
-    managingDirectorLabel: "Managing director(s)",
-    registerLabel: "Register",
+    sectionDispute: "Dispute resolution",
+    disputeBody:
+      "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+    sectionLiabilityContent: "Liability for content",
+    liabilityContentBody:
+      "As a service provider, we are responsible for our own content on these pages in accordance with general laws pursuant to Section 7 (1) TMG. According to Sections 8 to 10 TMG, however, we as a service provider are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity. Obligations to remove or block the use of information under general laws remain unaffected. Liability in this respect is only possible from the time of knowledge of a specific infringement. Upon becoming aware of corresponding infringements, we will remove this content immediately.",
+    sectionLiabilityLinks: "Liability for links",
+    liabilityLinksBody:
+      "Our offer contains links to external third-party websites over whose content we have no influence. Therefore, we cannot accept any liability for this third-party content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. Permanent monitoring of the content of the linked pages is not reasonable without concrete evidence of a violation. Upon becoming aware of legal violations, we will remove such links immediately.",
+    sectionCopyright: "Copyright",
+    copyrightBody:
+      "The content and works created by the site operators on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. If you nevertheless become aware of a copyright infringement, please inform us. Upon becoming aware of legal violations, we will remove such content immediately.",
+    managingDirectorLabel: "Managing director",
+    registerLabel: "Commercial register",
     vatLabel: "VAT ID",
-    responsibleLabel: "Responsible for content",
+    responsibleLabel: "Responsible for content pursuant to Section 18 (2) MStV",
+    phoneLabel: "Phone",
+    faxLabel: "Fax",
+    emailLabel: "Email",
   },
   privacy: {
     title: "Privacy policy",
@@ -684,19 +709,31 @@ const zh: LocaleContent = {
   impressum: {
     title: "法律信息 (Impressum)",
     intro:
-      "根据德国数字服务法 (DDG) 的提供商信息。本网站由下列公司运营（占位数据——上线前请核对）。",
+      "依据德国《数字服务法》(DDG) 第 5 条的提供商信息。本网站提供方为 Wima Industrie Automation GmbH。",
     sectionCompany: "提供方",
     sectionContact: "联系方式",
     sectionRegister: "商业登记",
     sectionVat: "增值税号",
     sectionResponsible: "内容责任人",
-    sectionNote: "说明",
-    noteBody:
-      "本网站公司信息为占位内容，正式运营前须替换为真实登记与联系数据。",
+    sectionDispute: "争议解决",
+    disputeBody:
+      "我们既无意愿也无义务参加消费者仲裁机构的争议解决程序。",
+    sectionLiabilityContent: "内容责任",
+    liabilityContentBody:
+      "作为服务提供商，我们依据德国《电信媒体法》(TMG) 第 7 条第 1 款对自身页面内容依法承担责任。根据 TMG 第 8 至 10 条，我们没有义务监控传输或存储的第三方信息，也没有义务主动调查可能的违法活动。依法删除或屏蔽信息的义务不受影响。仅在知悉具体侵权行为后才可能产生相关责任。一旦知悉相关侵权行为，我们将立即删除相关内容。",
+    sectionLiabilityLinks: "链接责任",
+    liabilityLinksBody:
+      "本网站可能包含指向外部第三方网站的链接，我们无法控制其内容，因此不对这些外部内容承担责任。链接页面的内容始终由相应提供方或运营方负责。链接时已检查是否存在明显违法行为；链接时未发现违法内容。在没有具体违法迹象的情况下，对链接页面进行持续内容审查是不合理的。一旦知悉违法行为，我们将立即删除相关链接。",
+    sectionCopyright: "版权",
+    copyrightBody:
+      "本站运营方制作的内容与作品受德国著作权法保护。超出著作权法范围的复制、编辑、传播及任何形式的利用，均需获得相应作者或制作人的书面同意。本站内容的下载与复制仅允许用于私人、非商业用途。非运营方制作的内容将尊重第三方著作权，并尽可能标明来源。如您发现版权侵权，请通知我们；一旦知悉侵权行为，我们将立即删除相关内容。",
     managingDirectorLabel: "总经理",
-    registerLabel: "登记",
+    registerLabel: "商业登记",
     vatLabel: "增值税识别号",
-    responsibleLabel: "内容责任人",
+    responsibleLabel: "内容责任人（依据 MStV 第 18 条第 2 款）",
+    phoneLabel: "电话",
+    faxLabel: "传真",
+    emailLabel: "电子邮件",
   },
   privacy: {
     title: "隐私政策",
@@ -741,7 +778,7 @@ const zh: LocaleContent = {
 };
 
 export const defaultContent: SiteContent = {
-  version: 32,
+  version: 33,
   images: {
     hero:
       "https://raw.githubusercontent.com/Gorbel80/SAS-Konfigurator-Website/main/public/images/site/hero-sm.webp",

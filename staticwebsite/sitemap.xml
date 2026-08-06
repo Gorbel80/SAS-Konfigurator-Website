@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap für Suchmaschinen. Bei neuen Seiten hier ergänzen. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://gorbel.eu/de/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/g-force/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/g-force/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/g-force/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/g-force/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/g-force/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/g-force/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/g-force/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/g-force/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/g-force/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/g-force/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/g-force/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/g-force/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/service/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/service/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/service/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/service/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/service/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/service/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/service/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/service/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/service/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/konfigurator/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/konfigurator/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/konfigurator/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/konfigurator/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/konfigurator/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/konfigurator/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/konfigurator/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/konfigurator/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/konfigurator/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/konfigurator/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/konfigurator/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/konfigurator/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/anwendungen/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/anwendungen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/anwendungen/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/anwendungen/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/anwendungen/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/anwendungen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/anwendungen/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/anwendungen/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/anwendungen/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/anwendungen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/anwendungen/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/anwendungen/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/downloads/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/downloads/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/downloads/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/downloads/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/downloads/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/downloads/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/downloads/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/ueber-uns/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/ueber-uns/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/ueber-uns/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/ueber-uns/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/ueber-uns/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/ueber-uns/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/ueber-uns/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/ueber-uns/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/ueber-uns/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/ueber-uns/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/ueber-uns/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/ueber-uns/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/contact/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/contact/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/contact/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/impressum/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/impressum/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/impressum/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/impressum/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/impressum/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/impressum/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/de/datenschutz/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/datenschutz/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/en/datenschutz/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/datenschutz/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://gorbel.eu/zh/datenschutz/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://gorbel.eu/de/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gorbel.eu/en/datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gorbel.eu/zh/datenschutz/"/>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+</urlset>

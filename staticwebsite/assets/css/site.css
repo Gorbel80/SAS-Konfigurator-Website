@@ -729,90 +729,132 @@ a.card:hover { text-decoration: none; }
 .legal .legal-updated { font-size: 0.9rem; color: var(--text-muted); }
 
 
-/* --- 4.9 Footer – eine kompakte Zeile, 4 Teile nebeneinander (Desktop) -- */
+/* --- 4.9 Footer (neu aufgebaut nach Referenzbild) ----------------------- */
+/*
+   Desktop (eine schmale Zeile, 4 Teile):
+   [📍 Adresse]  |  [📱 Tel/Fax]  |  [✉ E-Mail]  |  [Impressum/Datenschutz]
+   Klassen: .site-foot / .site-foot__*  (alte .site-footer/.footer-* entfernt)
+*/
 
-.site-footer {
-  background: #1a1d21;
-  color: rgba(255, 255, 255, 0.78);
-  padding: 0.65rem 0;          /* schmal: wenig Luft oben/unten */
-  font-size: 0.8125rem;
-  line-height: 1.3;
+.site-foot {
+  background: #2c3035;
+  color: #d7dde5;
+  padding: 12px 0;
+  font-size: 13px;
+  line-height: 1.35;
 }
-.site-footer a {
-  color: rgba(255, 255, 255, 0.88);
+
+.site-foot a {
+  color: #e8edf3;
   text-decoration: none;
 }
-.site-footer a:hover {
-  color: var(--white);
+.site-foot a:hover {
+  color: #ffffff;
   text-decoration: underline;
 }
 
-/* Desktop: exakt eine horizontale Reihe – flex, kein Umbruch */
-.footer-row {
+/* Eine horizontale Reihe – 4 Teile nebeneinander.
+   Die drei Kontaktblöcke stehen links beieinander, die Rechtslinks werden
+   per margin-left:auto nach rechts geschoben. Bewusst kein
+   justify-content:space-between und kein flex:1 – sonst zieht es die
+   Blöcke auf gleiche Breite auseinander und die Reihe wirkt zerrissen. */
+.site-foot__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1.5rem;
-  min-height: 0;
+  gap: 2.75rem;
 }
 
-.footer-col {
+/* Kontaktblock: Icon links, Text rechts */
+.site-foot__item {
   display: flex;
   flex-direction: row;
-  align-items: center;          /* Icon und Text vertikal mittig */
-  gap: 0.55rem;
-  flex: 1 1 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
-.footer-icon {
-  width: 20px;
-  height: 20px;
+.site-foot__icon {
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   display: block;
 }
 
-.footer-col-body {
+.site-foot__text {
   display: flex;
   flex-direction: column;
-  gap: 0;                       /* eng: keine Extra-Abstände */
+  gap: 0;
   min-width: 0;
   line-height: 1.3;
 }
-.footer-col-body strong {
-  color: var(--white);
+.site-foot__text strong {
+  color: #ffffff;
   font-weight: 600;
-  font-size: 0.8125rem;
+  font-size: 13px;
 }
-.footer-col-body span,
-.footer-col-body a {
-  font-size: 0.8125rem;
+.site-foot__text span,
+.site-foot__text a {
+  font-size: 13px;
 }
-.footer-label {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.75rem;
-  font-weight: 600;
+.site-foot__label {
+  color: #aeb8c6;
+  font-size: 12px;
 }
 
-/* Rechts: Impressum + Datenschutz untereinander, nicht dehnen */
-.footer-col--legal {
-  flex: 0 0 auto;
+/* Rechts: Impressum + Datenschutz untereinander.
+   margin-left:auto schiebt den Block ans rechte Ende der Reihe. */
+.site-foot__legal {
+  display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
-  gap: 0.15rem;
-  text-align: right;
+  gap: 3px;
+  flex: 0 0 auto;
+  margin-left: auto;
 }
-.footer-col--legal a {
-  color: #7eb6e8;
-  font-size: 0.8125rem;
+.site-foot__legal a {
+  color: #e8edf3;
+  font-size: 13px;
   text-decoration: underline;
   text-underline-offset: 2px;
   line-height: 1.35;
+  white-space: nowrap;
 }
-.footer-col--legal a:hover { color: var(--white); }
+.site-foot__legal a:hover {
+  color: #ffffff;
+}
+
+/* Schmale Fenster: stapeln – Desktop bleibt 4er-Reihe.
+   Die Schwelle liegt bei 900px, weil die vier Blöcke darunter nicht mehr
+   nebeneinander passen und sich sonst auf 108px Höhe quetschen würden. */
+@media (max-width: 899px) {
+  .site-foot {
+    padding: 14px 0;
+  }
+  .site-foot__inner {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .site-foot__item {
+    flex: none;
+    width: 100%;
+  }
+  .site-foot__legal {
+    align-items: flex-start;
+    text-align: left;
+    /* auto würde den Block in der gestapelten Spalte nach rechts schieben */
+    margin-left: 0;
+  }
+}
 
 
 /* --- 4.10 Cookie-Banner --------------------------------------------------- */
@@ -906,25 +948,6 @@ a.card:hover { text-decoration: none; }
   .btn-row { flex-direction: column; }
 }
 
-/* Footer stapelt erst auf schmalen Handy-Displays – Desktop bleibt 4er-Reihe */
-@media (max-width: 700px) {
-  .site-footer { padding: 0.85rem 0; }
-  .footer-row {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    gap: 0.85rem;
-  }
-  .footer-col {
-    flex: none;
-    width: 100%;
-  }
-  .footer-col--legal {
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-
 /* Nutzer, die reduzierte Bewegung wünschen */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -934,7 +957,7 @@ a.card:hover { text-decoration: none; }
 
 /* Druckausgabe: Navigation und Banner weglassen */
 @media print {
-  .site-header, .site-footer, .cookie-banner, .btn-row { display: none; }
+  .site-header, .site-foot, .cookie-banner, .btn-row { display: none; }
   body { font-size: 12pt; }
   .hero { background: none; color: #000; padding: 0; }
   .hero::before, .hero::after { display: none; }

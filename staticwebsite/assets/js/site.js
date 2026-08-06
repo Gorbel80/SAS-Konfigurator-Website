@@ -6,7 +6,7 @@
    Funktionen fehlen dann:
 
      1.  Mobiles Menü auf-/zuklappen
-     1b. Sprachumschalter aufklappen
+     1b. Sprachumschalter (Dropdown, Desktop + Mobile)
      2.  Cookie-Hinweis (Einwilligung im localStorage merken)
      3.  Kontaktformular ohne Neuladen absenden (sendmail.php)
 
@@ -42,34 +42,59 @@
   }
 
   /* ------------------------------------------------------------------------
-     1b. Sprachumschalter (Pill-Menü)
-     Der Button <button class="lang-current"> klappt <ul class="lang-menu">
-     auf. Ohne JavaScript bleibt das Menü zu – die Sprachen sind dann über
-     die Links im Seitenkopf der jeweiligen Sprachfassung erreichbar.
+     1b. Sprachumschalter (Dropdown)
+     Gleich auf Desktop und Mobile:
+       - Button .lang-current zeigt die aktuelle Sprache
+       - Klick öffnet/schließt .lang-menu
+       - Klick außerhalb oder Escape schließt
+     Markup: <div class="lang-switch"> … </div>
      ---------------------------------------------------------------------- */
   function initLangSwitch() {
-    var button = document.querySelector(".lang-current");
-    var menu = document.querySelector(".lang-menu");
+    var root = document.querySelector(".lang-switch");
+    if (!root) return;
+
+    var button = root.querySelector(".lang-current");
+    var menu = root.querySelector(".lang-menu");
     if (!button || !menu) return;
+
+    function isOpen() {
+      return !menu.hidden;
+    }
+
+    function open() {
+      menu.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+      root.classList.add("is-open");
+    }
 
     function close() {
       menu.hidden = true;
       button.setAttribute("aria-expanded", "false");
+      root.classList.remove("is-open");
     }
 
+    function toggle() {
+      if (isOpen()) close();
+      else open();
+    }
+
+    // Startzustand: zu
+    close();
+
     button.addEventListener("click", function (event) {
-      event.stopPropagation();
-      var willOpen = menu.hidden;
-      menu.hidden = !willOpen;
-      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      event.preventDefault();
+      toggle();
     });
 
-    // Klick daneben oder Escape schließt das Menü wieder
+    // Klick außerhalb (auf dem gesamten .lang-switch basierend – zuverlässig
+    // auf Laptop/Desktop, ohne stopPropagation-Tricks)
     document.addEventListener("click", function (event) {
-      if (!menu.hidden && !menu.contains(event.target)) close();
+      if (!isOpen()) return;
+      if (!root.contains(event.target)) close();
     });
+
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && !menu.hidden) {
+      if (event.key === "Escape" && isOpen()) {
         close();
         button.focus();
       }

@@ -14,6 +14,7 @@ Texteditor ändern.
 static-website/
   index.html          Weiterleitung auf /de/ (Rückfallebene zur .htaccess)
   404.html            Fehlerseite, dreisprachig
+  sendmail.php        Versand des Kontaktformulars (Empfänger steht oben drin)
   .htaccess           Apache-Regeln: Weiterleitungen, Cache, Sicherheit
   robots.txt          Freigabe für Suchmaschinen
   sitemap.xml         Liste aller Seiten für Suchmaschinen
@@ -21,8 +22,9 @@ static-website/
 
   assets/
     css/site.css      Das gesamte Layout. Farben stehen ganz oben.
-    js/site.js        Menü, Cookie-Hinweis, Kontaktformular. Sonst nichts.
+    js/site.js        Menü, Sprachumschalter, Cookie-Hinweis, Kontaktformular
     fonts/            Schrift DM Sans, lokal (kein Google-Fonts-Aufruf)
+    flags/            Flaggen für den Sprachumschalter (DE/EN/ZH)
 
   de/  en/  zh/       Je Sprache dieselben neun Seiten:
     index.html            Startseite
@@ -77,14 +79,36 @@ Adresse in `sitemap.xml` nachtragen.
 
 ### Kontaktformular
 
-Das Formular verschickt nichts über den Server (All-Inkl-Webspace ohne PHP-
-Skript). Es öffnet das E-Mail-Programm des Besuchers mit vorausgefülltem Text.
+Das Formular verschickt die Nachricht direkt über den Server – kein
+E-Mail-Programm, kein `mailto`. Zuständig ist `sendmail.php` im
+Wurzelverzeichnis.
 
-Empfängeradresse und Betreff stehen im HTML, nicht im JavaScript:
+**Empfängeradresse ändern:** in `sendmail.php` ganz oben:
 
-```html
-<form data-mail-to="info@wima-automation.de" data-mail-subject="Anfrage über gorbel.eu">
+```php
+$EMPFAENGER = 'info@wima-automation.de';
+$ABSENDER   = 'info@wima-automation.de';
 ```
+
+`$ABSENDER` muss eine Adresse **Ihrer eigenen Domain** sein. Trägt man dort
+die Adresse des Besuchers ein, stuft der empfangende Mailserver die
+Nachricht als Fälschung ein (SPF/DMARC) und sie landet im Spam. Die Adresse
+des Besuchers steht deshalb im `Reply-To` – ein Klick auf „Antworten"
+schreibt trotzdem an den richtigen Empfänger.
+
+**Ablauf:** `assets/js/site.js` schickt das Formular per `fetch` an
+`sendmail.php` und blendet darunter eine Erfolgs- oder Fehlermeldung ein.
+Die Seite lädt dabei nicht neu. Ist JavaScript abgeschaltet, sendet der
+Browser ganz normal an dieselbe Adresse; `sendmail.php` liefert dann eine
+schlichte Bestätigungsseite aus.
+
+**Meldungstexte ändern:** stehen im HTML der jeweiligen Kontaktseite, nicht
+im JavaScript – gesucht nach `data-form-success` bzw. `data-form-error`.
+
+**Spamschutz:** Ein unsichtbares Feld (`<div class="form-trap">`) fängt
+Bots ab, dazu kommt eine Sperre von 30 Sekunden je IP-Adresse. Das Feld
+bitte nicht entfernen. Sollte trotzdem Spam durchkommen, lässt sich in
+`sendmail.php` ergänzen, was nötig ist.
 
 ---
 
@@ -126,6 +150,16 @@ python3 -m http.server 8000
 ```
 
 Dann im Browser `http://localhost:8000/de/` öffnen.
+
+Damit lässt sich alles prüfen **außer dem Kontaktformular** – dafür wird PHP
+gebraucht. Wer PHP installiert hat, startet stattdessen:
+
+```bash
+php -S localhost:8000
+```
+
+Auch dann wird lokal in der Regel keine Mail zugestellt; das Formular meldet
+dann einen Fehler. Der echte Test läuft auf All-Inkl.
 
 ---
 

@@ -1,8 +1,0 @@
-# Suchmaschinen dürfen die gesamte Website erfassen.
-User-agent: *
-Allow: /
-
-# Interne Build-Reste des 3-D-Konfigurators nicht indexieren
-Disallow: /_next/
-
-Sitemap: https://gorbel.eu/sitemap.xml

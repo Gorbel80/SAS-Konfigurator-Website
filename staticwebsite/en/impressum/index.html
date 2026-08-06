@@ -39,22 +39,18 @@
       </span>
     </a>
 
+    <!-- Sprachumschalter: Pille zeigt die aktuelle Sprache, Klick klappt auf -->
     <div class="lang-switch">
-      <button type="button" class="lang-switch-btn" aria-expanded="false" aria-controls="langmenu" aria-label="Language: English">
-        <svg class="lang-flag" viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"><rect width="24" height="16" fill="#012169"/><path d="M0 0 L24 16 M24 0 L0 16" stroke="#fff" stroke-width="3"/><path d="M0 0 L24 16 M24 0 L0 16" stroke="#C8102E" stroke-width="1.5"/><path d="M12 0 V16 M0 8 H24" stroke="#fff" stroke-width="5"/><path d="M12 0 V16 M0 8 H24" stroke="#C8102E" stroke-width="2.5"/></svg>
-        <span>EN</span>
-        <span class="lang-switch-caret" aria-hidden="true">▾</span>
+      <button class="lang-current" type="button" aria-expanded="false" aria-controls="langmenu">
+        <img src="/assets/flags/en.svg" alt="" width="18" height="12"><span>EN</span>
+        <svg class="lang-caret" width="9" height="6" viewBox="0 0 9 6" aria-hidden="true">
+          <path d="M1 1l3.5 3.5L8 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
       </button>
-      <ul class="lang-switch-menu" id="langmenu" role="listbox">
-        <li role="option">
-          <a href="/de/impressum/" hreflang="de"><svg class="lang-flag" viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"><rect width="24" height="5.33" y="0" fill="#000"/><rect width="24" height="5.33" y="5.33" fill="#D00"/><rect width="24" height="5.34" y="10.66" fill="#FFCE00"/></svg> <span>DE</span></a>
-        </li>
-        <li role="option">
-          <a href="/en/impressum/" hreflang="en" aria-current="true"><svg class="lang-flag" viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"><rect width="24" height="16" fill="#012169"/><path d="M0 0 L24 16 M24 0 L0 16" stroke="#fff" stroke-width="3"/><path d="M0 0 L24 16 M24 0 L0 16" stroke="#C8102E" stroke-width="1.5"/><path d="M12 0 V16 M0 8 H24" stroke="#fff" stroke-width="5"/><path d="M12 0 V16 M0 8 H24" stroke="#C8102E" stroke-width="2.5"/></svg> <span>EN</span></a>
-        </li>
-        <li role="option">
-          <a href="/zh/impressum/" hreflang="zh"><svg class="lang-flag" viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"><rect width="24" height="16" fill="#DE2910"/><polygon fill="#FFDE00" points="4.2,2.4 4.9,4.5 7.1,4.5 5.35,5.8 6,7.9 4.2,6.55 2.4,7.9 3.05,5.8 1.3,4.5 3.5,4.5"/></svg> <span>ZH</span></a>
-        </li>
+      <ul class="lang-menu" id="langmenu" hidden>
+        <li><a href="/de/impressum/" hreflang="de"><img src="/assets/flags/de.svg" alt="" width="18" height="12">Deutsch</a></li>
+        <li><a href="/en/impressum/" aria-current="true" hreflang="en"><img src="/assets/flags/en.svg" alt="" width="18" height="12">English</a></li>
+        <li><a href="/zh/impressum/" hreflang="zh"><img src="/assets/flags/zh.svg" alt="" width="18" height="12">中文</a></li>
       </ul>
     </div>
 

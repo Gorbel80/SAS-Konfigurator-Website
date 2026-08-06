@@ -2,13 +2,13 @@
    WiMa Industrie-Automation – Website-Skript
    --------------------------------------------------------------------------
    Bewusst klein gehalten. Kein Framework, keine externen Abhängigkeiten.
-   Die Seite funktioniert auch ohne JavaScript – nur diese vier Komfort-
+   Die Seite funktioniert auch ohne JavaScript – nur diese Komfort-
    Funktionen fehlen dann:
 
-     1. Mobiles Menü auf-/zuklappen
-     2. Sprachumschalter auf-/zuklappen
-     3. Cookie-Hinweis (Einwilligung im localStorage merken)
-     4. Kontaktformular als vorausgefüllte E-Mail öffnen
+     1.  Mobiles Menü auf-/zuklappen
+     1b. Sprachumschalter aufklappen
+     2.  Cookie-Hinweis (Einwilligung im localStorage merken)
+     3.  Kontaktformular ohne Neuladen absenden (sendmail.php)
 
    Texte stehen NICHT hier, sondern im HTML (data-Attribute bzw. Markup),
    damit Übersetzungen an einer Stelle gepflegt werden.
@@ -42,61 +42,42 @@
   }
 
   /* ------------------------------------------------------------------------
-     2. Sprachumschalter
-     Button .lang-switch-btn öffnet/schließt .lang-switch (Klasse is-open).
-     Klick außerhalb und Escape schließen. Funktioniert auf Desktop/Laptop.
+     1b. Sprachumschalter (Pill-Menü)
+     Der Button <button class="lang-current"> klappt <ul class="lang-menu">
+     auf. Ohne JavaScript bleibt das Menü zu – die Sprachen sind dann über
+     die Links im Seitenkopf der jeweiligen Sprachfassung erreichbar.
      ---------------------------------------------------------------------- */
   function initLangSwitch() {
-    var root = document.querySelector(".lang-switch");
-    if (!root) return;
-
-    var btn = root.querySelector(".lang-switch-btn");
-    if (!btn) return;
-
-    function isOpen() {
-      return root.classList.contains("is-open");
-    }
-
-    function open() {
-      root.classList.add("is-open");
-      btn.setAttribute("aria-expanded", "true");
-    }
+    var button = document.querySelector(".lang-current");
+    var menu = document.querySelector(".lang-menu");
+    if (!button || !menu) return;
 
     function close() {
-      if (!isOpen()) return;
-      root.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
+      menu.hidden = true;
+      button.setAttribute("aria-expanded", "false");
     }
 
-    function toggle() {
-      if (isOpen()) close();
-      else open();
-    }
-
-    btn.addEventListener("click", function (event) {
-      event.preventDefault();
+    button.addEventListener("click", function (event) {
       event.stopPropagation();
-      toggle();
+      var willOpen = menu.hidden;
+      menu.hidden = !willOpen;
+      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
     });
 
-    // Klick / Zeiger außerhalb schließt (pointerdown + click für alle Desktop-Browser)
-    function onOutside(event) {
-      if (!root.contains(event.target)) close();
-    }
-    document.addEventListener("pointerdown", onOutside);
-    document.addEventListener("click", onOutside);
-
+    // Klick daneben oder Escape schließt das Menü wieder
+    document.addEventListener("click", function (event) {
+      if (!menu.hidden && !menu.contains(event.target)) close();
+    });
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" || event.key === "Esc") {
-        if (!isOpen()) return;
+      if (event.key === "Escape" && !menu.hidden) {
         close();
-        btn.focus();
+        button.focus();
       }
     });
   }
 
   /* ------------------------------------------------------------------------
-     3. Cookie-Hinweis
+     2. Cookie-Hinweis
      Diese Website setzt nur technisch notwendige Speicherungen. Gespeichert
      wird ausschließlich die Entscheidung selbst – kein Tracking.
      Schlüssel bleibt "sas_cookie_consent" (so steht es in der
@@ -137,44 +118,66 @@
   }
 
   /* ------------------------------------------------------------------------
-     4. Kontaktformular -> E-Mail-App
-     Es gibt auf All-Inkl bewusst kein serverseitiges Skript. Das Formular
-     baut stattdessen einen mailto:-Link und öffnet das Mailprogramm.
+     3. Kontaktformular
+     Das Formular wird per fetch an sendmail.php geschickt – kein mailto,
+     kein Wechsel ins Mailprogramm. Die Seite bleibt stehen und zeigt
+     darunter eine Erfolgs- oder Fehlermeldung.
 
-     Empfängeradresse und Betreff kommen aus dem HTML:
-       <form data-mail-to="..." data-mail-subject="...">
+     Alle Texte stehen im HTML (Meldungen als <p data-form-success> bzw.
+     <p data-form-error>), damit sie je Sprache übersetzbar bleiben.
+
+     Ohne JavaScript sendet das Formular ganz normal an sendmail.php; das
+     Skript liefert dann eine schlichte Bestätigungsseite aus.
      ---------------------------------------------------------------------- */
   function initContactForm() {
-    var form = document.querySelector("[data-mail-to]");
+    var form = document.querySelector("[data-contact-form]");
     if (!form) return;
+
+    var button = form.querySelector('button[type="submit"]');
+    var okBox = form.querySelector("[data-form-success]");
+    var errorBox = form.querySelector("[data-form-error]");
+
+    function zeige(box) {
+      if (okBox) okBox.hidden = box !== okBox;
+      if (errorBox) errorBox.hidden = box !== errorBox;
+      if (box) box.scrollIntoView({ block: "nearest" });
+    }
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      var data = new FormData(form);
-      var lines = [];
+      // Browserseitige Pflichtfeldprüfung zuerst – spart einen Serveraufruf.
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
-      // Beschriftungen aus dem <label> übernehmen, damit die E-Mail in der
-      // jeweiligen Sprache ankommt, ohne dass hier Text hinterlegt ist.
-      Array.prototype.forEach.call(form.elements, function (field) {
-        if (!field.name || field.type === "submit") return;
-        var label = form.querySelector('label[for="' + field.id + '"]');
-        var caption = label ? label.textContent.trim() : field.name;
-        lines.push(caption + ": " + (data.get(field.name) || "-"));
-      });
+      zeige(null);
+      if (button) {
+        button.disabled = true;
+      }
 
-      var to = form.getAttribute("data-mail-to");
-      var subject = form.getAttribute("data-mail-subject") || "";
-      var href =
-        "mailto:" + to +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(lines.join("\n"));
-
-      window.location.href = href;
-
-      // Bestätigung einblenden (Text steht im HTML).
-      var success = form.querySelector("[data-mail-success]");
-      if (success) success.hidden = false;
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json", "X-Requested-With": "fetch" }
+      })
+        .then(function (response) { return response.json(); })
+        .then(function (result) {
+          if (result && result.ok) {
+            form.reset();
+            zeige(okBox);
+          } else {
+            zeige(errorBox);
+          }
+        })
+        .catch(function () {
+          // Netzwerkfehler oder Server nicht erreichbar
+          zeige(errorBox);
+        })
+        .then(function () {
+          if (button) button.disabled = false;
+        });
     });
   }
 

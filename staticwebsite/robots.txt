@@ -1,8 +1,9 @@
-# Suchmaschinen dürfen die gesamte Website erfassen.
+# Suchmaschinen dürfen die Website erfassen.
 User-agent: *
 Allow: /
 
 # Interne Build-Reste des 3-D-Konfigurators nicht indexieren
 Disallow: /_next/
 
+# Sitemap (DE/EN/ZH Hauptseiten)
 Sitemap: https://gorbel.eu/sitemap.xml

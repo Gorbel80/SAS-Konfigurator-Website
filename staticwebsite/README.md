@@ -40,10 +40,42 @@ static-website/
 
   images/
     site/             Fotos für Hero-Bereiche und Karten
-    brand/            Logos (nur vom Konfigurator genutzt)
+    about/            Bilder der Über-uns-Seite (Elektronik, Labor, LIFT-LINK)
+    brand/            Logos (u. a. Konfigurator)
   models/profiles/    3-D-Modelle (.glb) für den Konfigurator
   _next/              Programmcode des Konfigurators  <-- nicht bearbeiten
 ```
+
+---
+
+## Über uns / About us (DE · EN · ZH)
+
+Die Seite `de|en|zh/ueber-uns/` wurde **vollständig neu** nach der Vorlage
+`2026_07_07 Webseite Gorbel Über uns.pdf` aufgebaut. Menüpunkt „Über uns“ /
+„About us“ / „关于我们“ bleibt in der Hauptnavigation.
+
+### Abschnitte (gleiche Struktur in allen Sprachen)
+
+1. **Hero** – Firmenkurzclaim  
+2. **Firmenintro** – WIMA-Wortmarke + Intro-Text (Hebetechnik / Elektronik)  
+3. **Elektronik** + **Elektrotechnik** – zwei Karten (Bild + Leistungsliste)  
+4. **Leistungselektronik** – drei Laborfotos, Service-Checkliste, Schaltungsdiagramm (E-Motion)  
+5. **Betriebsdatenerfassung / LIFT-LINK** – Text + System- und Modulbilder  
+6. **CTA** – Kontakt / Service  
+
+Styles: `assets/css/site.css` (Abschnitt „Über uns / About“).
+
+### Bildquellen (`images/about/`)
+
+| Datei | Quelle (SAS BILDER) |
+|-------|---------------------|
+| `elektronik-board.jpg` | `GF_Q2 CPU IMG_3654.JPEG` |
+| `elektrotechnik-schrank.jpg` | `DSCN6749.JPG` |
+| `lab-3559.png` / `lab-3566.png` / `lab-3148.png` | `IMG_3559/3566/3148.png` |
+| `radecker-tutorial.png` | `Radecker.Tutorial.png` |
+| `liftlink-system.png` / `liftlink-module.png` | `Liftlink_1.png` / `Liftlink_2.png` |
+
+Texte der Vorlage sind vollständig übernommen; EN/ZH sind fachliche Übersetzungen.
 
 ---
 

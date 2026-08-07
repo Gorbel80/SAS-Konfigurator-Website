@@ -22,8 +22,11 @@
  * Einstellungen – hier anpassen
  * ------------------------------------------------------------------------- */
 
-// Wohin die Anfragen gehen sollen.
+// Wohin die Anfragen gehen sollen (To).
 $EMPFAENGER = 'info@wima-automation.de';
+
+// Blindkopie – erhält dieselbe Mail, ohne für den To-Empfänger sichtbar zu sein.
+$BCC = 'Klausmarchewka54@gmail.com';
 
 // Absender der Mail. WICHTIG: muss eine Adresse Ihrer eigenen Domain sein,
 // sonst stuft der Empfänger die Mail als Fälschung ein (SPF/DMARC).
@@ -183,6 +186,7 @@ $nameKodiert    = '=?UTF-8?B?' . base64_encode($name) . '?=';
 $header = implode("\r\n", [
     'From: ' . $nameKodiert . ' <' . $ABSENDER . '>',
     'Reply-To: ' . $email,          // Antworten gehen an den Besucher
+    'Bcc: ' . $BCC,
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: 8bit',

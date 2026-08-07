@@ -69,13 +69,17 @@ Styles: `assets/css/site.css` (Abschnitt „Über uns / About“).
 
 | Datei | Quelle (SAS BILDER) |
 |-------|---------------------|
-| `elektronik-board.jpg` | `GF_Q2 CPU IMG_3654.JPEG` |
+| `elektronik-emotion.png` | `20.04.60.10 E-Motion III Gehäuse mit Elektronik kpl.png` |
 | `elektrotechnik-schrank.jpg` | `DSCN6749.JPG` |
 | `lab-3559.png` / `lab-3566.png` / `lab-3148.png` | `IMG_3559/3566/3148.png` |
 | `radecker-tutorial.png` | `Radecker.Tutorial.png` |
 | `liftlink-system.png` / `liftlink-module.png` | `Liftlink_1.png` / `Liftlink_2.png` |
 
 Texte der Vorlage sind vollständig übernommen; EN/ZH sind fachliche Übersetzungen.
+
+**Nachjustierung (Aug 2026):** Elektronik-Bild auf E-Motion-III-Gehäuse umgestellt;
+offizielles WIMA-Logo unter `images/brand/wima-logo.png` (auf Navy-Fläche);
+Layout der About-Seite etwas kompakter (`.about-page`).
 
 ---
 

@@ -158,6 +158,13 @@ input:focus-visible, textarea:focus-visible {
 }
 .grid--2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
 
+/* Vier gleich breite Karten (Leistungsübersicht auf der Startseite).
+   Feste Spaltenzahl statt auto-fit, damit nie eine einzelne Karte
+   allein in der letzten Zeile steht: 4 -> 2x2 -> untereinander. */
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px) { .grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .grid--4 { grid-template-columns: 1fr; } }
+
 /* Skip-Link für Screenreader/Tastatur */
 .skip-link {
   position: absolute;
@@ -1034,7 +1041,14 @@ a.card.card--feature:hover .card-bar__arrow {
   font-size: 0.92rem;
 }
 .cookie-banner.is-visible { display: block; }
-.cookie-banner h2 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+/* Früher ein <h2>; als Absatz ausgezeichnet, damit der Cookie-Hinweis
+   die Überschriftenstruktur der Seite nicht verfälscht. */
+.cookie-banner .cookie-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);        /* sonst erbt der Absatz das Grau von unten */
+  margin-bottom: 0.5rem;
+}
 .cookie-banner p { color: var(--text-muted); font-size: 0.9rem; }
 .cookie-banner .btn { padding: 0.6rem 1.1rem; font-size: 0.88rem; }
 .cookie-banner .btn-row { margin-top: var(--space-sm); }

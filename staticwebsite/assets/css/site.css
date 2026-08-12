@@ -80,6 +80,18 @@
 
 html { scroll-behavior: smooth; }
 
+/* Seitenhintergrund
+   ---------------------------------------------------------------------------
+   Statt reinem Weiß liegt eine sehr helle Struktur hinter der Seite.
+   Bild austauschen: einfach assets/img/background.jpg ersetzen – der
+   Dateiname bleibt gleich, sonst ist nichts zu tun.
+
+   Der weiße Schleier davor (linear-gradient) hält die Fläche hell und den
+   Text gut lesbar, auch wenn das Bild einmal kräftiger ausfällt.
+   Über --bg-schleier lässt sich die Stärke regeln: 0 = Bild pur,
+   1 = komplett weiß. */
+:root { --bg-schleier: 0.12; }
+
 body {
   margin: 0;
   font-family: "DM Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial,
@@ -87,8 +99,18 @@ body {
   font-size: 17px;
   line-height: 1.65;
   color: var(--text);
-  background: var(--white);
   -webkit-font-smoothing: antialiased;
+
+  background-color: var(--white);   /* Rückfall, falls das Bild fehlt */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, var(--bg-schleier)),
+                    rgba(255, 255, 255, var(--bg-schleier))),
+    url("../img/background.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+  /* fixed: der Hintergrund bleibt beim Scrollen ruhig stehen */
+  background-attachment: fixed, fixed;
 }
 
 /* Chinesische Seiten: etwas mehr Zeilenabstand, CJK-Schrift zuerst */
@@ -1357,7 +1379,13 @@ h2.lead {
 }
 
 @media (max-width: 600px) {
-  body { font-size: 16px; }
+  body {
+    font-size: 16px;
+    /* iOS Safari kommt mit background-attachment:fixed schlecht zurecht
+       (Ruckeln, falsche Skalierung) – auf Mobilgeräten scrollt der
+       Hintergrund deshalb einfach mit. */
+    background-attachment: scroll, scroll;
+  }
   /* Auf schmalen Displays brauchen Überschrift und gestapelte Buttons mehr
      Platz – daher ein größerer Wert, aber weiterhin für alle Banner gleich. */
   :root { --space-xl: 3.25rem; --space-lg: 2.25rem; --hero-h: 470px; }

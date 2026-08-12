@@ -94,6 +94,23 @@ per FTP hochladen. Beispiel: die Überschrift der deutschen Startseite steht in
 **Denken Sie an die anderen Sprachen** – dieselbe Stelle gibt es auch in
 `en/` und `zh/`.
 
+### Seitenhintergrund austauschen
+
+Hinter der Seite liegt eine sehr helle Struktur statt reinem Weiß.
+
+**Bild wechseln:** die Datei `assets/img/background.jpg` durch Ihr eigenes
+Bild ersetzen – Dateiname beibehalten, dann ist nichts weiter zu tun.
+
+**Stärke regeln:** in `assets/css/site.css` ganz oben bei der Body-Regel:
+
+```css
+:root { --bg-schleier: 0.12; }   /* 0 = Bild pur, 1 = komplett weiß */
+```
+
+Der Wert legt einen weißen Schleier über das Bild. Höher = heller und
+ruhiger, niedriger = Struktur deutlicher. Bei einem kräftigeren Bild den
+Wert erhöhen, damit der Text gut lesbar bleibt.
+
 ### Farbe ändern
 
 `assets/css/site.css`, ganz oben im Abschnitt „1. DESIGN-TOKENS". Eine Farbe
